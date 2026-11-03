@@ -11,52 +11,189 @@
   html, body { margin:0; height:100%; background:var(--bg); color:var(--fg);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
   body { display:flex; flex-direction:column; }
-  header { padding:14px 20px 10px; border-bottom:1px solid var(--line);
-    display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 18px; }
+  header { padding:12px 20px 10px; border-bottom:1px solid var(--line); }
+  .top { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 18px; }
   h1 { font-size:20px; margin:0; }
-  header p { margin:0; color:var(--muted); font-size:14px; flex:1 1 320px; }
-  nav { display:flex; gap:8px; flex-wrap:wrap; }
-  nav a, nav button { font:inherit; font-size:13px; color:var(--accent); background:#fff;
+  .top p { margin:0; color:var(--muted); font-size:14px; flex:1 1 320px; }
+  nav, .fams { display:flex; gap:6px; flex-wrap:wrap; }
+  .fams { margin-top:10px; align-items:center; }
+  .fams .label { font-size:12px; color:var(--muted); margin-right:4px; }
+  a.btn, button { font:inherit; font-size:13px; color:var(--accent); background:#fff;
     border:1px solid var(--line); border-radius:6px; padding:4px 10px; text-decoration:none; cursor:pointer; }
-  nav a:hover, nav button:hover { border-color:var(--accent); }
+  a.btn:hover, button:hover { border-color:var(--accent); }
+  .fams button { color:#333; display:inline-flex; align-items:center; gap:6px; border-radius:999px; }
+  .fams button .dot { width:9px; height:9px; border-radius:50%; background:var(--c); }
+  .fams button:hover { border-color:var(--c); }
+  .fams button[aria-pressed="true"] { background:var(--c); border-color:var(--c); color:#fff; }
+  .fams button[aria-pressed="true"] .dot { background:#fff; }
   #wrap { flex:1; position:relative; overflow:hidden; }
   #chart { width:100%; height:100%; display:block; }
   .hint { position:absolute; right:12px; bottom:10px; font-size:12px; color:var(--muted);
     background:rgba(255,255,255,.85); padding:3px 8px; border-radius:4px; pointer-events:none; }
-  @media (max-width:600px) { header { padding:10px 16px; } }
+  @media (max-width:600px) { header { padding:10px 16px; } .hint { display:none; } }
 </style>
 </head>
 <body>
 <header>
-  <h1>Software Industry Job Titles</h1>
-  <p>A family tree, 1940s to now. Dates are roughly when a title became common, not its first use.</p>
-  <nav>
-    <button id="fit" type="button">Fit</button>
-    <a href="job_title_family_tree.svg">SVG</a>
-    <a href="job_title_family_tree.png">PNG</a>
-    <a href="job_title_family_tree.dot">Graphviz source</a>
-  </nav>
+  <div class="top">
+    <h1>Software Industry Job Titles</h1>
+    <p>A family tree, 1940s to now. Dates are roughly when a title became common, not its first use.</p>
+    <nav>
+      <button id="fit" type="button">Fit</button>
+      <a class="btn" href="job_title_family_tree.svg">SVG</a>
+      <a class="btn" href="job_title_family_tree.png">PNG</a>
+      <a class="btn" href="job_title_family_tree.dot">Graphviz source</a>
+    </nav>
+  </div>
+  <div class="fams" id="fams"><span class="label">Show:</span></div>
 </header>
 <div id="wrap">
   <object id="chart" type="image/svg+xml" data="job_title_family_tree.svg">
     <img src="job_title_family_tree.png" alt="Software industry job title family tree" style="width:100%">
   </object>
-  <div class="hint">Scroll or pinch to zoom, drag to pan</div>
+  <div class="hint">Click a family to show just that one · scroll or drag to pan · pinch or ctrl+scroll to zoom · Esc for all</div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
 <script>
-  var obj = document.getElementById('chart'), pz = null;
+(function () {
+  var FAMS = [
+    { id: 'lead', name: 'Analysis, architecture & leadership', c: '#6b4bb0' },
+    { id: 'ops',  name: 'Operations & infrastructure',         c: '#2f8a43' },
+    { id: 'sup',  name: 'Support & customer-facing',           c: '#5f6b76' },
+    { id: 'dev',  name: 'Development',                         c: '#2f6db5' },
+    { id: 'data', name: 'Data & AI',                           c: '#9a7600' },
+    { id: 'net',  name: 'Networks & security',                 c: '#c4621a' },
+    { id: 'qa',   name: 'Quality & test',                      c: '#b23a5e' }
+  ];
+  var famBar = document.getElementById('fams'), buttons = {};
+  function addButton(id, name, colour) {
+    var b = document.createElement('button');
+    b.type = 'button'; b.style.setProperty('--c', colour);
+    b.setAttribute('aria-pressed', 'false');
+    b.innerHTML = '<span class="dot"></span>' + name;
+    b.addEventListener('click', function () { select(id === 'all' || current === id ? null : id); });
+    famBar.appendChild(b); buttons[id] = b;
+  }
+  addButton('all', 'All', '#444444');
+  FAMS.forEach(function (f) { addButton(f.id, f.name, f.c); });
+
+  var obj = document.getElementById('chart'), pz = null, svg = null, doc = null;
+  var nodes = [], edges = [], clusters = {}, nodeFam = {}, current = null;
+
+  function famOf(el) {
+    var m = (el.getAttribute('class') || '').match(/fam-([a-z]+)/);
+    return m ? m[1] : null;
+  }
+
+  function fitAll() { if (pz) { pz.resize(); pz.fit(); pz.center(); } }
+
+  // Fill the screen's width with the family's column, starting at its top,
+  // but no bigger than the chart's natural size (12pt text ~ 13px); scroll
+  // to move down it. Computed from coordinates, because svg-pan-zoom applies
+  // changes on the next animation frame.
+  function zoomTo(el) {
+    pz.resize();
+    var vp = svg.querySelector('.svg-pan-zoom_viewport') || svg;
+    var m = vp.getCTM().inverse().multiply(el.getCTM()), b = el.getBBox();
+    var x0 = m.a * b.x + m.e, y0 = m.d * b.y + m.f, w = m.a * b.width, h = m.d * b.height;
+    var sz = pz.getSizes(), W = sz.width, H = sz.height;
+    var z = Math.min(W * 0.92 / w, 1.1);
+    pz.zoom(z / (sz.realZoom / pz.getZoom()));
+    pz.pan({ x: W / 2 - (x0 + w / 2) * z,
+             y: h * z < H ? H / 2 - (y0 + h / 2) * z : 12 - y0 * z });
+  }
+
+  function select(fam) {
+    current = fam;
+    Object.keys(buttons).forEach(function (k) {
+      buttons[k].setAttribute('aria-pressed', String((fam || 'all') === k));
+    });
+    try { history.replaceState(null, '', fam ? '#' + fam : location.pathname); } catch (e) {}
+    if (!svg) return;
+    var near = {};
+    edges.forEach(function (e) {
+      var inA = nodeFam[e.a] === fam, inB = nodeFam[e.b] === fam;
+      var state = !fam || e.timeline || (inA && inB) ? '' : (inA || inB ? 'half' : 'dim');
+      if (fam && (inA || inB)) { near[e.a] = 1; near[e.b] = 1; }
+      e.el.setAttribute('data-state', state);
+    });
+    nodes.forEach(function (n) {
+      var state = !fam || !nodeFam[n.id] || nodeFam[n.id] === fam ? '' : (near[n.id] ? 'half' : 'dim');
+      n.el.setAttribute('data-state', state);
+    });
+    Object.keys(clusters).forEach(function (k) {
+      clusters[k].setAttribute('data-state', !fam || k === fam ? '' : 'dim');
+    });
+    if (fam && clusters[fam]) zoomTo(clusters[fam]); else fitAll();
+  }
+
   obj.addEventListener('load', function () {
-    var svg = obj.contentDocument && obj.contentDocument.querySelector('svg');
-    if (!svg || !window.svgPanZoom) return;
+    doc = obj.contentDocument;
+    svg = doc && doc.querySelector('svg');
+    if (!svg) return;
+    var style = doc.createElementNS('http://www.w3.org/2000/svg', 'style');
+    style.textContent =
+      '.node,.edge,.cluster{transition:opacity .25s}' +
+      '[data-state="dim"]{opacity:0;pointer-events:none}' +
+      '[data-state="half"]{opacity:.4}' +
+      '.cluster.fam polygon,.cluster.fam text,.node.fam-dev,.node.fam-lead,.node.fam-qa,' +
+      '.node.fam-data,.node.fam-ops,.node.fam-net,.node.fam-sup{cursor:pointer}';
+    svg.appendChild(style);
+
+    Array.prototype.forEach.call(svg.querySelectorAll('g.node'), function (el) {
+      var id = el.querySelector('title').textContent;
+      nodeFam[id] = famOf(el);
+      nodes.push({ id: id, el: el });
+    });
+    Array.prototype.forEach.call(svg.querySelectorAll('g.edge'), function (el) {
+      var t = el.querySelector('title').textContent.split('->');
+      edges.push({ a: t[0], b: t[1], el: el, timeline: /^t\d{4}$/.test(t[0]) });
+    });
+    Array.prototype.forEach.call(svg.querySelectorAll('g.cluster.fam'), function (el) {
+      clusters[famOf(el)] = el;
+    });
+
     svg.setAttribute('width', '100%'); svg.setAttribute('height', '100%');
-    pz = svgPanZoom(svg, { zoomScaleSensitivity: 0.3, minZoom: 0.5, maxZoom: 12,
-                           fit: true, center: true, dblClickZoomEnabled: true });
-    window.addEventListener('resize', function () { pz.resize(); pz.fit(); pz.center(); });
+    pz = svgPanZoom(svg, { zoomScaleSensitivity: 0.3, minZoom: 0.5, maxZoom: 15,
+                           fit: true, center: true, dblClickZoomEnabled: false,
+                           mouseWheelZoomEnabled: false });
+
+    // Scroll (wheel or two-finger trackpad) pans; pinch or ctrl+scroll zooms.
+    svg.addEventListener('wheel', function (ev) {
+      ev.preventDefault();
+      var k = ev.deltaMode === 1 ? 16 : 1;
+      if (ev.ctrlKey) {
+        var box = svg.getBoundingClientRect();
+        pz.zoomAtPointBy(Math.exp(-ev.deltaY * k * 0.01),
+                         { x: ev.clientX - box.left, y: ev.clientY - box.top });
+      } else {
+        pz.panBy({ x: -ev.deltaX * k, y: -ev.deltaY * k });
+      }
+    }, { passive: false });
+
+    // A click on a family's band or box selects it; a drag (pan) does not.
+    var down = null;
+    svg.addEventListener('mousedown', function (ev) { down = { x: ev.clientX, y: ev.clientY }; });
+    svg.addEventListener('click', function (ev) {
+      if (down && Math.abs(ev.clientX - down.x) + Math.abs(ev.clientY - down.y) > 5) return;
+      var g = ev.target.closest('g.cluster.fam, g.node');
+      var fam = g && famOf(g);
+      if (fam && fam !== current) select(fam);
+    });
+    doc.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') select(null); });
+
+    window.addEventListener('resize', function () {
+      if (current && clusters[current]) zoomTo(clusters[current]); else fitAll();
+    });
+    var h = location.hash.slice(1);
+    select(clusters[h] ? h : null);
   });
+
   document.getElementById('fit').addEventListener('click', function () {
-    if (pz) { pz.resize(); pz.fit(); pz.center(); }
+    if (current && clusters[current]) zoomTo(clusters[current]); else fitAll();
   });
+  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') select(null); });
+})();
 </script>
 </body>
 </html>

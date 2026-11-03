@@ -43,9 +43,10 @@ digraph job_titles {
   // ---------------------------------------------------------------- families
   // Cluster order affects the layout: this order keeps cross-family edges shortest.
   subgraph cluster_lead {
+    class="fam fam-lead"; id="fam-lead";
     label=<<b>ANALYSIS, ARCHITECTURE &amp; LEADERSHIP</b>>; fontsize=16; fontcolor="#6b4bb0"; labeljust=l;
     style="rounded,filled"; fillcolor="#f6f2fc"; color="#ddd0f2";
-    node [color="#6b4bb0"];
+    node [color="#6b4bb0", class="fam-lead"];
     systems_analyst  [label=<Systems Analyst<br/><font point-size="9" color="#777777">c. 1955</font>>];
     dp_manager       [label=<Data Processing<br/>(DP) Manager<br/><font point-size="9" color="#777777">c. 1958</font>>];
     project_manager  [label=<Project Manager<br/>(software)<br/><font point-size="9" color="#777777">c. 1962</font>>];
@@ -66,9 +67,10 @@ digraph job_titles {
   }
 
   subgraph cluster_net {
+    class="fam fam-net"; id="fam-net";
     label=<<b>NETWORKS &amp; SECURITY</b>>; fontsize=16; fontcolor="#c4621a"; labeljust=l;
     style="rounded,filled"; fillcolor="#fdf4ec"; color="#f3d6bf";
-    node [color="#c4621a"];
+    node [color="#c4621a", class="fam-net"];
     comms_eng     [label=<Telecoms<br/>Engineer<br/><font point-size="9" color="#777777">pre-1940s</font>>];
     sec_officer   [label=<Information<br/>Security Officer<br/><font point-size="9" color="#777777">c. 1978</font>>];
     network_admin [label=<Network<br/>Administrator<br/><font point-size="9" color="#777777">c. 1985</font>>];
@@ -85,9 +87,10 @@ digraph job_titles {
   }
 
   subgraph cluster_data {
+    class="fam fam-data"; id="fam-data";
     label=<<b>DATA &amp; AI</b>>; fontsize=16; fontcolor="#9a7600"; labeljust=l;
     style="rounded,filled"; fillcolor="#fefaea"; color="#efe2a8";
-    node [color="#b08a00"];
+    node [color="#b08a00", class="fam-data"];
     statistician   [label=<Statistician<br/><font point-size="9" color="#777777">pre-1940s</font>>];
     data_librarian [label=<Data / Tape<br/>Librarian<br/><font point-size="9" color="#777777">c. 1960</font>>];
     dba            [label=<Database<br/>Administrator (DBA)<br/><font point-size="9" color="#777777">c. 1971</font>>];
@@ -105,9 +108,10 @@ digraph job_titles {
   }
 
   subgraph cluster_ops {
+    class="fam fam-ops"; id="fam-ops";
     label=<<b>OPERATIONS &amp; INFRASTRUCTURE</b>>; fontsize=16; fontcolor="#2f8a43"; labeljust=l;
     style="rounded,filled"; fillcolor="#f0f8f1"; color="#c6e6cc";
-    node [color="#2f8a43"];
+    node [color="#2f8a43", class="fam-ops"];
     computer_operator [label=<Computer<br/>Operator<br/><font point-size="9" color="#777777">c. 1955</font>>];
     ops_analyst     [label=<Operations<br/>Analyst<br/><font point-size="9" color="#777777">c. 1975</font>>];
     config_manager  [label=<Configuration<br/>Manager<br/><font point-size="9" color="#777777">c. 1975</font>>];
@@ -132,9 +136,10 @@ digraph job_titles {
   }
 
   subgraph cluster_qa {
+    class="fam fam-qa"; id="fam-qa";
     label=<<b>QUALITY &amp; TEST</b>>; fontsize=16; fontcolor="#b23a5e"; labeljust=l;
     style="rounded,filled"; fillcolor="#fdf2f5"; color="#f2cfda";
-    node [color="#b23a5e"];
+    node [color="#b23a5e", class="fam-qa"];
     tester          [label=<Software Tester<br/><font point-size="9" color="#777777">c. 1975</font>>];
     qa_engineer     [label=<QA Engineer<br/><font point-size="9" color="#777777">c. 1985</font>>];
     sdet            [label=<SDET (Software Dev<br/>Engineer in Test)<br/><font point-size="9" color="#777777">c. 2005, Microsoft</font>>];
@@ -142,9 +147,10 @@ digraph job_titles {
   }
 
   subgraph cluster_dev {
+    class="fam fam-dev"; id="fam-dev";
     label=<<b>DEVELOPMENT</b>>; fontsize=16; fontcolor="#2f6db5"; labeljust=l;
     style="rounded,filled"; fillcolor="#f1f6fd"; color="#c9dcf3";
-    node [color="#2f6db5"];
+    node [color="#2f6db5", class="fam-dev"];
     human_computer [label=<Computer<br/>(a person)<br/><font point-size="9" color="#777777">from 17th C;<br/>common 1880s–1940s</font>>];
     coder          [label=<Coder<br/><font point-size="9" color="#777777">c. 1945</font>>];
     programmer     [penwidth=2.6, fillcolor="#d9e7fa", label=<<b>Programmer /<br/>Computer Programmer</b><br/><font point-size="9" color="#555555">c. 1950</font>>];
@@ -169,9 +175,10 @@ digraph job_titles {
   }
 
   subgraph cluster_sup {
+    class="fam fam-sup"; id="fam-sup";
     label=<<b>SUPPORT &amp; CUSTOMER-FACING</b>>; fontsize=16; fontcolor="#5f6b76"; labeljust=l;
     style="rounded,filled"; fillcolor="#f3f4f6"; color="#d8dce0";
-    node [color="#5f6b76"];
+    node [color="#5f6b76", class="fam-sup"];
     customer_eng  [label=<Customer /<br/>Field Engineer<br/><font point-size="9" color="#777777">IBM, from 1930s</font>>];
     tech_writer   [label=<Technical<br/>Writer<br/><font point-size="9" color="#777777">c. 1960</font>>];
     presales_se   [label=<Systems Engineer<br/>(pre-sales)<br/><font point-size="9" color="#777777">c. 1962, IBM</font>>];
