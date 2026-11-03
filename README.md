@@ -4,6 +4,8 @@ A Graphviz family tree of software industry job titles, from the 1940s
 ("Computer", "Coder", "Programmer") to the present (SRE, Platform Engineer,
 Forward Deployed Engineer, AI Engineer).
 
+**View it (zoomable): https://ianmiell.github.io/sw-job-title-family-tree/**
+
 ![Family tree](job_title_family_tree.png)
 
 - Each title carries a date, and sits in a decade column: roughly when the
