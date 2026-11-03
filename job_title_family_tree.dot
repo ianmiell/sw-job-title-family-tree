@@ -1,5 +1,6 @@
 // Software industry job title family tree, 1940s to the present.
-// Dates are roughly when a title became common, not its first recorded use.
+// Dates (in each label, and the decade column) are roughly when a title became
+// common, not its first recorded use. "c." = approximate.
 // Solid edge: title grew directly out of the parent. Dashed edge: influence /
 // people commonly moved across.
 //
@@ -27,132 +28,132 @@ digraph job_titles {
   // ---------------------------------------------------------------- families
   // Development
   node [fillcolor="#dbe9ff", color="#3b6fb6"];
-  human_computer   [label="Computer\n(a person doing calculations)"];
-  coder            [label="Coder"];
-  programmer       [label="Programmer /\nComputer Programmer", penwidth=2.5];
-  sys_programmer   [label="Systems Programmer"];
-  app_programmer   [label="Application Programmer"];
-  analyst_prog     [label="Analyst/Programmer"];
-  software_eng     [label="Software Engineer", penwidth=2.5];
-  software_dev     [label="Software Developer"];
-  webmaster        [label="Webmaster"];
-  web_dev          [label="Web Developer"];
-  frontend         [label="Front-end Developer"];
-  backend          [label="Back-end Developer"];
-  fullstack        [label="Full-stack Developer"];
-  mobile_dev       [label="Mobile / iOS / Android\nDeveloper"];
-  game_dev         [label="Game Developer"];
-  embedded         [label="Embedded Software\nEngineer"];
-  senior_se        [label="Senior Software Engineer"];
-  staff_se         [label="Staff Software Engineer"];
-  principal_se     [label="Principal Engineer"];
-  distinguished    [label="Distinguished Engineer /\nFellow"];
-  dx_engineer      [label="Developer Experience\nEngineer"];
+  human_computer   [label="Computer\n(a person doing calculations)\n(from 17th C; common 1880s-1940s)"];
+  coder            [label="Coder\n(c. 1945)"];
+  programmer       [label="Programmer /\nComputer Programmer\n(c. 1950)", penwidth=2.5];
+  sys_programmer   [label="Systems Programmer\n(c. 1962)"];
+  app_programmer   [label="Application Programmer\n(c. 1965)"];
+  analyst_prog     [label="Analyst/Programmer\n(c. 1970)"];
+  software_eng     [label="Software Engineer\n(coined c. 1966; NATO conf. 1968)", penwidth=2.5];
+  software_dev     [label="Software Developer\n(c. 1982)"];
+  webmaster        [label="Webmaster\n(1993)"];
+  web_dev          [label="Web Developer\n(c. 1995)"];
+  frontend         [label="Front-end Developer\n(c. 2005)"];
+  backend          [label="Back-end Developer\n(c. 2005)"];
+  fullstack        [label="Full-stack Developer\n(c. 2008)"];
+  mobile_dev       [label="Mobile / iOS / Android\nDeveloper\n(2008, App Store)"];
+  game_dev         [label="Game Developer\n(c. 1982)"];
+  embedded         [label="Embedded Software\nEngineer\n(c. 1978)"];
+  senior_se        [label="Senior Software Engineer\n(c. 2000)"];
+  staff_se         [label="Staff Software Engineer\n(c. 2012)"];
+  principal_se     [label="Principal Engineer\n(c. 2010)"];
+  distinguished    [label="Distinguished Engineer /\nFellow\n(IBM Fellow 1963; widespread c. 2010)"];
+  dx_engineer      [label="Developer Experience\nEngineer\n(c. 2021)"];
 
   // Architecture and leadership
   node [fillcolor="#e8dcff", color="#6a4aa8"];
-  dp_manager       [label="Data Processing (DP)\nManager"];
-  tech_lead        [label="Technical Lead /\nLead Programmer"];
-  it_manager       [label="IT Manager"];
-  cio              [label="CIO"];
-  cto              [label="CTO"];
-  eng_manager      [label="Engineering Manager"];
-  vp_eng           [label="VP Engineering"];
-  software_arch    [label="Software Architect"];
-  solutions_arch   [label="Solutions Architect"];
-  enterprise_arch  [label="Enterprise Architect"];
-  cloud_arch       [label="Cloud Architect"];
-  project_manager  [label="Project Manager\n(software)"];
-  product_manager  [label="Product Manager"];
-  scrum_master     [label="Scrum Master /\nAgile Coach"];
-  platform_pm      [label="Platform Product\nManager"];
+  dp_manager       [label="Data Processing (DP)\nManager\n(c. 1958)"];
+  tech_lead        [label="Technical Lead /\nLead Programmer\n(c. 1972)"];
+  it_manager       [label="IT Manager\n(c. 1985)"];
+  cio              [label="CIO\n(c. 1981)"];
+  cto              [label="CTO\n(common c. 1990)"];
+  eng_manager      [label="Engineering Manager\n(c. 2005)"];
+  vp_eng           [label="VP Engineering\n(c. 2000)"];
+  software_arch    [label="Software Architect\n(c. 1992)"];
+  solutions_arch   [label="Solutions Architect\n(c. 1998)"];
+  enterprise_arch  [label="Enterprise Architect\n(c. 1995)"];
+  cloud_arch       [label="Cloud Architect\n(c. 2011)"];
+  project_manager  [label="Project Manager\n(software)\n(c. 1962)"];
+  product_manager  [label="Product Manager\n(c. 1990)"];
+  scrum_master     [label="Scrum Master /\nAgile Coach\n(c. 2002)"];
+  platform_pm      [label="Platform Product\nManager\n(c. 2021)"];
 
   // Operations and infrastructure
   node [fillcolor="#dff3df", color="#3c8a3c"];
-  computer_operator [label="Computer Operator"];
-  ops_analyst      [label="Operations Analyst"];
-  sysadmin         [label="Systems Administrator\n(Sysadmin)", penwidth=2.5];
-  unix_admin       [label="Unix / Linux\nAdministrator"];
-  windows_admin    [label="Windows / Exchange\nAdministrator"];
-  systems_eng      [label="Systems Engineer"];
-  config_manager   [label="Configuration Manager"];
-  build_release    [label="Build and Release\nEngineer"];
-  release_manager  [label="Release Manager"];
-  infra_eng        [label="Infrastructure Engineer"];
-  virtualisation   [label="Virtualisation Engineer"];
-  sre              [label="Site Reliability Engineer\n(SRE)", penwidth=2.5];
-  devops           [label="DevOps Engineer", penwidth=2.5];
-  cloud_eng        [label="Cloud Engineer"];
-  cicd_eng         [label="CI/CD / Automation\nEngineer"];
-  platform_eng     [label="Platform Engineer", penwidth=2.5];
-  k8s_eng          [label="Kubernetes Engineer"];
-  chaos_eng        [label="Chaos Engineer"];
-  observability    [label="Observability Engineer"];
-  finops           [label="FinOps Engineer /\nAnalyst"];
-  mlops            [label="MLOps Engineer"];
+  computer_operator [label="Computer Operator\n(c. 1955)"];
+  ops_analyst      [label="Operations Analyst\n(c. 1975)"];
+  sysadmin         [label="Systems Administrator\n(Sysadmin)\n(c. 1980)", penwidth=2.5];
+  unix_admin       [label="Unix / Linux\nAdministrator\n(c. 1990)"];
+  windows_admin    [label="Windows / Exchange\nAdministrator\n(c. 1995)"];
+  systems_eng      [label="Systems Engineer\n(c. 1985)"];
+  config_manager   [label="Configuration Manager\n(c. 1975)"];
+  build_release    [label="Build and Release\nEngineer\n(c. 2000)"];
+  release_manager  [label="Release Manager\n(c. 1995)"];
+  infra_eng        [label="Infrastructure Engineer\n(c. 2005)"];
+  virtualisation   [label="Virtualisation Engineer\n(c. 2005)"];
+  sre              [label="Site Reliability Engineer\n(SRE)\n(2003, Google)", penwidth=2.5];
+  devops           [label="DevOps Engineer\n(coined 2009; title c. 2011)", penwidth=2.5];
+  cloud_eng        [label="Cloud Engineer\n(c. 2010)"];
+  cicd_eng         [label="CI/CD / Automation\nEngineer\n(c. 2012)"];
+  platform_eng     [label="Platform Engineer\n(c. 2018)", penwidth=2.5];
+  k8s_eng          [label="Kubernetes Engineer\n(c. 2017)"];
+  chaos_eng        [label="Chaos Engineer\n(c. 2014, Netflix)"];
+  observability    [label="Observability Engineer\n(c. 2020)"];
+  finops           [label="FinOps Engineer /\nAnalyst\n(c. 2019)"];
+  mlops            [label="MLOps Engineer\n(c. 2019)"];
 
   // Networks and security
   node [fillcolor="#ffe3cc", color="#c0661a"];
-  comms_eng        [label="Communications /\nTelecoms Engineer"];
-  network_admin    [label="Network Administrator"];
-  network_eng      [label="Network Engineer", penwidth=2.5];
-  network_arch     [label="Network Architect"];
-  cloud_network    [label="Cloud Network Engineer"];
-  sec_officer      [label="Information Security\nOfficer"];
-  sec_analyst      [label="Security Analyst"];
-  sec_engineer     [label="Security Engineer"];
-  pentester        [label="Penetration Tester /\nEthical Hacker"];
-  appsec           [label="Application Security\nEngineer"];
-  devsecops        [label="DevSecOps Engineer"];
-  ciso             [label="CISO"];
-  ai_red_team      [label="AI Red Teamer"];
+  comms_eng        [label="Communications /\nTelecoms Engineer\n(pre-1940s)"];
+  network_admin    [label="Network Administrator\n(c. 1985)"];
+  network_eng      [label="Network Engineer\n(c. 1990)", penwidth=2.5];
+  network_arch     [label="Network Architect\n(c. 1995)"];
+  cloud_network    [label="Cloud Network Engineer\n(c. 2015)"];
+  sec_officer      [label="Information Security\nOfficer\n(c. 1978)"];
+  sec_analyst      [label="Security Analyst\n(c. 1988)"];
+  sec_engineer     [label="Security Engineer\n(c. 1995)"];
+  pentester        [label="Penetration Tester /\nEthical Hacker\n(c. 2000)"];
+  appsec           [label="Application Security\nEngineer\n(c. 2005)"];
+  devsecops        [label="DevSecOps Engineer\n(c. 2015)"];
+  ciso             [label="CISO\n(1995, Citicorp)"];
+  ai_red_team      [label="AI Red Teamer\n(c. 2023)"];
 
   // Data and AI
   node [fillcolor="#fff6c2", color="#a88a00"];
-  statistician     [label="Statistician"];
-  data_librarian   [label="Data Librarian /\nTape Librarian"];
-  dba              [label="Database Administrator\n(DBA)"];
-  data_analyst     [label="Data Analyst"];
-  dw_developer     [label="Data Warehouse /\nBI Developer"];
-  etl_dev          [label="ETL Developer"];
-  big_data         [label="Big Data / Hadoop\nEngineer"];
-  data_scientist   [label="Data Scientist", penwidth=2.5];
-  data_engineer    [label="Data Engineer"];
-  analytics_eng    [label="Analytics Engineer"];
-  ml_engineer      [label="Machine Learning\nEngineer"];
-  prompt_eng       [label="Prompt Engineer"];
-  ai_engineer      [label="AI Engineer", penwidth=2.5];
-  agent_eng        [label="AI Agent /\nContext Engineer"];
+  statistician     [label="Statistician\n(pre-1940s)"];
+  data_librarian   [label="Data Librarian /\nTape Librarian\n(c. 1960)"];
+  dba              [label="Database Administrator\n(DBA)\n(c. 1971)"];
+  data_analyst     [label="Data Analyst\n(c. 1985)"];
+  dw_developer     [label="Data Warehouse /\nBI Developer\n(c. 1988)"];
+  etl_dev          [label="ETL Developer\n(c. 1995)"];
+  big_data         [label="Big Data / Hadoop\nEngineer\n(c. 2009)"];
+  data_scientist   [label="Data Scientist\n(2008)", penwidth=2.5];
+  data_engineer    [label="Data Engineer\n(c. 2013)"];
+  analytics_eng    [label="Analytics Engineer\n(c. 2019)"];
+  ml_engineer      [label="Machine Learning\nEngineer\n(c. 2015)"];
+  prompt_eng       [label="Prompt Engineer\n(c. 2022)"];
+  ai_engineer      [label="AI Engineer\n(c. 2023)", penwidth=2.5];
+  agent_eng        [label="AI Agent /\nContext Engineer\n(c. 2025)"];
 
   // Quality and test
   node [fillcolor="#ffdbe4", color="#b03a5b"];
-  tester           [label="Software Tester"];
-  qa_engineer      [label="QA Engineer"];
-  sdet             [label="SDET (Software Dev\nEngineer in Test)"];
-  test_automation  [label="Test Automation\nEngineer"];
+  tester           [label="Software Tester\n(c. 1975)"];
+  qa_engineer      [label="QA Engineer\n(c. 1985)"];
+  sdet             [label="SDET (Software Dev\nEngineer in Test)\n(c. 2005, Microsoft)"];
+  test_automation  [label="Test Automation\nEngineer\n(c. 2010)"];
 
   // Support and customer-facing
   node [fillcolor="#e6e6e6", color="#666666"];
-  customer_eng     [label="Customer Engineer /\nField Engineer (IBM CE)"];
-  presales_se      [label="Systems Engineer\n(pre-sales, IBM SE)"];
-  tech_support     [label="Technical Support"];
-  helpdesk         [label="Help Desk Technician"];
-  service_desk     [label="Service Desk Analyst"];
-  app_support      [label="Application Support\nAnalyst"];
-  support_eng      [label="Support Engineer"];
-  sales_eng        [label="Sales Engineer"];
-  solutions_eng    [label="Solutions Engineer"];
-  consultant       [label="IT Consultant"];
-  evangelist       [label="Technology Evangelist"];
-  dev_advocate     [label="Developer Advocate /\nDevRel"];
-  fde              [label="Forward Deployed\nEngineer", penwidth=2.5];
-  tech_writer      [label="Technical Writer"];
-  systems_analyst  [label="Systems Analyst"];
-  business_analyst [label="Business Analyst"];
+  customer_eng     [label="Customer Engineer /\nField Engineer (IBM CE)\n(IBM, from 1930s)"];
+  presales_se      [label="Systems Engineer\n(pre-sales, IBM SE)\n(c. 1962)"];
+  tech_support     [label="Technical Support\n(c. 1970)"];
+  helpdesk         [label="Help Desk Technician\n(c. 1982)"];
+  service_desk     [label="Service Desk Analyst\n(c. 1999, ITIL)"];
+  app_support      [label="Application Support\nAnalyst\n(c. 1995)"];
+  support_eng      [label="Support Engineer\n(c. 2005)"];
+  sales_eng        [label="Sales Engineer\n(c. 1990)"];
+  solutions_eng    [label="Solutions Engineer\n(c. 2012)"];
+  consultant       [label="IT Consultant\n(c. 1980)"];
+  evangelist       [label="Technology Evangelist\n(1984, Apple)"];
+  dev_advocate     [label="Developer Advocate /\nDevRel\n(c. 2008)"];
+  fde              [label="Forward Deployed\nEngineer\n(c. 2010, Palantir; boom 2025)", penwidth=2.5];
+  tech_writer      [label="Technical Writer\n(c. 1960)"];
+  systems_analyst  [label="Systems Analyst\n(c. 1955)"];
+  business_analyst [label="Business Analyst\n(c. 1990)"];
 
   // ---------------------------------------------------------------- eras
-  {rank=same; t1940; human_computer; coder; comms_eng; statistician; }
-  {rank=same; t1950; programmer; computer_operator; customer_eng; systems_analyst;
+  {rank=same; t1940; human_computer; coder; comms_eng; statistician; customer_eng; }
+  {rank=same; t1950; programmer; computer_operator; systems_analyst;
                      dp_manager; data_librarian; }
   {rank=same; t1960; sys_programmer; app_programmer; software_eng; presales_se;
                      tech_writer; project_manager; }
@@ -333,7 +334,8 @@ digraph job_titles {
       <b>Solid arrow</b>: title grew out of the parent<br/>
       <b>Dashed arrow</b>: influence / common career move<br/>
       <b>Thick border</b>: landmark title<br/>
-      Columns show roughly when a title became<br/>common, not its first recorded use>];
+      Dates and columns: roughly when a title became<br/>common, not its first recorded use.<br/>
+      c. = approximate>];
   }
   {rank=same; t1940; l_dev; l_lead; l_ops; l_net; l_data; l_qa; l_sup; l_note; }
 }

@@ -6,8 +6,11 @@ Forward Deployed Engineer, AI Engineer).
 
 ![Family tree](job_title_family_tree.png)
 
-- Columns are decades: roughly when a title became common, not its first
-  recorded use.
+- Each title carries a date, and sits in a decade column: roughly when the
+  title became common, not its first recorded use. "c." means approximate;
+  exact years are given where well known (e.g. SRE at Google, 2003; "DevOps"
+  coined 2009; "Data Scientist" 2008). They are best estimates, not sourced
+  citations, so corrections are welcome.
 - Solid arrow: the title grew out of its parent. Dashed arrow: influence or a
   common career move.
 - Colours mark families: development, architecture/leadership,
