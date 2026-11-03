@@ -13,9 +13,10 @@ Forward Deployed Engineer, AI Engineer).
   citations, so corrections are welcome.
 - Solid arrow: the title grew out of its parent. Dashed arrow: influence or a
   common career move.
-- Colours mark families: development, architecture/leadership,
-  operations/infrastructure, networks/security, data/AI, quality/test,
-  support/customer-facing.
+- Titles sit in coloured bands by family: development; analysis, architecture
+  and leadership; operations and infrastructure; networks and security;
+  data and AI; quality and test; support and customer-facing. Arrows take
+  the colour of the family they lead into, and landmark titles are bold.
 
 ## Rendering
 

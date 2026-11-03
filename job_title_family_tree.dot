@@ -1,160 +1,202 @@
 // Software industry job title family tree, 1940s to the present.
+//
 // Dates (in each label, and the decade column) are roughly when a title became
 // common, not its first recorded use. "c." = approximate.
-// Solid edge: title grew directly out of the parent. Dashed edge: influence /
-// people commonly moved across.
+// Solid edge: title grew directly out of the parent.
+// Dashed edge: influence / people commonly moved across.
+//
+// To add a title: add a node in its family's cluster, put it in an era's
+// rank=same block, and add its parent edges in the lineage section.
 //
 // Render: dot -Tsvg job_title_family_tree.dot -o job_title_family_tree.svg
 //         dot -Tpng -Gdpi=110 job_title_family_tree.dot -o job_title_family_tree.png
 
 digraph job_titles {
-  graph [rankdir=LR, ranksep=0.9, nodesep=0.18, splines=true, newrank=true,
-         fontname="Helvetica", fontsize=26, labelloc=t,
-         label="Software industry job titles: a family tree (1940s to now)\n ",
-         bgcolor=white];
-  node  [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11,
-         penwidth=1.2, margin="0.12,0.05"];
-  edge  [color="#777777", arrowsize=0.6, penwidth=1.0];
+  graph [rankdir=LR, newrank=true, ranksep=1.0, nodesep=0.16, splines=spline,
+         fontname="Helvetica Neue", bgcolor="#fcfcfb", pad=0.5, labelloc=t,
+         label=<<font point-size="34"><b>Software Industry Job Titles</b></font><br/><font point-size="16" color="#666666">A family tree, 1940s to now</font><br/> >];
+  node  [shape=box, style="rounded,filled", fillcolor=white, fontname="Helvetica Neue",
+         fontsize=12, fontcolor="#222222", penwidth=1.3, margin="0.14,0.06"];
+  edge  [penwidth=1.2, arrowsize=0.7, arrowhead=vee];
 
   // ---------------------------------------------------------------- timeline
-  node [shape=plaintext, style="", fontsize=18, fontcolor="#444444"];
-  t1940 [label="1940s"]; t1950 [label="1950s"]; t1960 [label="1960s"];
-  t1970 [label="1970s"]; t1980 [label="1980s"]; t1990 [label="1990s"];
-  t2000 [label="2000s"]; t2010 [label="2010s"]; t2020 [label="2020s"];
+  t1940 [shape=plaintext, style="", fontsize=22, fontcolor="#888888", label=<<b>1940s</b>>];
+  t1950 [shape=plaintext, style="", fontsize=22, fontcolor="#888888", label=<<b>1950s</b>>];
+  t1960 [shape=plaintext, style="", fontsize=22, fontcolor="#888888", label=<<b>1960s</b>>];
+  t1970 [shape=plaintext, style="", fontsize=22, fontcolor="#888888", label=<<b>1970s</b>>];
+  t1980 [shape=plaintext, style="", fontsize=22, fontcolor="#888888", label=<<b>1980s</b>>];
+  t1990 [shape=plaintext, style="", fontsize=22, fontcolor="#888888", label=<<b>1990s</b>>];
+  t2000 [shape=plaintext, style="", fontsize=22, fontcolor="#888888", label=<<b>2000s</b>>];
+  t2010 [shape=plaintext, style="", fontsize=22, fontcolor="#888888", label=<<b>2010s</b>>];
+  t2020 [shape=plaintext, style="", fontsize=22, fontcolor="#888888", label=<<b>2020s</b>>];
   t1940 -> t1950 -> t1960 -> t1970 -> t1980 -> t1990 -> t2000 -> t2010 -> t2020
-    [color="#bbbbbb", penwidth=3, arrowsize=1.2];
-  node [shape=box, style="rounded,filled", fontsize=11, fontcolor=black];
+    [color="#cccccc", penwidth=4, arrowhead=normal, arrowsize=1.0];
 
   // ---------------------------------------------------------------- families
-  // Development
-  node [fillcolor="#dbe9ff", color="#3b6fb6"];
-  human_computer   [label="Computer\n(a person doing calculations)\n(from 17th C; common 1880s-1940s)"];
-  coder            [label="Coder\n(c. 1945)"];
-  programmer       [label="Programmer /\nComputer Programmer\n(c. 1950)", penwidth=2.5];
-  sys_programmer   [label="Systems Programmer\n(c. 1962)"];
-  app_programmer   [label="Application Programmer\n(c. 1965)"];
-  analyst_prog     [label="Analyst/Programmer\n(c. 1970)"];
-  software_eng     [label="Software Engineer\n(coined c. 1966; NATO conf. 1968)", penwidth=2.5];
-  software_dev     [label="Software Developer\n(c. 1982)"];
-  webmaster        [label="Webmaster\n(1993)"];
-  web_dev          [label="Web Developer\n(c. 1995)"];
-  frontend         [label="Front-end Developer\n(c. 2005)"];
-  backend          [label="Back-end Developer\n(c. 2005)"];
-  fullstack        [label="Full-stack Developer\n(c. 2008)"];
-  mobile_dev       [label="Mobile / iOS / Android\nDeveloper\n(2008, App Store)"];
-  game_dev         [label="Game Developer\n(c. 1982)"];
-  embedded         [label="Embedded Software\nEngineer\n(c. 1978)"];
-  senior_se        [label="Senior Software Engineer\n(c. 2000)"];
-  staff_se         [label="Staff Software Engineer\n(c. 2012)"];
-  principal_se     [label="Principal Engineer\n(c. 2010)"];
-  distinguished    [label="Distinguished Engineer /\nFellow\n(IBM Fellow 1963; widespread c. 2010)"];
-  dx_engineer      [label="Developer Experience\nEngineer\n(c. 2021)"];
+  // Cluster order affects the layout: this order keeps cross-family edges shortest.
+  subgraph cluster_lead {
+    label=<<b>ANALYSIS, ARCHITECTURE &amp; LEADERSHIP</b>>; fontsize=16; fontcolor="#6b4bb0"; labeljust=l;
+    style="rounded,filled"; fillcolor="#f6f2fc"; color="#ddd0f2";
+    node [color="#6b4bb0"];
+    systems_analyst  [label=<Systems Analyst<br/><font point-size="9" color="#777777">c. 1955</font>>];
+    dp_manager       [label=<Data Processing (DP) Manager<br/><font point-size="9" color="#777777">c. 1958</font>>];
+    project_manager  [label=<Project Manager (software)<br/><font point-size="9" color="#777777">c. 1962</font>>];
+    tech_lead        [label=<Technical Lead / Lead Programmer<br/><font point-size="9" color="#777777">c. 1972</font>>];
+    cio              [label=<CIO<br/><font point-size="9" color="#777777">c. 1981</font>>];
+    it_manager       [label=<IT Manager<br/><font point-size="9" color="#777777">c. 1985</font>>];
+    cto              [label=<CTO<br/><font point-size="9" color="#777777">common c. 1990</font>>];
+    business_analyst [label=<Business Analyst<br/><font point-size="9" color="#777777">c. 1990</font>>];
+    product_manager  [label=<Product Manager<br/><font point-size="9" color="#777777">c. 1990</font>>];
+    software_arch    [label=<Software Architect<br/><font point-size="9" color="#777777">c. 1992</font>>];
+    enterprise_arch  [label=<Enterprise Architect<br/><font point-size="9" color="#777777">c. 1995</font>>];
+    solutions_arch   [label=<Solutions Architect<br/><font point-size="9" color="#777777">c. 1998</font>>];
+    vp_eng           [label=<VP Engineering<br/><font point-size="9" color="#777777">c. 2000</font>>];
+    scrum_master     [label=<Scrum Master / Agile Coach<br/><font point-size="9" color="#777777">c. 2002</font>>];
+    eng_manager      [label=<Engineering Manager<br/><font point-size="9" color="#777777">c. 2005</font>>];
+    cloud_arch       [label=<Cloud Architect<br/><font point-size="9" color="#777777">c. 2011</font>>];
+    platform_pm      [label=<Platform Product Manager<br/><font point-size="9" color="#777777">c. 2021</font>>];
+  }
 
-  // Architecture and leadership
-  node [fillcolor="#e8dcff", color="#6a4aa8"];
-  dp_manager       [label="Data Processing (DP)\nManager\n(c. 1958)"];
-  tech_lead        [label="Technical Lead /\nLead Programmer\n(c. 1972)"];
-  it_manager       [label="IT Manager\n(c. 1985)"];
-  cio              [label="CIO\n(c. 1981)"];
-  cto              [label="CTO\n(common c. 1990)"];
-  eng_manager      [label="Engineering Manager\n(c. 2005)"];
-  vp_eng           [label="VP Engineering\n(c. 2000)"];
-  software_arch    [label="Software Architect\n(c. 1992)"];
-  solutions_arch   [label="Solutions Architect\n(c. 1998)"];
-  enterprise_arch  [label="Enterprise Architect\n(c. 1995)"];
-  cloud_arch       [label="Cloud Architect\n(c. 2011)"];
-  project_manager  [label="Project Manager\n(software)\n(c. 1962)"];
-  product_manager  [label="Product Manager\n(c. 1990)"];
-  scrum_master     [label="Scrum Master /\nAgile Coach\n(c. 2002)"];
-  platform_pm      [label="Platform Product\nManager\n(c. 2021)"];
+  subgraph cluster_net {
+    label=<<b>NETWORKS &amp; SECURITY</b>>; fontsize=16; fontcolor="#c4621a"; labeljust=l;
+    style="rounded,filled"; fillcolor="#fdf4ec"; color="#f3d6bf";
+    node [color="#c4621a"];
+    comms_eng     [label=<Telecoms Engineer<br/><font point-size="9" color="#777777">pre-1940s</font>>];
+    sec_officer   [label=<Information Security Officer<br/><font point-size="9" color="#777777">c. 1978</font>>];
+    network_admin [label=<Network Administrator<br/><font point-size="9" color="#777777">c. 1985</font>>];
+    sec_analyst   [label=<Security Analyst<br/><font point-size="9" color="#777777">c. 1988</font>>];
+    network_eng   [penwidth=2.6, fillcolor="#fbe0cc", label=<<b>Network Engineer</b><br/><font point-size="9" color="#555555">c. 1990</font>>];
+    network_arch  [label=<Network Architect<br/><font point-size="9" color="#777777">c. 1995</font>>];
+    sec_engineer  [label=<Security Engineer<br/><font point-size="9" color="#777777">c. 1995</font>>];
+    ciso          [label=<CISO<br/><font point-size="9" color="#777777">1995, Citicorp</font>>];
+    pentester     [label=<Penetration Tester<br/><font point-size="9" color="#777777">c. 2000</font>>];
+    appsec        [label=<Application Security Engineer<br/><font point-size="9" color="#777777">c. 2005</font>>];
+    devsecops     [label=<DevSecOps Engineer<br/><font point-size="9" color="#777777">c. 2015</font>>];
+    cloud_network [label=<Cloud Network Engineer<br/><font point-size="9" color="#777777">c. 2015</font>>];
+    ai_red_team   [label=<AI Red Teamer<br/><font point-size="9" color="#777777">c. 2023</font>>];
+  }
 
-  // Operations and infrastructure
-  node [fillcolor="#dff3df", color="#3c8a3c"];
-  computer_operator [label="Computer Operator\n(c. 1955)"];
-  ops_analyst      [label="Operations Analyst\n(c. 1975)"];
-  sysadmin         [label="Systems Administrator\n(Sysadmin)\n(c. 1980)", penwidth=2.5];
-  unix_admin       [label="Unix / Linux\nAdministrator\n(c. 1990)"];
-  windows_admin    [label="Windows / Exchange\nAdministrator\n(c. 1995)"];
-  systems_eng      [label="Systems Engineer\n(c. 1985)"];
-  config_manager   [label="Configuration Manager\n(c. 1975)"];
-  build_release    [label="Build and Release\nEngineer\n(c. 2000)"];
-  release_manager  [label="Release Manager\n(c. 1995)"];
-  infra_eng        [label="Infrastructure Engineer\n(c. 2005)"];
-  virtualisation   [label="Virtualisation Engineer\n(c. 2005)"];
-  sre              [label="Site Reliability Engineer\n(SRE)\n(2003, Google)", penwidth=2.5];
-  devops           [label="DevOps Engineer\n(coined 2009; title c. 2011)", penwidth=2.5];
-  cloud_eng        [label="Cloud Engineer\n(c. 2010)"];
-  cicd_eng         [label="CI/CD / Automation\nEngineer\n(c. 2012)"];
-  platform_eng     [label="Platform Engineer\n(c. 2018)", penwidth=2.5];
-  k8s_eng          [label="Kubernetes Engineer\n(c. 2017)"];
-  chaos_eng        [label="Chaos Engineer\n(c. 2014, Netflix)"];
-  observability    [label="Observability Engineer\n(c. 2020)"];
-  finops           [label="FinOps Engineer /\nAnalyst\n(c. 2019)"];
-  mlops            [label="MLOps Engineer\n(c. 2019)"];
+  subgraph cluster_data {
+    label=<<b>DATA &amp; AI</b>>; fontsize=16; fontcolor="#9a7600"; labeljust=l;
+    style="rounded,filled"; fillcolor="#fefaea"; color="#efe2a8";
+    node [color="#b08a00"];
+    statistician   [label=<Statistician<br/><font point-size="9" color="#777777">pre-1940s</font>>];
+    data_librarian [label=<Data / Tape Librarian<br/><font point-size="9" color="#777777">c. 1960</font>>];
+    dba            [label=<Database Administrator (DBA)<br/><font point-size="9" color="#777777">c. 1971</font>>];
+    data_analyst   [label=<Data Analyst<br/><font point-size="9" color="#777777">c. 1985</font>>];
+    dw_developer   [label=<Data Warehouse / BI Developer<br/><font point-size="9" color="#777777">c. 1988</font>>];
+    etl_dev        [label=<ETL Developer<br/><font point-size="9" color="#777777">c. 1995</font>>];
+    data_scientist [penwidth=2.6, fillcolor="#fbefc2", label=<<b>Data Scientist</b><br/><font point-size="9" color="#555555">2008</font>>];
+    big_data       [label=<Big Data / Hadoop Engineer<br/><font point-size="9" color="#777777">c. 2009</font>>];
+    data_engineer  [label=<Data Engineer<br/><font point-size="9" color="#777777">c. 2013</font>>];
+    ml_engineer    [label=<Machine Learning Engineer<br/><font point-size="9" color="#777777">c. 2015</font>>];
+    analytics_eng  [label=<Analytics Engineer<br/><font point-size="9" color="#777777">c. 2019</font>>];
+    prompt_eng     [label=<Prompt Engineer<br/><font point-size="9" color="#777777">c. 2022</font>>];
+    ai_engineer    [penwidth=2.6, fillcolor="#fbefc2", label=<<b>AI Engineer</b><br/><font point-size="9" color="#555555">c. 2023</font>>];
+    agent_eng      [label=<AI Agent / Context Engineer<br/><font point-size="9" color="#777777">c. 2025</font>>];
+  }
 
-  // Networks and security
-  node [fillcolor="#ffe3cc", color="#c0661a"];
-  comms_eng        [label="Communications /\nTelecoms Engineer\n(pre-1940s)"];
-  network_admin    [label="Network Administrator\n(c. 1985)"];
-  network_eng      [label="Network Engineer\n(c. 1990)", penwidth=2.5];
-  network_arch     [label="Network Architect\n(c. 1995)"];
-  cloud_network    [label="Cloud Network Engineer\n(c. 2015)"];
-  sec_officer      [label="Information Security\nOfficer\n(c. 1978)"];
-  sec_analyst      [label="Security Analyst\n(c. 1988)"];
-  sec_engineer     [label="Security Engineer\n(c. 1995)"];
-  pentester        [label="Penetration Tester /\nEthical Hacker\n(c. 2000)"];
-  appsec           [label="Application Security\nEngineer\n(c. 2005)"];
-  devsecops        [label="DevSecOps Engineer\n(c. 2015)"];
-  ciso             [label="CISO\n(1995, Citicorp)"];
-  ai_red_team      [label="AI Red Teamer\n(c. 2023)"];
+  subgraph cluster_ops {
+    label=<<b>OPERATIONS &amp; INFRASTRUCTURE</b>>; fontsize=16; fontcolor="#2f8a43"; labeljust=l;
+    style="rounded,filled"; fillcolor="#f0f8f1"; color="#c6e6cc";
+    node [color="#2f8a43"];
+    computer_operator [label=<Computer Operator<br/><font point-size="9" color="#777777">c. 1955</font>>];
+    ops_analyst     [label=<Operations Analyst<br/><font point-size="9" color="#777777">c. 1975</font>>];
+    config_manager  [label=<Configuration Manager<br/><font point-size="9" color="#777777">c. 1975</font>>];
+    sysadmin        [penwidth=2.6, fillcolor="#d5efda", label=<<b>Systems Administrator</b><br/><font point-size="9" color="#555555">c. 1980</font>>];
+    systems_eng     [label=<Systems Engineer<br/><font point-size="9" color="#777777">c. 1985</font>>];
+    unix_admin      [label=<Unix / Linux Administrator<br/><font point-size="9" color="#777777">c. 1990</font>>];
+    windows_admin   [label=<Windows Administrator<br/><font point-size="9" color="#777777">c. 1995</font>>];
+    release_manager [label=<Release Manager<br/><font point-size="9" color="#777777">c. 1995</font>>];
+    build_release   [label=<Build &amp; Release Engineer<br/><font point-size="9" color="#777777">c. 2000</font>>];
+    sre             [penwidth=2.6, fillcolor="#d5efda", label=<<b>Site Reliability Engineer</b><br/><font point-size="9" color="#555555">2003, Google</font>>];
+    infra_eng       [label=<Infrastructure Engineer<br/><font point-size="9" color="#777777">c. 2005</font>>];
+    virtualisation  [label=<Virtualisation Engineer<br/><font point-size="9" color="#777777">c. 2005</font>>];
+    devops          [penwidth=2.6, fillcolor="#d5efda", label=<<b>DevOps Engineer</b><br/><font point-size="9" color="#555555">coined 2009; title c. 2011</font>>];
+    cloud_eng       [label=<Cloud Engineer<br/><font point-size="9" color="#777777">c. 2010</font>>];
+    cicd_eng        [label=<CI/CD / Automation Engineer<br/><font point-size="9" color="#777777">c. 2012</font>>];
+    chaos_eng       [label=<Chaos Engineer<br/><font point-size="9" color="#777777">c. 2014, Netflix</font>>];
+    k8s_eng         [label=<Kubernetes Engineer<br/><font point-size="9" color="#777777">c. 2017</font>>];
+    platform_eng    [penwidth=2.6, fillcolor="#d5efda", label=<<b>Platform Engineer</b><br/><font point-size="9" color="#555555">c. 2018</font>>];
+    finops          [label=<FinOps Engineer / Analyst<br/><font point-size="9" color="#777777">c. 2019</font>>];
+    mlops           [label=<MLOps Engineer<br/><font point-size="9" color="#777777">c. 2019</font>>];
+    observability   [label=<Observability Engineer<br/><font point-size="9" color="#777777">c. 2020</font>>];
+  }
 
-  // Data and AI
-  node [fillcolor="#fff6c2", color="#a88a00"];
-  statistician     [label="Statistician\n(pre-1940s)"];
-  data_librarian   [label="Data Librarian /\nTape Librarian\n(c. 1960)"];
-  dba              [label="Database Administrator\n(DBA)\n(c. 1971)"];
-  data_analyst     [label="Data Analyst\n(c. 1985)"];
-  dw_developer     [label="Data Warehouse /\nBI Developer\n(c. 1988)"];
-  etl_dev          [label="ETL Developer\n(c. 1995)"];
-  big_data         [label="Big Data / Hadoop\nEngineer\n(c. 2009)"];
-  data_scientist   [label="Data Scientist\n(2008)", penwidth=2.5];
-  data_engineer    [label="Data Engineer\n(c. 2013)"];
-  analytics_eng    [label="Analytics Engineer\n(c. 2019)"];
-  ml_engineer      [label="Machine Learning\nEngineer\n(c. 2015)"];
-  prompt_eng       [label="Prompt Engineer\n(c. 2022)"];
-  ai_engineer      [label="AI Engineer\n(c. 2023)", penwidth=2.5];
-  agent_eng        [label="AI Agent /\nContext Engineer\n(c. 2025)"];
+  subgraph cluster_qa {
+    label=<<b>QUALITY &amp; TEST</b>>; fontsize=16; fontcolor="#b23a5e"; labeljust=l;
+    style="rounded,filled"; fillcolor="#fdf2f5"; color="#f2cfda";
+    node [color="#b23a5e"];
+    tester          [label=<Software Tester<br/><font point-size="9" color="#777777">c. 1975</font>>];
+    qa_engineer     [label=<QA Engineer<br/><font point-size="9" color="#777777">c. 1985</font>>];
+    sdet            [label=<SDET (Software Dev Engineer in Test)<br/><font point-size="9" color="#777777">c. 2005, Microsoft</font>>];
+    test_automation [label=<Test Automation Engineer<br/><font point-size="9" color="#777777">c. 2010</font>>];
+  }
 
-  // Quality and test
-  node [fillcolor="#ffdbe4", color="#b03a5b"];
-  tester           [label="Software Tester\n(c. 1975)"];
-  qa_engineer      [label="QA Engineer\n(c. 1985)"];
-  sdet             [label="SDET (Software Dev\nEngineer in Test)\n(c. 2005, Microsoft)"];
-  test_automation  [label="Test Automation\nEngineer\n(c. 2010)"];
+  subgraph cluster_dev {
+    label=<<b>DEVELOPMENT</b>>; fontsize=16; fontcolor="#2f6db5"; labeljust=l;
+    style="rounded,filled"; fillcolor="#f1f6fd"; color="#c9dcf3";
+    node [color="#2f6db5"];
+    human_computer [label=<Computer (a person)<br/><font point-size="9" color="#777777">from 17th C; common 1880s–1940s</font>>];
+    coder          [label=<Coder<br/><font point-size="9" color="#777777">c. 1945</font>>];
+    programmer     [penwidth=2.6, fillcolor="#d9e7fa", label=<<b>Programmer /<br/>Computer Programmer</b><br/><font point-size="9" color="#555555">c. 1950</font>>];
+    sys_programmer [label=<Systems Programmer<br/><font point-size="9" color="#777777">c. 1962</font>>];
+    app_programmer [label=<Application Programmer<br/><font point-size="9" color="#777777">c. 1965</font>>];
+    analyst_prog   [label=<Analyst/Programmer<br/><font point-size="9" color="#777777">c. 1970</font>>];
+    software_eng   [penwidth=2.6, fillcolor="#d9e7fa", label=<<b>Software Engineer</b><br/><font point-size="9" color="#555555">coined c. 1966; NATO conf. 1968</font>>];
+    embedded       [label=<Embedded Software Engineer<br/><font point-size="9" color="#777777">c. 1978</font>>];
+    software_dev   [label=<Software Developer<br/><font point-size="9" color="#777777">c. 1982</font>>];
+    game_dev       [label=<Game Developer<br/><font point-size="9" color="#777777">c. 1982</font>>];
+    webmaster      [label=<Webmaster<br/><font point-size="9" color="#777777">1993</font>>];
+    web_dev        [label=<Web Developer<br/><font point-size="9" color="#777777">c. 1995</font>>];
+    frontend       [label=<Front-end Developer<br/><font point-size="9" color="#777777">c. 2005</font>>];
+    backend        [label=<Back-end Developer<br/><font point-size="9" color="#777777">c. 2005</font>>];
+    fullstack      [label=<Full-stack Developer<br/><font point-size="9" color="#777777">c. 2008</font>>];
+    mobile_dev     [label=<Mobile / iOS / Android Developer<br/><font point-size="9" color="#777777">2008, App Store</font>>];
+    senior_se      [label=<Senior Software Engineer<br/><font point-size="9" color="#777777">c. 2000</font>>];
+    principal_se   [label=<Principal Engineer<br/><font point-size="9" color="#777777">c. 2010</font>>];
+    staff_se       [label=<Staff Software Engineer<br/><font point-size="9" color="#777777">c. 2012</font>>];
+    distinguished  [label=<Distinguished Engineer / Fellow<br/><font point-size="9" color="#777777">IBM Fellow 1963; widespread c. 2010</font>>];
+    dx_engineer    [label=<Developer Experience Engineer<br/><font point-size="9" color="#777777">c. 2021</font>>];
+  }
 
-  // Support and customer-facing
-  node [fillcolor="#e6e6e6", color="#666666"];
-  customer_eng     [label="Customer Engineer /\nField Engineer (IBM CE)\n(IBM, from 1930s)"];
-  presales_se      [label="Systems Engineer\n(pre-sales, IBM SE)\n(c. 1962)"];
-  tech_support     [label="Technical Support\n(c. 1970)"];
-  helpdesk         [label="Help Desk Technician\n(c. 1982)"];
-  service_desk     [label="Service Desk Analyst\n(c. 1999, ITIL)"];
-  app_support      [label="Application Support\nAnalyst\n(c. 1995)"];
-  support_eng      [label="Support Engineer\n(c. 2005)"];
-  sales_eng        [label="Sales Engineer\n(c. 1990)"];
-  solutions_eng    [label="Solutions Engineer\n(c. 2012)"];
-  consultant       [label="IT Consultant\n(c. 1980)"];
-  evangelist       [label="Technology Evangelist\n(1984, Apple)"];
-  dev_advocate     [label="Developer Advocate /\nDevRel\n(c. 2008)"];
-  fde              [label="Forward Deployed\nEngineer\n(c. 2010, Palantir; boom 2025)", penwidth=2.5];
-  tech_writer      [label="Technical Writer\n(c. 1960)"];
-  systems_analyst  [label="Systems Analyst\n(c. 1955)"];
-  business_analyst [label="Business Analyst\n(c. 1990)"];
+  subgraph cluster_sup {
+    label=<<b>SUPPORT &amp; CUSTOMER-FACING</b>>; fontsize=16; fontcolor="#5f6b76"; labeljust=l;
+    style="rounded,filled"; fillcolor="#f3f4f6"; color="#d8dce0";
+    node [color="#5f6b76"];
+    customer_eng  [label=<Customer / Field Engineer<br/><font point-size="9" color="#777777">IBM, from 1930s</font>>];
+    tech_writer   [label=<Technical Writer<br/><font point-size="9" color="#777777">c. 1960</font>>];
+    presales_se   [label=<Systems Engineer (pre-sales)<br/><font point-size="9" color="#777777">c. 1962, IBM</font>>];
+    tech_support  [label=<Technical Support<br/><font point-size="9" color="#777777">c. 1970</font>>];
+    consultant    [label=<IT Consultant<br/><font point-size="9" color="#777777">c. 1980</font>>];
+    helpdesk      [label=<Help Desk Technician<br/><font point-size="9" color="#777777">c. 1982</font>>];
+    evangelist    [label=<Technology Evangelist<br/><font point-size="9" color="#777777">1984, Apple</font>>];
+    sales_eng     [label=<Sales Engineer<br/><font point-size="9" color="#777777">c. 1990</font>>];
+    app_support   [label=<Application Support Analyst<br/><font point-size="9" color="#777777">c. 1995</font>>];
+    service_desk  [label=<Service Desk Analyst<br/><font point-size="9" color="#777777">c. 1999, ITIL</font>>];
+    support_eng   [label=<Support Engineer<br/><font point-size="9" color="#777777">c. 2005</font>>];
+    dev_advocate  [label=<Developer Advocate / DevRel<br/><font point-size="9" color="#777777">c. 2008</font>>];
+    fde           [penwidth=2.6, fillcolor="#e2e5e9", label=<<b>Forward Deployed Engineer</b><br/><font point-size="9" color="#555555">c. 2010, Palantir; boom 2025</font>>];
+    solutions_eng [label=<Solutions Engineer<br/><font point-size="9" color="#777777">c. 2012</font>>];
+  }
+
+  // ---------------------------------------------------------------- key
+  subgraph cluster_key {
+    label=<<b>KEY</b>>; fontsize=14; fontcolor="#666666"; labeljust=l;
+    style="rounded,filled"; fillcolor=white; color="#dddddd";
+    node [shape=plaintext, style="", fontsize=11, fontcolor="#444444"];
+    k_note [label=<
+      <table border="0" cellpadding="3" cellspacing="0">
+        <tr><td align="left"><font color="#555555">────▸</font></td><td align="left">title grew out of the parent</td></tr>
+        <tr><td align="left"><font color="#555555">- - - ▸</font></td><td align="left">influence / common career move</td></tr>
+        <tr><td align="left"><b>Bold</b></td><td align="left">landmark title</td></tr>
+        <tr><td align="left" colspan="2"><font point-size="10" color="#777777">Dates: roughly when a title became common,<br align="left"/>not its first use. c. = approximate.<br align="left"/></font></td></tr>
+      </table>>];
+  }
 
   // ---------------------------------------------------------------- eras
-  {rank=same; t1940; human_computer; coder; comms_eng; statistician; customer_eng; }
-  {rank=same; t1950; programmer; computer_operator; systems_analyst;
-                     dp_manager; data_librarian; }
+  {rank=same; t1940; human_computer; coder; comms_eng; statistician; customer_eng; k_note; }
+  {rank=same; t1950; programmer; computer_operator; systems_analyst; dp_manager; data_librarian; }
   {rank=same; t1960; sys_programmer; app_programmer; software_eng; presales_se;
                      tech_writer; project_manager; }
   {rank=same; t1970; analyst_prog; dba; tech_support; tester; ops_analyst;
@@ -179,7 +221,10 @@ digraph job_titles {
                      ai_engineer; agent_eng; platform_pm; dx_engineer; ai_red_team; }
 
   // ---------------------------------------------------------------- lineage
-  // Development
+  // Edges are coloured by the family of the title they lead into.
+
+  // Into development
+  edge [color="#2f6db5aa"];
   human_computer -> programmer;
   coder -> programmer;
   programmer -> sys_programmer;
@@ -189,7 +234,7 @@ digraph job_titles {
   systems_analyst -> analyst_prog;
   app_programmer -> software_dev;
   analyst_prog -> software_dev;
-  software_eng -> software_dev [dir=both, style=dashed];
+  software_eng -> software_dev [dir=both, style=dashed, arrowtail=vee];
   software_eng -> embedded;
   software_eng -> senior_se;
   senior_se -> staff_se;
@@ -206,7 +251,8 @@ digraph job_titles {
   platform_eng -> dx_engineer;
   dev_advocate -> dx_engineer [style=dashed];
 
-  // Architecture and leadership
+  // Into analysis, architecture and leadership
+  edge [color="#6b4bb0aa"];
   programmer -> tech_lead;
   tech_lead -> eng_manager;
   eng_manager -> vp_eng;
@@ -225,56 +271,15 @@ digraph job_titles {
   platform_eng -> platform_pm [style=dashed];
   systems_analyst -> business_analyst;
 
-  // Operations and infrastructure
-  computer_operator -> ops_analyst;
-  computer_operator -> sysadmin;
-  sys_programmer -> sysadmin;
-  sysadmin -> unix_admin;
-  sysadmin -> windows_admin;
-  sysadmin -> systems_eng;
-  systems_eng -> infra_eng;
-  sysadmin -> virtualisation;
-  virtualisation -> cloud_eng;
-  infra_eng -> cloud_eng;
-  config_manager -> build_release;
-  release_manager -> build_release;
-  config_manager -> release_manager;
-  build_release -> devops;
-  build_release -> cicd_eng;
-  unix_admin -> devops;
-  unix_admin -> sre;
-  software_eng -> sre;
-  ops_analyst -> sre [style=dashed];
-  sre -> devops [dir=both, style=dashed];
-  sre -> chaos_eng;
-  sre -> observability;
-  devops -> platform_eng;
-  sre -> platform_eng;
-  cloud_eng -> platform_eng [constraint=false];
-  cloud_eng -> k8s_eng [constraint=false];
-  k8s_eng -> platform_eng [constraint=false];
-  cloud_eng -> finops;
-  devops -> mlops;
-  ml_engineer -> mlops;
+  // Into quality and test
+  edge [color="#b23a5eaa"];
+  programmer -> tester [style=dashed];
+  tester -> qa_engineer;
+  qa_engineer -> sdet;
+  sdet -> test_automation;
 
-  // Networks and security
-  comms_eng -> network_admin;
-  sysadmin -> network_admin [constraint=false];
-  network_admin -> network_eng;
-  network_eng -> network_arch [constraint=false];
-  network_eng -> cloud_network;
-  cloud_eng -> cloud_network [style=dashed, constraint=false];
-  sec_officer -> sec_analyst;
-  sec_officer -> ciso;
-  sec_analyst -> sec_engineer;
-  network_eng -> sec_engineer [style=dashed, constraint=false];
-  sec_engineer -> pentester;
-  sec_engineer -> appsec;
-  appsec -> devsecops;
-  devops -> devsecops [constraint=false];
-  pentester -> ai_red_team;
-
-  // Data and AI
+  // Into data and AI
+  edge [color="#b08a00aa"];
   data_librarian -> dba;
   sys_programmer -> dba;
   statistician -> data_analyst;
@@ -295,21 +300,67 @@ digraph job_titles {
   prompt_eng -> ai_engineer [constraint=false];
   ai_engineer -> agent_eng [constraint=false];
 
-  // Quality and test
-  programmer -> tester [style=dashed];
-  tester -> qa_engineer;
-  qa_engineer -> sdet;
-  sdet -> test_automation;
+  // Into operations and infrastructure
+  edge [color="#2f8a43aa"];
+  computer_operator -> ops_analyst;
+  computer_operator -> sysadmin;
+  sys_programmer -> sysadmin;
+  sysadmin -> unix_admin;
+  sysadmin -> windows_admin;
+  sysadmin -> systems_eng;
+  systems_eng -> infra_eng;
+  sysadmin -> virtualisation;
+  virtualisation -> cloud_eng;
+  infra_eng -> cloud_eng;
+  config_manager -> build_release;
+  release_manager -> build_release;
+  config_manager -> release_manager;
+  build_release -> devops;
+  build_release -> cicd_eng;
   test_automation -> cicd_eng [style=dashed, constraint=false];
+  unix_admin -> devops;
+  unix_admin -> sre;
+  software_eng -> sre;
+  ops_analyst -> sre [style=dashed];
+  app_support -> sre [style=dashed];
+  sre -> devops [dir=both, style=dashed, arrowtail=vee];
+  sre -> chaos_eng;
+  sre -> observability;
+  devops -> platform_eng;
+  sre -> platform_eng;
+  cloud_eng -> platform_eng [constraint=false];
+  cloud_eng -> k8s_eng [constraint=false];
+  k8s_eng -> platform_eng [constraint=false];
+  cloud_eng -> finops;
+  devops -> mlops;
+  ml_engineer -> mlops;
 
-  // Support and customer-facing
+  // Into networks and security
+  edge [color="#c4621aaa"];
+  comms_eng -> network_admin;
+  sysadmin -> network_admin [constraint=false];
+  network_admin -> network_eng;
+  network_eng -> network_arch [constraint=false];
+  network_eng -> cloud_network;
+  cloud_eng -> cloud_network [style=dashed, constraint=false];
+  sec_officer -> sec_analyst;
+  sec_officer -> ciso;
+  sec_analyst -> sec_engineer;
+  network_eng -> sec_engineer [style=dashed, constraint=false];
+  sec_engineer -> pentester;
+  sec_engineer -> appsec;
+  appsec -> devsecops;
+  devops -> devsecops [constraint=false];
+  pentester -> ai_red_team;
+
+  // Into support and customer-facing
+  edge [color="#5f6b76aa"];
   customer_eng -> tech_support;
   customer_eng -> presales_se;
   tech_support -> helpdesk;
   helpdesk -> service_desk;
   tech_support -> app_support;
   app_support -> support_eng;
-  app_support -> sre [style=dashed];
   presales_se -> sales_eng;
   presales_se -> consultant;
   sales_eng -> solutions_eng;
@@ -318,24 +369,4 @@ digraph job_titles {
   consultant -> fde [style=dashed];
   evangelist -> dev_advocate;
   programmer -> tech_writer [style=dashed];
-
-  // ---------------------------------------------------------------- legend
-  subgraph cluster_legend {
-    label="Key"; fontsize=14; style=rounded; color="#999999";
-    node [fontsize=10, width=1.9];
-    l_dev  [label="Development",                 fillcolor="#dbe9ff", color="#3b6fb6"];
-    l_lead [label="Architecture / leadership",   fillcolor="#e8dcff", color="#6a4aa8"];
-    l_ops  [label="Operations / infrastructure", fillcolor="#dff3df", color="#3c8a3c"];
-    l_net  [label="Networks / security",         fillcolor="#ffe3cc", color="#c0661a"];
-    l_data [label="Data / AI",                   fillcolor="#fff6c2", color="#a88a00"];
-    l_qa   [label="Quality / test",              fillcolor="#ffdbe4", color="#b03a5b"];
-    l_sup  [label="Support / customer-facing",   fillcolor="#e6e6e6", color="#666666"];
-    l_note [shape=plaintext, style="", fontsize=10, label=<
-      <b>Solid arrow</b>: title grew out of the parent<br/>
-      <b>Dashed arrow</b>: influence / common career move<br/>
-      <b>Thick border</b>: landmark title<br/>
-      Dates and columns: roughly when a title became<br/>common, not its first recorded use.<br/>
-      c. = approximate>];
-  }
-  {rank=same; t1940; l_dev; l_lead; l_ops; l_net; l_data; l_qa; l_sup; l_note; }
 }
