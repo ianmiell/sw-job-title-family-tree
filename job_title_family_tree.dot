@@ -1,0 +1,339 @@
+// Software industry job title family tree, 1940s to the present.
+// Dates are roughly when a title became common, not its first recorded use.
+// Solid edge: title grew directly out of the parent. Dashed edge: influence /
+// people commonly moved across.
+//
+// Render: dot -Tsvg job_title_family_tree.dot -o job_title_family_tree.svg
+//         dot -Tpng -Gdpi=110 job_title_family_tree.dot -o job_title_family_tree.png
+
+digraph job_titles {
+  graph [rankdir=LR, ranksep=0.9, nodesep=0.18, splines=true, newrank=true,
+         fontname="Helvetica", fontsize=26, labelloc=t,
+         label="Software industry job titles: a family tree (1940s to now)\n ",
+         bgcolor=white];
+  node  [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11,
+         penwidth=1.2, margin="0.12,0.05"];
+  edge  [color="#777777", arrowsize=0.6, penwidth=1.0];
+
+  // ---------------------------------------------------------------- timeline
+  node [shape=plaintext, style="", fontsize=18, fontcolor="#444444"];
+  t1940 [label="1940s"]; t1950 [label="1950s"]; t1960 [label="1960s"];
+  t1970 [label="1970s"]; t1980 [label="1980s"]; t1990 [label="1990s"];
+  t2000 [label="2000s"]; t2010 [label="2010s"]; t2020 [label="2020s"];
+  t1940 -> t1950 -> t1960 -> t1970 -> t1980 -> t1990 -> t2000 -> t2010 -> t2020
+    [color="#bbbbbb", penwidth=3, arrowsize=1.2];
+  node [shape=box, style="rounded,filled", fontsize=11, fontcolor=black];
+
+  // ---------------------------------------------------------------- families
+  // Development
+  node [fillcolor="#dbe9ff", color="#3b6fb6"];
+  human_computer   [label="Computer\n(a person doing calculations)"];
+  coder            [label="Coder"];
+  programmer       [label="Programmer /\nComputer Programmer", penwidth=2.5];
+  sys_programmer   [label="Systems Programmer"];
+  app_programmer   [label="Application Programmer"];
+  analyst_prog     [label="Analyst/Programmer"];
+  software_eng     [label="Software Engineer", penwidth=2.5];
+  software_dev     [label="Software Developer"];
+  webmaster        [label="Webmaster"];
+  web_dev          [label="Web Developer"];
+  frontend         [label="Front-end Developer"];
+  backend          [label="Back-end Developer"];
+  fullstack        [label="Full-stack Developer"];
+  mobile_dev       [label="Mobile / iOS / Android\nDeveloper"];
+  game_dev         [label="Game Developer"];
+  embedded         [label="Embedded Software\nEngineer"];
+  senior_se        [label="Senior Software Engineer"];
+  staff_se         [label="Staff Software Engineer"];
+  principal_se     [label="Principal Engineer"];
+  distinguished    [label="Distinguished Engineer /\nFellow"];
+  dx_engineer      [label="Developer Experience\nEngineer"];
+
+  // Architecture and leadership
+  node [fillcolor="#e8dcff", color="#6a4aa8"];
+  dp_manager       [label="Data Processing (DP)\nManager"];
+  tech_lead        [label="Technical Lead /\nLead Programmer"];
+  it_manager       [label="IT Manager"];
+  cio              [label="CIO"];
+  cto              [label="CTO"];
+  eng_manager      [label="Engineering Manager"];
+  vp_eng           [label="VP Engineering"];
+  software_arch    [label="Software Architect"];
+  solutions_arch   [label="Solutions Architect"];
+  enterprise_arch  [label="Enterprise Architect"];
+  cloud_arch       [label="Cloud Architect"];
+  project_manager  [label="Project Manager\n(software)"];
+  product_manager  [label="Product Manager"];
+  scrum_master     [label="Scrum Master /\nAgile Coach"];
+  platform_pm      [label="Platform Product\nManager"];
+
+  // Operations and infrastructure
+  node [fillcolor="#dff3df", color="#3c8a3c"];
+  computer_operator [label="Computer Operator"];
+  ops_analyst      [label="Operations Analyst"];
+  sysadmin         [label="Systems Administrator\n(Sysadmin)", penwidth=2.5];
+  unix_admin       [label="Unix / Linux\nAdministrator"];
+  windows_admin    [label="Windows / Exchange\nAdministrator"];
+  systems_eng      [label="Systems Engineer"];
+  config_manager   [label="Configuration Manager"];
+  build_release    [label="Build and Release\nEngineer"];
+  release_manager  [label="Release Manager"];
+  infra_eng        [label="Infrastructure Engineer"];
+  virtualisation   [label="Virtualisation Engineer"];
+  sre              [label="Site Reliability Engineer\n(SRE)", penwidth=2.5];
+  devops           [label="DevOps Engineer", penwidth=2.5];
+  cloud_eng        [label="Cloud Engineer"];
+  cicd_eng         [label="CI/CD / Automation\nEngineer"];
+  platform_eng     [label="Platform Engineer", penwidth=2.5];
+  k8s_eng          [label="Kubernetes Engineer"];
+  chaos_eng        [label="Chaos Engineer"];
+  observability    [label="Observability Engineer"];
+  finops           [label="FinOps Engineer /\nAnalyst"];
+  mlops            [label="MLOps Engineer"];
+
+  // Networks and security
+  node [fillcolor="#ffe3cc", color="#c0661a"];
+  comms_eng        [label="Communications /\nTelecoms Engineer"];
+  network_admin    [label="Network Administrator"];
+  network_eng      [label="Network Engineer", penwidth=2.5];
+  network_arch     [label="Network Architect"];
+  cloud_network    [label="Cloud Network Engineer"];
+  sec_officer      [label="Information Security\nOfficer"];
+  sec_analyst      [label="Security Analyst"];
+  sec_engineer     [label="Security Engineer"];
+  pentester        [label="Penetration Tester /\nEthical Hacker"];
+  appsec           [label="Application Security\nEngineer"];
+  devsecops        [label="DevSecOps Engineer"];
+  ciso             [label="CISO"];
+  ai_red_team      [label="AI Red Teamer"];
+
+  // Data and AI
+  node [fillcolor="#fff6c2", color="#a88a00"];
+  statistician     [label="Statistician"];
+  data_librarian   [label="Data Librarian /\nTape Librarian"];
+  dba              [label="Database Administrator\n(DBA)"];
+  data_analyst     [label="Data Analyst"];
+  dw_developer     [label="Data Warehouse /\nBI Developer"];
+  etl_dev          [label="ETL Developer"];
+  big_data         [label="Big Data / Hadoop\nEngineer"];
+  data_scientist   [label="Data Scientist", penwidth=2.5];
+  data_engineer    [label="Data Engineer"];
+  analytics_eng    [label="Analytics Engineer"];
+  ml_engineer      [label="Machine Learning\nEngineer"];
+  prompt_eng       [label="Prompt Engineer"];
+  ai_engineer      [label="AI Engineer", penwidth=2.5];
+  agent_eng        [label="AI Agent /\nContext Engineer"];
+
+  // Quality and test
+  node [fillcolor="#ffdbe4", color="#b03a5b"];
+  tester           [label="Software Tester"];
+  qa_engineer      [label="QA Engineer"];
+  sdet             [label="SDET (Software Dev\nEngineer in Test)"];
+  test_automation  [label="Test Automation\nEngineer"];
+
+  // Support and customer-facing
+  node [fillcolor="#e6e6e6", color="#666666"];
+  customer_eng     [label="Customer Engineer /\nField Engineer (IBM CE)"];
+  presales_se      [label="Systems Engineer\n(pre-sales, IBM SE)"];
+  tech_support     [label="Technical Support"];
+  helpdesk         [label="Help Desk Technician"];
+  service_desk     [label="Service Desk Analyst"];
+  app_support      [label="Application Support\nAnalyst"];
+  support_eng      [label="Support Engineer"];
+  sales_eng        [label="Sales Engineer"];
+  solutions_eng    [label="Solutions Engineer"];
+  consultant       [label="IT Consultant"];
+  evangelist       [label="Technology Evangelist"];
+  dev_advocate     [label="Developer Advocate /\nDevRel"];
+  fde              [label="Forward Deployed\nEngineer", penwidth=2.5];
+  tech_writer      [label="Technical Writer"];
+  systems_analyst  [label="Systems Analyst"];
+  business_analyst [label="Business Analyst"];
+
+  // ---------------------------------------------------------------- eras
+  {rank=same; t1940; human_computer; coder; comms_eng; statistician; }
+  {rank=same; t1950; programmer; computer_operator; customer_eng; systems_analyst;
+                     dp_manager; data_librarian; }
+  {rank=same; t1960; sys_programmer; app_programmer; software_eng; presales_se;
+                     tech_writer; project_manager; }
+  {rank=same; t1970; analyst_prog; dba; tech_support; tester; ops_analyst;
+                     tech_lead; config_manager; embedded; sec_officer; }
+  {rank=same; t1980; software_dev; sysadmin; network_admin; helpdesk; qa_engineer;
+                     it_manager; cio; consultant; evangelist; game_dev; sec_analyst;
+                     systems_eng; data_analyst; dw_developer; }
+  {rank=same; t1990; webmaster; web_dev; software_arch; solutions_arch;
+                     enterprise_arch; unix_admin; windows_admin; network_eng;
+                     network_arch; sec_engineer; business_analyst; cto;
+                     release_manager; etl_dev; product_manager; sales_eng;
+                     app_support; service_desk; ciso; }
+  {rank=same; t2000; frontend; backend; fullstack; senior_se; sre; build_release;
+                     virtualisation; infra_eng; pentester; appsec; sdet;
+                     scrum_master; eng_manager; vp_eng; data_scientist;
+                     big_data; dev_advocate; support_eng; mobile_dev; }
+  {rank=same; t2010; staff_se; principal_se; distinguished; devops; cloud_eng;
+                     cloud_arch; cicd_eng; platform_eng; k8s_eng; chaos_eng;
+                     devsecops; cloud_network; data_engineer; ml_engineer;
+                     test_automation; solutions_eng; fde; }
+  {rank=same; t2020; observability; finops; mlops; analytics_eng; prompt_eng;
+                     ai_engineer; agent_eng; platform_pm; dx_engineer; ai_red_team; }
+
+  // ---------------------------------------------------------------- lineage
+  // Development
+  human_computer -> programmer;
+  coder -> programmer;
+  programmer -> sys_programmer;
+  programmer -> app_programmer;
+  programmer -> software_eng;
+  programmer -> analyst_prog;
+  systems_analyst -> analyst_prog;
+  app_programmer -> software_dev;
+  analyst_prog -> software_dev;
+  software_eng -> software_dev [dir=both, style=dashed];
+  software_eng -> embedded;
+  software_eng -> senior_se;
+  senior_se -> staff_se;
+  staff_se -> principal_se;
+  principal_se -> distinguished;
+  software_dev -> game_dev;
+  software_dev -> web_dev;
+  webmaster -> web_dev;
+  web_dev -> frontend;
+  web_dev -> backend;
+  frontend -> fullstack;
+  backend -> fullstack;
+  software_dev -> mobile_dev;
+  platform_eng -> dx_engineer;
+  dev_advocate -> dx_engineer [style=dashed];
+
+  // Architecture and leadership
+  programmer -> tech_lead;
+  tech_lead -> eng_manager;
+  eng_manager -> vp_eng;
+  vp_eng -> cto [style=dashed, constraint=false];
+  dp_manager -> it_manager;
+  it_manager -> cio;
+  cio -> cto [style=dashed];
+  software_eng -> software_arch;
+  software_arch -> solutions_arch;
+  systems_analyst -> solutions_arch [style=dashed];
+  solutions_arch -> enterprise_arch;
+  solutions_arch -> cloud_arch;
+  project_manager -> scrum_master;
+  project_manager -> product_manager [style=dashed];
+  product_manager -> platform_pm;
+  platform_eng -> platform_pm [style=dashed];
+  systems_analyst -> business_analyst;
+
+  // Operations and infrastructure
+  computer_operator -> ops_analyst;
+  computer_operator -> sysadmin;
+  sys_programmer -> sysadmin;
+  sysadmin -> unix_admin;
+  sysadmin -> windows_admin;
+  sysadmin -> systems_eng;
+  systems_eng -> infra_eng;
+  sysadmin -> virtualisation;
+  virtualisation -> cloud_eng;
+  infra_eng -> cloud_eng;
+  config_manager -> build_release;
+  release_manager -> build_release;
+  config_manager -> release_manager;
+  build_release -> devops;
+  build_release -> cicd_eng;
+  unix_admin -> devops;
+  unix_admin -> sre;
+  software_eng -> sre;
+  ops_analyst -> sre [style=dashed];
+  sre -> devops [dir=both, style=dashed];
+  sre -> chaos_eng;
+  sre -> observability;
+  devops -> platform_eng;
+  sre -> platform_eng;
+  cloud_eng -> platform_eng [constraint=false];
+  cloud_eng -> k8s_eng [constraint=false];
+  k8s_eng -> platform_eng [constraint=false];
+  cloud_eng -> finops;
+  devops -> mlops;
+  ml_engineer -> mlops;
+
+  // Networks and security
+  comms_eng -> network_admin;
+  sysadmin -> network_admin [constraint=false];
+  network_admin -> network_eng;
+  network_eng -> network_arch [constraint=false];
+  network_eng -> cloud_network;
+  cloud_eng -> cloud_network [style=dashed, constraint=false];
+  sec_officer -> sec_analyst;
+  sec_officer -> ciso;
+  sec_analyst -> sec_engineer;
+  network_eng -> sec_engineer [style=dashed, constraint=false];
+  sec_engineer -> pentester;
+  sec_engineer -> appsec;
+  appsec -> devsecops;
+  devops -> devsecops [constraint=false];
+  pentester -> ai_red_team;
+
+  // Data and AI
+  data_librarian -> dba;
+  sys_programmer -> dba;
+  statistician -> data_analyst;
+  dba -> dw_developer;
+  dw_developer -> etl_dev;
+  etl_dev -> big_data;
+  big_data -> data_engineer;
+  etl_dev -> data_engineer;
+  data_engineer -> analytics_eng;
+  data_analyst -> analytics_eng;
+  data_analyst -> data_scientist;
+  statistician -> data_scientist;
+  data_scientist -> ml_engineer;
+  software_eng -> ml_engineer [style=dashed];
+  data_scientist -> prompt_eng [style=dashed];
+  ml_engineer -> ai_engineer;
+  software_eng -> ai_engineer;
+  prompt_eng -> ai_engineer [constraint=false];
+  ai_engineer -> agent_eng [constraint=false];
+
+  // Quality and test
+  programmer -> tester [style=dashed];
+  tester -> qa_engineer;
+  qa_engineer -> sdet;
+  sdet -> test_automation;
+  test_automation -> cicd_eng [style=dashed, constraint=false];
+
+  // Support and customer-facing
+  customer_eng -> tech_support;
+  customer_eng -> presales_se;
+  tech_support -> helpdesk;
+  helpdesk -> service_desk;
+  tech_support -> app_support;
+  app_support -> support_eng;
+  app_support -> sre [style=dashed];
+  presales_se -> sales_eng;
+  presales_se -> consultant;
+  sales_eng -> solutions_eng;
+  solutions_eng -> fde [constraint=false];
+  software_eng -> fde;
+  consultant -> fde [style=dashed];
+  evangelist -> dev_advocate;
+  programmer -> tech_writer [style=dashed];
+
+  // ---------------------------------------------------------------- legend
+  subgraph cluster_legend {
+    label="Key"; fontsize=14; style=rounded; color="#999999";
+    node [fontsize=10, width=1.9];
+    l_dev  [label="Development",                 fillcolor="#dbe9ff", color="#3b6fb6"];
+    l_lead [label="Architecture / leadership",   fillcolor="#e8dcff", color="#6a4aa8"];
+    l_ops  [label="Operations / infrastructure", fillcolor="#dff3df", color="#3c8a3c"];
+    l_net  [label="Networks / security",         fillcolor="#ffe3cc", color="#c0661a"];
+    l_data [label="Data / AI",                   fillcolor="#fff6c2", color="#a88a00"];
+    l_qa   [label="Quality / test",              fillcolor="#ffdbe4", color="#b03a5b"];
+    l_sup  [label="Support / customer-facing",   fillcolor="#e6e6e6", color="#666666"];
+    l_note [shape=plaintext, style="", fontsize=10, label=<
+      <b>Solid arrow</b>: title grew out of the parent<br/>
+      <b>Dashed arrow</b>: influence / common career move<br/>
+      <b>Thick border</b>: landmark title<br/>
+      Columns show roughly when a title became<br/>common, not its first recorded use>];
+  }
+  {rank=same; t1940; l_dev; l_lead; l_ops; l_net; l_data; l_qa; l_sup; l_note; }
+}
