@@ -27,7 +27,13 @@
   .fams button[aria-pressed="true"] { background:var(--c); border-color:var(--c); color:#fff; }
   .fams button[aria-pressed="true"] .dot { background:#fff; }
   #wrap { flex:1; position:relative; overflow:hidden; }
-  #chart { width:100%; height:100%; display:block; }
+  #chart { width:100%; height:100%; }
+  #chart > svg { width:100%; height:100%; display:block; }
+  #chart > img { width:100%; }
+  #chart .node, #chart .edge, #chart .cluster { transition:opacity .25s; }
+  #chart [data-state="dim"] { opacity:0; pointer-events:none; }
+  #chart [data-state="half"] { opacity:.4; }
+  #chart [data-fam] { cursor:pointer; }
   .hint { position:absolute; right:12px; bottom:10px; font-size:12px; color:var(--muted);
     background:rgba(255,255,255,.85); padding:3px 8px; border-radius:4px; pointer-events:none; }
   @media (max-width:600px) { header { padding:10px 16px; } .hint { display:none; } }
@@ -48,9 +54,7 @@
   <div class="fams" id="fams"><span class="label">Show:</span></div>
 </header>
 <div id="wrap">
-  <object id="chart" type="image/svg+xml" data="job_title_family_tree.svg">
-    <img src="job_title_family_tree.png" alt="Software industry job title family tree" style="width:100%">
-  </object>
+  <div id="chart" role="img" aria-label="Software industry job title family tree"></div>
   <div class="hint">Click a family to show just that one · scroll or drag to pan · pinch or ctrl+scroll to zoom · Esc for all</div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
@@ -77,12 +81,41 @@
   addButton('all', 'All', '#444444');
   FAMS.forEach(function (f) { addButton(f.id, f.name, f.c); });
 
-  var obj = document.getElementById('chart'), pz = null, svg = null, doc = null;
+  var chart = document.getElementById('chart'), pz = null, svg = null;
   var nodes = [], edges = [], clusters = {}, nodeFam = {}, current = null;
 
-  function famOf(el) {
-    var m = (el.getAttribute('class') || '').match(/fam-([a-z]+)/);
-    return m ? m[1] : null;
+  function famOf(el) { return el.getAttribute('data-fam'); }
+
+  // Family of each band and box. Uses the fam-* classes in the SVG; for an
+  // SVG without them, takes the band's family from its "cluster_<fam>" title
+  // and a box's family from the band its centre lies in.
+  function tagFamilies() {
+    var bands = [];
+    Array.prototype.forEach.call(svg.querySelectorAll('g.cluster'), function (el) {
+      var m = (el.getAttribute('class') || '').match(/fam-([a-z]+)/) ||
+              (el.querySelector('title').textContent.match(/^cluster_([a-z]+)$/));
+      var fam = m && m[1];
+      if (!fam || !FAMS.some(function (f) { return f.id === fam; })) return;
+      el.setAttribute('data-fam', fam); clusters[fam] = el;
+      bands.push({ fam: fam, r: el.getBoundingClientRect() });
+    });
+    Array.prototype.forEach.call(svg.querySelectorAll('g.node'), function (el) {
+      var id = el.querySelector('title').textContent;
+      var m = (el.getAttribute('class') || '').match(/fam-([a-z]+)/), fam = m && m[1];
+      if (!fam) {
+        var r = el.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+        bands.forEach(function (bd) {
+          if (cx >= bd.r.left && cx <= bd.r.right && cy >= bd.r.top && cy <= bd.r.bottom) fam = bd.fam;
+        });
+      }
+      if (fam) el.setAttribute('data-fam', fam);
+      nodeFam[id] = fam || null;
+      nodes.push({ id: id, el: el });
+    });
+    Array.prototype.forEach.call(svg.querySelectorAll('g.edge'), function (el) {
+      var t = el.querySelector('title').textContent.split('->');
+      edges.push({ a: t[0], b: t[1], el: el, timeline: /^t\d{4}$/.test(t[0]) });
+    });
   }
 
   function fitAll() { if (pz) { pz.resize(); pz.fit(); pz.center(); } }
@@ -127,33 +160,9 @@
     if (fam && clusters[fam]) zoomTo(clusters[fam]); else fitAll();
   }
 
-  obj.addEventListener('load', function () {
-    doc = obj.contentDocument;
-    svg = doc && doc.querySelector('svg');
-    if (!svg) return;
-    var style = doc.createElementNS('http://www.w3.org/2000/svg', 'style');
-    style.textContent =
-      '.node,.edge,.cluster{transition:opacity .25s}' +
-      '[data-state="dim"]{opacity:0;pointer-events:none}' +
-      '[data-state="half"]{opacity:.4}' +
-      '.cluster.fam polygon,.cluster.fam text,.node.fam-dev,.node.fam-lead,.node.fam-qa,' +
-      '.node.fam-data,.node.fam-ops,.node.fam-net,.node.fam-sup{cursor:pointer}';
-    svg.appendChild(style);
-
-    Array.prototype.forEach.call(svg.querySelectorAll('g.node'), function (el) {
-      var id = el.querySelector('title').textContent;
-      nodeFam[id] = famOf(el);
-      nodes.push({ id: id, el: el });
-    });
-    Array.prototype.forEach.call(svg.querySelectorAll('g.edge'), function (el) {
-      var t = el.querySelector('title').textContent.split('->');
-      edges.push({ a: t[0], b: t[1], el: el, timeline: /^t\d{4}$/.test(t[0]) });
-    });
-    Array.prototype.forEach.call(svg.querySelectorAll('g.cluster.fam'), function (el) {
-      clusters[famOf(el)] = el;
-    });
-
-    svg.setAttribute('width', '100%'); svg.setAttribute('height', '100%');
+  function init() {
+    tagFamilies();
+    svg.removeAttribute('width'); svg.removeAttribute('height');
     pz = svgPanZoom(svg, { zoomScaleSensitivity: 0.3, minZoom: 0.5, maxZoom: 15,
                            fit: true, center: true, dblClickZoomEnabled: false,
                            mouseWheelZoomEnabled: false });
@@ -176,18 +185,31 @@
     svg.addEventListener('mousedown', function (ev) { down = { x: ev.clientX, y: ev.clientY }; });
     svg.addEventListener('click', function (ev) {
       if (down && Math.abs(ev.clientX - down.x) + Math.abs(ev.clientY - down.y) > 5) return;
-      var g = ev.target.closest('g.cluster.fam, g.node');
+      var g = ev.target.closest('[data-fam]');
       var fam = g && famOf(g);
       if (fam && fam !== current) select(fam);
     });
-    doc.addEventListener('keydown', function (ev) { if (ev.key === 'Escape') select(null); });
 
     window.addEventListener('resize', function () {
       if (current && clusters[current]) zoomTo(clusters[current]); else fitAll();
     });
     var h = location.hash.slice(1);
     select(clusters[h] ? h : null);
-  });
+  }
+
+  // Fetched (not <object>/<img>) so the browser revalidates it every time and
+  // never pairs this page with a stale cached chart.
+  fetch('job_title_family_tree.svg', { cache: 'no-cache' })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+    .then(function (text) {
+      chart.innerHTML = text.replace(/^[\s\S]*?(<svg)/, '$1');
+      svg = chart.querySelector('svg');
+      if (!svg || !window.svgPanZoom) throw new Error('no svg');
+      init();
+    })
+    .catch(function () {
+      chart.innerHTML = '<img src="job_title_family_tree.png" alt="Software industry job title family tree">';
+    });
 
   document.getElementById('fit').addEventListener('click', function () {
     if (current && clusters[current]) zoomTo(clusters[current]); else fitAll();
