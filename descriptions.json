@@ -1,0 +1,426 @@
+{
+  "_note": "One entry per node id in job_title_family_tree.dot. 'about' is history and background; 'links' is how the title connects to its neighbours. Shown when a box is clicked on the Pages site. Best-effort summaries, not sourced citations: corrections welcome.",
+
+  "human_computer": {
+    "about": "Before machines, a “computer” was a person who computed. The word is recorded from 1613, and by the late 19th century teams of (often female) human computers worked at observatories such as Harvard's, at actuarial firms, and later at NACA and the wartime ballistics labs, working through calculations by hand and with mechanical calculators.",
+    "links": "Several of the first ENIAC programmers (Kay McNulty, Betty Jennings, Frances Bilas and others) were recruited from the Army's human computers at the Moore School, so the job passed its name to the machine and its people to programming."
+  },
+  "coder": {
+    "about": "In the mid-1940s the work of using a computer was split into stages. Goldstine and von Neumann's 1947 “Planning and Coding of Problems” separated the mathematicians who planned a problem from the coders who translated the plan into machine instructions. Coding was treated as lower-status clerical work, and much of it was done by women.",
+    "links": "Coding turned out to be the hard, creative part, and the coder merged into the programmer. The word came back decades later, informally and with more pride (“learn to code”)."
+  },
+  "programmer": {
+    "about": "From the “programme” of operations set up on ENIAC and EDSAC, “programmer” was the standard title by the early 1950s, used by UNIVAC, IBM and Ferranti customers. Grace Hopper's compilers and FORTRAN (1957) and COBOL (1959) made it a large occupation, and aptitude tests were used to recruit people from every background.",
+    "links": "The root of most of the tree. Programmers split into systems and application programmers, were rebranded software engineers, became the first technical leads, and spun off testing and technical writing as separate jobs."
+  },
+  "sys_programmer": {
+    "about": "As machines got operating systems, monitors and utilities, a specialist group wrote and maintained them, usually in assembler. With IBM's System/360 (1964) and OS/360, the mainframe systems programmer, who installed, tuned and patched the operating system and its subsystems, became an established and well-paid role that still exists in z/OS shops.",
+    "links": "Systems programmers were the low-level experts who looked after the machine for everyone else. That made them natural ancestors of the system administrator and, once databases arrived, the DBA."
+  },
+  "app_programmer": {
+    "about": "The counterpart to the systems programmer: someone writing the business programs (payroll, inventory, billing, reports) that ran on top of the operating system. Mostly COBOL on mainframes from the 1960s on, and the bulk of all programming jobs for decades.",
+    "links": "With the arrival of PCs and new tools in the 1980s, application programmers increasingly got the broader, less mainframe-flavoured title of software developer."
+  },
+  "analyst_prog": {
+    "about": "A combined title, especially common in the UK and in smaller shops, for someone who both worked out what the business needed (the systems analyst's job) and wrote the code. It was a standard rung on 1970s–90s career ladders: programmer, analyst/programmer, senior analyst/programmer, then systems analyst.",
+    "links": "It sits between the programmer and systems analyst lines and fed into the generic software developer as the analysis/coding split went out of fashion."
+  },
+  "software_eng": {
+    "about": "Margaret Hamilton has said she started using “software engineering” during the Apollo programme in the mid-1960s to give software the same legitimacy as hardware. The NATO Software Engineering Conference in Garmisch (1968) put the term on the map as a response to the “software crisis” of late, buggy, over-budget projects. It became the default title at technology companies from the 1990s.",
+    "links": "The hub of the modern tree. Senior/staff/principal ladders, architects, embedded, SRE, ML and AI engineers and forward deployed engineers all branch from it. It is used almost interchangeably with software developer, which is why that edge points both ways."
+  },
+  "embedded": {
+    "about": "Cheap microprocessors (Intel 4004 in 1971, then the 8080 and its rivals) put software inside cars, appliances, instruments, telecoms kit and weapons. Embedded engineers write code that is close to the hardware, often real-time and memory-constrained, in assembler, C and, for US defence work, Ada.",
+    "links": "A software engineering speciality that stays close to electronics engineering; it later fed firmware, IoT and robotics roles."
+  },
+  "software_dev": {
+    "about": "“Developer” spread with the personal computer and packaged software industries of the 1980s, helped by vendors (Microsoft, Apple, Borland) that addressed their tools and conferences to developers. It is less formal than “engineer”, and in some countries “engineer” is a protected title, so “developer” is what is used.",
+    "links": "Where application programmers and analyst/programmers ended up. It is the parent of game, web and mobile development, and is effectively the same job as software engineer under a different name."
+  },
+  "game_dev": {
+    "about": "Arcade and home console games in the 1970s were built by tiny teams, often uncredited. Activision was founded in 1979 by Atari programmers who wanted credit and royalties. The home-computer boom of the early 1980s (ZX Spectrum, C64, Apple II) made bedroom game developers and a real industry.",
+    "links": "Game development has always been a specialist branch of software development, and it sent many people into graphics, engine and, later, GPU/ML work."
+  },
+  "webmaster": {
+    "about": "The first title of the web era. Early style guidance suggested every site have a webmaster@ mailbox, and from about 1993 the person behind it was the webmaster, often a single person who wrote the HTML, ran the server, answered the email and kept the site up.",
+    "links": "As sites grew the job broke apart: the code went to web developers, the servers to sysadmins, the content to editors and designers. The title had all but gone by the mid-2000s."
+  },
+  "web_dev": {
+    "about": "Netscape (1994), JavaScript and PHP (both 1995), CGI scripts in Perl and server-side Java made building websites a programming job rather than a publishing one. The dot-com boom hired web developers by the thousand.",
+    "links": "Born from both the software developer and the webmaster. As browsers and servers each got more complex it divided into front-end and back-end."
+  },
+  "frontend": {
+    "about": "Gmail (2004), Google Maps and the naming of “Ajax” (2005) showed what could be done in the browser, and jQuery (2006) made it practical. Front-end developers specialise in HTML, CSS, JavaScript and browser behaviour; the job deepened with single-page app frameworks such as Angular and React (2013).",
+    "links": "One half of the web developer split, and with back-end the parent of full-stack. It overlaps heavily with UI/UX design."
+  },
+  "backend": {
+    "about": "The other half of the split: server-side code, databases, APIs and integrations. Frameworks such as Ruby on Rails (2004) and Django (2005), and later Node.js (2009), defined the role, as did the shift from page rendering to JSON APIs.",
+    "links": "Overlaps with data engineering on one side and infrastructure on the other. With front-end it is the parent of full-stack."
+  },
+  "fullstack": {
+    "about": "Someone who works across front-end, back-end and often the database and deployment too. The term appeared in the late 2000s and became standard in startup hiring in the early 2010s, with the LAMP, Rails and later MERN stacks.",
+    "links": "Effectively a recombination of the front/back-end split, often an echo of what the original web developer, or even webmaster, did."
+  },
+  "mobile_dev": {
+    "about": "Mobile software existed before (J2ME, Symbian, BlackBerry), but the iPhone (2007), Apple's App Store (July 2008) and Android Market (October 2008) created a mass market for apps and a distinct job, specialising in Objective-C/Swift or Java/Kotlin and the platform rules.",
+    "links": "A software developer speciality; cross-platform tools (React Native, Flutter) have since pulled it back towards front-end development."
+  },
+  "senior_se": {
+    "about": "Less a new job than a grade. As software companies formalised pay and career ladders in the 1990s and 2000s, “Senior” marked someone who can work independently and lead pieces of work. Title inflation means it now often arrives after only a few years.",
+    "links": "The first rung of the individual-contributor ladder that runs on to staff, principal and distinguished, offered as an alternative to moving into management."
+  },
+  "principal_se": {
+    "about": "A senior individual-contributor level used at Microsoft, Amazon and many others, for engineers whose influence spans multiple teams or a whole organisation. In some companies it sits above staff, in others below; the names vary more than the jobs.",
+    "links": "Part of the technical ladder between staff and distinguished; it often overlaps with software architect in practice."
+  },
+  "staff_se": {
+    "about": "Popularised by Google, Facebook and other Silicon Valley companies as the level above senior on a dual-track ladder, where technical leaders can progress without managing people. Will Larson's book “Staff Engineer” (2021) did much to define what the job involves: technical direction, mentoring and “glue” work.",
+    "links": "Grew out of senior; the step before principal. The dual-track ladder it belongs to was a direct response to engineers being pushed into engineering management to get promoted."
+  },
+  "distinguished": {
+    "about": "The top of the technical ladder. IBM created the IBM Fellow position in 1963 to reward and free up its most important technologists, and later added Distinguished Engineer. Most large tech companies adopted equivalent titles by the 2010s; there are usually very few of them.",
+    "links": "Ends the senior → staff → principal line; many fellows are people who also hold, or held, architect and CTO-office roles."
+  },
+  "dx_engineer": {
+    "about": "Developer Experience (DevEx/DX) engineers work on the tools, workflows, documentation and internal portals that make other developers productive: build speed, CI feedback, local environments, golden paths. Spotify's Backstage (open-sourced 2020) and research on developer productivity (DORA, SPACE) gave it shape.",
+    "links": "Grew out of platform engineering (treating developers as the platform's customers) and borrows from developer relations, but points inward at a company's own engineers."
+  },
+
+  "systems_analyst": {
+    "about": "As businesses started using computers in the 1950s (LEO at J. Lyons in the UK in 1951 is the classic early case), someone had to study how a business process worked and specify what the computer system should do. Systems analysts did that, drawing flowcharts and writing specifications for programmers. Methods such as SSADM (UK, 1980s) formalised the job.",
+    "links": "Partner to the programmer from the start; combined with it in the analyst/programmer, and ancestor of the business analyst and, more loosely, the solutions architect."
+  },
+  "dp_manager": {
+    "about": "The Data Processing manager ran the DP department, which in many firms grew straight out of the punched-card tabulating department. They managed operators, programmers, the machine room and its budget, usually reporting into finance.",
+    "links": "Renamed IT manager as “information technology” replaced “data processing” in the 1980s, and an ancestor of the CIO."
+  },
+  "project_manager": {
+    "about": "Project management techniques came out of large defence and aerospace programmes: PERT (1958, for the Polaris missile) and the Critical Path Method. Big software projects such as SAGE and IBM's OS/360 (the subject of Fred Brooks's “The Mythical Man-Month”, 1975) made software project managers necessary. PMI was founded in 1969, and PRINCE/PRINCE2 became the UK standard.",
+    "links": "Agile turned part of the job into the scrum master, and the question of what to build moved towards product management."
+  },
+  "tech_lead": {
+    "about": "The most experienced programmer on a team, who still writes code but also makes the technical calls and coordinates the others. Harlan Mills's “chief programmer team” at IBM in the early 1970s is an early formal version.",
+    "links": "Grew out of programming, and the usual route into engineering management. It remains the main hinge between the technical and management ladders."
+  },
+  "cio": {
+    "about": "Chief Information Officer was popularised around 1981, notably by William Synnott and William Gruber's “Information Resource Management”, arguing that information was a strategic asset that deserved a seat at the board table rather than a DP department in finance.",
+    "links": "The top of the DP manager → IT manager line. In most companies the CIO runs internal IT, while the CTO, if there is one, runs the technology in the product."
+  },
+  "it_manager": {
+    "about": "As “information technology” replaced “data processing” in the 1980s and PCs and networks spread through offices, the DP manager became the IT manager, now responsible for desktops, networks, help desks and suppliers as well as the central systems.",
+    "links": "Between the DP manager and the CIO; it manages help desk, sysadmin and network teams."
+  },
+  "cto": {
+    "about": "Chief Technology Officer became common in the late 1980s and 1990s, especially at companies whose product was technology. The dot-com boom made it a standard startup title, often held by a founder who wrote the first code.",
+    "links": "Reached both from engineering (through VP Engineering) and from the CIO side. At many startups the CTO sets technical direction while the VP Engineering runs the teams."
+  },
+  "business_analyst": {
+    "about": "The systems analyst's job moved closer to the business as packaged software (ERP, CRM) and outsourcing spread in the 1990s: understanding processes and requirements, writing user stories and acceptance criteria. The IIBA was founded in 2003 and published the BABOK guide.",
+    "links": "A descendant of the systems analyst. It sits between the business and the developers, and overlaps with product management and with data analysis."
+  },
+  "product_manager": {
+    "about": "Product and brand management began in consumer goods (Neil McElroy's 1931 brand-man memo at Procter & Gamble). Software companies adopted it as the shrink-wrap and then web industries grew in the 1980s and 1990s. The product manager decides what gets built and why; Ben Horowitz's “Good Product Manager/Bad Product Manager” and Marty Cagan's work defined the modern role.",
+    "links": "Took over the “what” from project managers. It is the parent of platform product management, and works alongside engineering managers and designers."
+  },
+  "software_arch": {
+    "about": "Fred Brooks and colleagues used “architecture” for the design of IBM's System/360 in the 1960s. In software the idea grew through the 1990s: Perry and Wolf (1992), the Gang of Four design patterns (1994), Shaw and Garlan's “Software Architecture” (1996). The architect owns the high-level structure of a system rather than its code.",
+    "links": "Grew out of senior software engineering. It is the root of the solutions, enterprise and cloud architect line, and in many companies overlaps with principal engineer."
+  },
+  "enterprise_arch": {
+    "about": "Enterprise architects look at an organisation's whole estate (business processes, applications, data and technology) and plan how it should change. John Zachman's framework (1987) and The Open Group's TOGAF (1995) are the foundations of the field.",
+    "links": "The broadest of the architect titles, grown from solutions architecture; it works closely with the CIO."
+  },
+  "solutions_arch": {
+    "about": "Designs a solution to a particular business problem, often from vendor products and integrations rather than code written from scratch. It became common with the systems integrators, ERP and middleware of the late 1990s, and both vendors and customers employ them.",
+    "links": "Between the software architect and the enterprise architect, with a large influence from systems analysis. It is the parent of the cloud architect, and close to pre-sales (vendors' solutions architects often are pre-sales)."
+  },
+  "vp_eng": {
+    "about": "Vice President of Engineering became a standard title at software and internet companies around 2000: the executive who runs the engineering organisation's people, hiring, delivery and process.",
+    "links": "Reached through engineering management, and often a step towards CTO; many companies split the two, with the VP running the organisation and the CTO the technology."
+  },
+  "scrum_master": {
+    "about": "Scrum was presented by Ken Schwaber and Jeff Sutherland in 1995; the Agile Manifesto followed in 2001 and the Certified ScrumMaster course in 2002. The scrum master facilitates the team's process and removes impediments rather than directing the work. Agile coaches do the same across many teams.",
+    "links": "Largely replaced the project manager inside agile teams; demand peaked in the 2010s and many organisations have since folded it back into engineering management or delivery roles."
+  },
+  "eng_manager": {
+    "about": "As tech companies grew in the 2000s they separated the people-management job (hiring, career growth, one-to-ones, delivery) from technical leadership, and Engineering Manager became the standard first management title.",
+    "links": "Grew out of the tech lead. Next is VP Engineering, and the parallel IC track (staff, principal) exists so people do not have to take this route to progress."
+  },
+  "cloud_arch": {
+    "about": "With AWS (2006) and then Azure and Google Cloud, companies needed people to design systems for a public cloud: accounts and networking, identity, managed services, resilience and cost. AWS's Certified Solutions Architect exam (2013) made it a marketable title.",
+    "links": "A solutions architect specialised for cloud; it works with cloud engineers and platform teams and overlaps with cloud network design and FinOps."
+  },
+  "platform_pm": {
+    "about": "As internal platforms came to be treated as products (a key idea in Team Topologies, 2019, and the platform engineering movement), some companies hired product managers to run them: talking to developer “customers”, setting a roadmap, measuring adoption.",
+    "links": "Brings together product management and platform engineering, and works closely with developer experience engineers."
+  },
+
+  "comms_eng": {
+    "about": "Telegraph, telephone and radio engineering long predate computing. The Bell System, the post offices that ran national telephone networks, and military signals all employed large numbers of communications engineers, and Bell Labs produced information theory (Shannon, 1948) and Unix.",
+    "links": "When computers began to be networked, telecoms people brought the skills of circuits, protocols and transmission, and became the first network administrators and engineers."
+  },
+  "sec_officer": {
+    "about": "Security for computers was first a military and government concern (the Ware report of 1970 and the Anderson report of 1972 for the US). As mainframes became shared, multi-user systems, organisations appointed data or information security officers to manage access controls (IBM's RACF arrived in 1976) and policy.",
+    "links": "The root of the security line: the analytical work grew into security analyst and engineer, and the leadership role into the CISO."
+  },
+  "network_admin": {
+    "about": "Office LANs spread in the 1980s (Ethernet, Token Ring, and above all Novell NetWare from 1983), and someone had to run the file servers, cabling, users and printers. Novell's CNA/CNE certifications made the network administrator a recognised job.",
+    "links": "Came from telecoms engineering and from system administration (the two often were the same person in small offices) and grew into the network engineer."
+  },
+  "sec_analyst": {
+    "about": "The Morris worm of November 1988 infected a large share of the internet and led to the founding of CERT/CC. From then on organisations needed people to monitor for intrusions, analyse incidents and respond. The role later became the core of security operations centres (SOCs).",
+    "links": "The hands-on side of the information security officer's job; the parent of the security engineer."
+  },
+  "network_eng": {
+    "about": "As the internet commercialised in the early 1990s and companies built wide-area networks on TCP/IP, routing and switching became a specialist engineering discipline. Cisco's CCIE certification (1993) became one of the most valued credentials in IT.",
+    "links": "Grew out of network administration. It went on to network architecture, security engineering (firewalls were often run by the network team) and cloud networking."
+  },
+  "network_arch": {
+    "about": "Designs whole networks (topology, routing, capacity, resilience and their evolution) rather than running them. Common at carriers, ISPs and large enterprises from the mid-1990s.",
+    "links": "The senior design track of network engineering, parallel to the software and enterprise architects."
+  },
+  "sec_engineer": {
+    "about": "The public internet made perimeter defence a job: firewalls (DEC's SEAL in 1991, Check Point FireWall-1 in 1994), VPNs, intrusion detection, PKI and SSL (1995). Security engineers design and build these controls rather than just monitoring them.",
+    "links": "Grew out of the security analyst with a strong influence from network engineering; it is the parent of penetration testing and application security."
+  },
+  "ciso": {
+    "about": "Usually traced to 1995, when Citicorp appointed Steve Katz as the first Chief Information Security Officer after a hacker (Vladimir Levin) transferred about $10 million out of its systems. Regulations such as Sarbanes-Oxley, HIPAA and later GDPR made the role widespread.",
+    "links": "The executive form of the information security officer, often reporting to the CIO, though increasingly to the CEO or board."
+  },
+  "pentester": {
+    "about": "Authorised attacks on systems go back to the “tiger teams” of 1970s US government and military testing. Penetration testing became a commercial profession around 2000, with tools such as Nmap, Nessus and Metasploit (2003) and certifications such as CEH (2003) and OSCP (2006).",
+    "links": "An offensive speciality of security engineering, and the direct ancestor of AI red teaming."
+  },
+  "appsec": {
+    "about": "As attacks shifted from networks to web applications (SQL injection, XSS), securing the code itself became a speciality. OWASP was founded in 2001 and published its first Top 10 in 2003; Microsoft's Trustworthy Computing memo (2002) led to its Security Development Lifecycle.",
+    "links": "Security engineering applied to software; it works with developers and grew into DevSecOps."
+  },
+  "devsecops": {
+    "about": "The idea that security should be built into the DevOps pipeline (automated scanning, policy as code, secure defaults) rather than bolted on at the end. Gartner wrote about “DevOpsSec” in 2012 and the DevSecOps title was common by the mid-2010s.",
+    "links": "Combines application security and DevOps; it shares much of its tooling with CI/CD and platform engineering."
+  },
+  "cloud_network": {
+    "about": "Networking in the public cloud is software-defined: VPCs, transit gateways, private links, load balancers and DNS configured through APIs and infrastructure as code rather than cables and router CLIs.",
+    "links": "The network engineer's job moved into the cloud, with a strong pull from cloud engineering."
+  },
+  "ai_red_team": {
+    "about": "Red teaming large language models and other AI systems: trying to make them produce harmful output, leak data, ignore instructions or be misused. Microsoft set up an AI red team in 2018. The role went mainstream with GPT-4's red teaming (2022–23), the 2023 White House commitments by AI labs, and the generative AI red-team event at DEF CON 31.",
+    "links": "Descends from penetration testing, but draws as much on ML research, policy and social science as on security."
+  },
+
+  "statistician": {
+    "about": "Statistics drove some of the earliest data processing: Herman Hollerith built his tabulating machines for the 1890 US census, and census bureaux and statisticians were among the first customers of electronic computers (UNIVAC I went to the US Census Bureau in 1951).",
+    "links": "The intellectual ancestor of the data analyst and the data scientist."
+  },
+  "data_librarian": {
+    "about": "Mainframe data lived on reels of magnetic tape and decks of cards, and data centres employed tape librarians to catalogue, store, issue and rotate them, keeping the backups and the off-site copies.",
+    "links": "A forerunner of the DBA as custodian of an organisation's data; the operational side merged into computer operations and storage administration."
+  },
+  "dba": {
+    "about": "Database management systems (IBM's IMS from the late 1960s, the CODASYL network model) needed someone to own the schema, storage, performance and security. The CODASYL Data Base Task Group's 1971 report described the database administrator role. Relational databases (Codd's 1970 paper, then Oracle in 1979 and DB2 in 1983) made it standard.",
+    "links": "Grew out of systems programming and data custodianship, and the root of data warehousing, ETL and, eventually, data engineering."
+  },
+  "data_analyst": {
+    "about": "Spreadsheets (VisiCalc 1979, Lotus 1-2-3 1983, Excel 1985) and SQL put analysis of business data on ordinary desks. Data analysts turn data into reports, metrics and answers for the business.",
+    "links": "A descendant of the statistician; it in turn fed the data scientist and the analytics engineer. Overlaps with the business analyst."
+  },
+  "dw_developer": {
+    "about": "Barry Devlin and Paul Murphy's 1988 IBM paper described a “business data warehouse”; Bill Inmon and Ralph Kimball (“The Data Warehouse Toolkit”, 1996) set out the two main schools. Howard Dresner at Gartner popularised “business intelligence” in 1989. Developers built the warehouses, cubes and reports.",
+    "links": "Grew from DBA work; it is the parent of ETL development and an ancestor of data and analytics engineering."
+  },
+  "etl_dev": {
+    "about": "Extract, Transform, Load: moving data from operational systems into the warehouse. Dedicated ETL tools such as Informatica (founded 1993) and DataStage made it a specialist job in the late 1990s.",
+    "links": "Split out from data warehousing; it fed both the Big Data/Hadoop engineer and the data engineer."
+  },
+  "data_scientist": {
+    "about": "DJ Patil (LinkedIn) and Jeff Hammerbacher (Facebook) are credited with coining the title around 2008 for people who combined statistics, programming and business sense. Davenport and Patil's 2012 Harvard Business Review article, “Data Scientist: The Sexiest Job of the 21st Century”, set off a hiring boom.",
+    "links": "Combines the statistician and the data analyst with programming; it is the parent of the ML engineer and a strong influence on the first prompt engineers."
+  },
+  "big_data": {
+    "about": "Google's MapReduce (2004) and GFS papers inspired Hadoop (2006, used heavily at Yahoo), and Cloudera (2008) commercialised it. For a few years “Big Data” and “Hadoop engineer” were hot titles for people who could run and program those clusters.",
+    "links": "Grew out of ETL. Once Spark and managed cloud warehouses arrived, the title folded into data engineering."
+  },
+  "data_engineer": {
+    "about": "Builds and runs the pipelines and platforms that move and store data for analytics and ML. The title spread in the early 2010s at Facebook, Airbnb and others; Maxime Beauchemin (creator of Airflow, 2015) wrote the influential “The Rise of the Data Engineer” in 2017.",
+    "links": "Heir to ETL and Big Data work, with much more software engineering in it; it is the parent of the analytics engineer."
+  },
+  "ml_engineer": {
+    "about": "Once deep learning took off (ImageNet 2012) and frameworks such as TensorFlow (2015) and PyTorch (2016) arrived, companies needed engineers who could take models from data scientists' notebooks into production systems, and increasingly build the models themselves.",
+    "links": "Grew out of data science with a strong pull from software engineering; it is the parent of MLOps and one of the two main parents of the AI engineer."
+  },
+  "analytics_eng": {
+    "about": "The title was popularised around 2018–19 by Fishtown Analytics (now dbt Labs) for people who apply software engineering practice (version control, tests, modular SQL) to data transformation in the warehouse. dbt made it a widespread role.",
+    "links": "Sits between data analysts and data engineers and grew from both."
+  },
+  "prompt_eng": {
+    "about": "With GPT-3 (2020) and especially ChatGPT (November 2022), the craft of writing instructions for large language models became valuable enough to hire for. In 2023 a few well-paid “prompt engineer” job listings made headlines; as models improved, the skill largely became part of other roles.",
+    "links": "Drew in people from data science, writing and domain expertise; it was quickly absorbed into the AI engineer."
+  },
+  "ai_engineer": {
+    "about": "Shawn Wang's (swyx) June 2023 essay “The Rise of the AI Engineer” named a role for software engineers who build products on top of foundation models (prompts, retrieval, evaluation, tool use) rather than training models themselves. It became one of the fastest-growing titles of 2023–25.",
+    "links": "Has two parents, software engineering and ML engineering, and absorbed the prompt engineer. It is the parent of the agent/context engineer."
+  },
+  "agent_eng": {
+    "about": "As LLM applications moved from chat to autonomous agents that use tools, write code and run multi-step tasks (helped by standards such as the Model Context Protocol, late 2024), building them became a speciality. “Context engineering”, popularised in mid-2025 by Shopify's Tobi Lütke and Andrej Karpathy, describes assembling exactly the right information and tools for a model at each step.",
+    "links": "The newest branch of the AI engineer; time will tell whether it stays a separate title."
+  },
+
+  "computer_operator": {
+    "about": "Operators ran the machine room: mounting tapes, loading card decks, feeding printers, watching the console and restarting failed jobs, often on round-the-clock shifts. Into the 1970s it was one of the most common jobs in computing.",
+    "links": "The root of operations. Operators became operations analysts and sysadmins, and the job was largely automated away by job schedulers and, later, “lights-out” data centres."
+  },
+  "ops_analyst": {
+    "about": "Mainframe operations analysts planned and managed the batch schedule, wrote and fixed JCL, handled capacity and problem management and kept the overnight runs on time, the more skilled side of operations.",
+    "links": "Grew out of computer operations; its focus on reliability and run-books is one of the influences on SRE."
+  },
+  "config_manager": {
+    "about": "Configuration management started as a 1960s US defence discipline for tracking hardware changes, and was applied to software from the 1970s. Tools such as SCCS (Bell Labs, 1972), then RCS (1982) and later CVS and ClearCase, made software version control a job in large shops.",
+    "links": "The ancestor of release management and build & release engineering, and so of CI/CD. (The name later came back in “configuration management” tools such as Puppet and Chef.)"
+  },
+  "sysadmin": {
+    "about": "Multi-user minicomputers and Unix in universities, labs and companies in the 1970s and 80s needed someone to manage users, disks, backups, software and security. USENIX's LISA conference (from 1987) and the SAGE professional association (1992) gave system administration an identity.",
+    "links": "A landmark title. It came from computer operations and systems programming and branched into Unix and Windows admins, systems engineers, network administrators and virtualisation, and eventually, through Unix admins, into SRE and DevOps."
+  },
+  "systems_eng": {
+    "about": "In operations, a more senior, design-oriented sysadmin: building and integrating servers, storage and operating systems. Microsoft's MCSE certification (1990s) made the title widespread. (Not to be confused with the IBM pre-sales systems engineer, or with systems engineering in aerospace.)",
+    "links": "Grew out of system administration, and led to infrastructure engineering."
+  },
+  "unix_admin": {
+    "about": "Commercial Unix (SunOS/Solaris, HP-UX, AIX) and then Linux (1991) ran most internet servers in the 1990s, and Unix administrators, fluent in shell, Perl, networking and automation, ran the web's infrastructure. Red Hat's RHCE (1999) became a popular certification.",
+    "links": "A sysadmin speciality, and the most direct ancestor of both SRE and DevOps; their automate-everything culture carried straight over."
+  },
+  "windows_admin": {
+    "about": "Windows NT (1993), then Windows 2000 with Active Directory and Exchange, took over the corporate server room in the late 1990s. Windows administrators, often holding MCSE certifications, ran directories, email, file and print.",
+    "links": "A sysadmin speciality; much of the job has since moved to Microsoft 365 and Azure administration."
+  },
+  "release_manager": {
+    "about": "Coordinates what goes into a release, when it ships, and the change control around it. Common in enterprises and software vendors from the mid-1990s, especially where releases were large, infrequent and risky.",
+    "links": "Grew out of configuration management; frequent automated delivery shrank or removed the role in many organisations, though it survives where releases are regulated."
+  },
+  "build_release": {
+    "about": "Builds the systems that compile, package and ship software: makefiles (make, 1976), nightly builds, packaging, and from 2001 continuous integration servers such as CruiseControl and later Hudson/Jenkins.",
+    "links": "Brings together configuration and release management. Its automation work is a direct ancestor of DevOps and CI/CD engineering."
+  },
+  "sre": {
+    "about": "Ben Treynor Sloss set up Google's Site Reliability Engineering team in 2003, defining it as “what happens when you ask a software engineer to design an operations team”. Error budgets, SLOs, toil limits and blameless postmortems spread with the 2016 “Site Reliability Engineering” book.",
+    "links": "A landmark title. It combines software engineering with Unix administration, drawing on operations analysis and application support, and is closely related to DevOps. It is the parent of chaos engineering, observability and, with DevOps, platform engineering."
+  },
+  "infra_eng": {
+    "about": "A broad mid-2000s title for engineers who build and run the underlying servers, storage, networks and data centres, increasingly with code and automation rather than by hand.",
+    "links": "Grew out of systems engineering. As infrastructure moved to the public cloud it was largely renamed cloud engineering."
+  },
+  "virtualisation": {
+    "about": "VMware (Workstation 1999, ESX Server 2001) and open-source Xen (2003) let many virtual machines share one physical server, and consolidation projects through the 2000s needed specialists to build and run the virtual estates.",
+    "links": "A sysadmin speciality, and a stepping stone to cloud engineering: public clouds are virtualisation at very large scale."
+  },
+  "devops": {
+    "about": "Patrick Debois organised the first DevOpsDays in Ghent in October 2009, after John Allspaw and Paul Hammond's “10+ Deploys per Day” talk about Flickr. DevOps was meant as a culture of developers and operations working together, but by about 2011 “DevOps Engineer” had become a job title, usually for automation, infrastructure-as-code and CI/CD specialists.",
+    "links": "A landmark title. It grew out of build & release engineering and Unix administration, overlaps heavily with SRE, and is the parent of platform engineering, MLOps and DevSecOps."
+  },
+  "cloud_eng": {
+    "about": "Amazon launched S3 and EC2 in 2006, and Azure (2010) and Google Cloud followed. Cloud engineers build and run systems on those platforms, usually through infrastructure-as-code tools such as CloudFormation and Terraform (2014).",
+    "links": "Heir to virtualisation and infrastructure engineering. It led to Kubernetes, cloud network and FinOps specialists and fed into platform engineering."
+  },
+  "cicd_eng": {
+    "about": "Continuous integration and delivery became a speciality as pipelines grew complex: Jez Humble and David Farley's “Continuous Delivery” (2010), Jenkins (2011, forked from Hudson), and later hosted CI such as Travis, CircleCI and GitHub Actions.",
+    "links": "The modern form of build & release engineering, drawing on test automation; much of it is now part of DevOps and platform teams."
+  },
+  "chaos_eng": {
+    "about": "Netflix built Chaos Monkey around 2010–11, as it moved to AWS, to randomly kill production instances, and expanded it into the Simian Army. The practice was named “chaos engineering”, with its principles published around 2014–15, and Gremlin (2016) commercialised it.",
+    "links": "A speciality of SRE: deliberately injecting failure to test resilience. Few people hold the title; the practice is usually part of SRE work."
+  },
+  "k8s_eng": {
+    "about": "Google open-sourced Kubernetes in 2014 (1.0 in 2015, donated to the new CNCF) and it won the container orchestration wars by around 2017, when the CKA certification launched. Running and building on Kubernetes became a job in its own right.",
+    "links": "A cloud engineering speciality and a major input to platform engineering, since many internal platforms are built on Kubernetes."
+  },
+  "platform_eng": {
+    "about": "Platform engineering builds internal platforms (self-service infrastructure, golden paths, developer portals) so product teams can ship without each needing deep ops expertise. It grew from the “paved road” and internal platform teams at companies such as Spotify and Netflix, was given shape by Team Topologies (2019), and became a buzzword around 2022 as “the successor to DevOps”.",
+    "links": "A landmark title. It grew out of DevOps and SRE, with a lot of input from cloud and Kubernetes engineering. It is the parent of developer experience engineering and platform product management."
+  },
+  "finops": {
+    "about": "Cloud bills are variable and easy to lose control of, so a discipline of cloud financial management grew up. The FinOps Foundation was set up in 2019 (from Cloudability's community, led by J.R. Storment) and joined the Linux Foundation in 2020.",
+    "links": "Grew from cloud engineering, but sits between engineering, finance and procurement."
+  },
+  "mlops": {
+    "about": "Google's 2015 paper “Hidden Technical Debt in Machine Learning Systems” showed how much of ML is infrastructure around the model. MLOps applies DevOps practice (pipelines, versioning, monitoring, deployment) to ML models, using tools such as Kubeflow and MLflow (both 2018).",
+    "links": "DevOps and ML engineering combined; in the LLM era it overlaps with “LLMOps” and AI platform work."
+  },
+  "observability": {
+    "about": "The term comes from control theory (Rudolf Kálmán, 1960). Around 2016 Charity Majors and others at Honeycomb popularised it for software: being able to ask new questions of a production system from its telemetry, not just watch pre-defined dashboards. OpenTelemetry (2019) standardised the data.",
+    "links": "A speciality of SRE, and the successor to traditional monitoring roles."
+  },
+
+  "tester": {
+    "about": "Testing was originally done by the programmers themselves. As systems grew in the 1970s, separate testers became common, and Glenford Myers's “The Art of Software Testing” (1979) helped establish testing as a discipline of its own.",
+    "links": "Split off from programming; it is the root of the quality line."
+  },
+  "qa_engineer": {
+    "about": "Quality Assurance widened testing into a process concern (standards, reviews, defect tracking, test plans), helped by the quality movements of the 1980s and 90s: ISO 9000 (1987) and the SEI's Capability Maturity Model (1991).",
+    "links": "Grew out of software testing, and the parent of the SDET."
+  },
+  "sdet": {
+    "about": "Software Development Engineer in Test is a Microsoft title for testers who are full software engineers, writing test frameworks and automated tests rather than running manual scripts. Amazon and others used it too. In 2014 Microsoft largely merged the role back into development.",
+    "links": "Grew out of QA engineering and led to test automation engineering; its absorption into development foreshadowed “you build it, you test it”."
+  },
+  "test_automation": {
+    "about": "Tools such as Selenium (2004) and WebDriver, test-driven development and continuous integration made automated testing central, and test automation engineers build and maintain those suites.",
+    "links": "Heir to the SDET, and closely tied to CI/CD engineering, where its tests run."
+  },
+
+  "customer_eng": {
+    "about": "IBM's customer engineers (CEs) installed and maintained tabulating machines, and later computers, at customer sites from the 1930s on. They had a famous dress code and strong service culture, and other vendors' field engineers did the same job.",
+    "links": "The root of the support and customer-facing line, leading to technical support and pre-sales systems engineering."
+  },
+  "tech_writer": {
+    "about": "Computers and the software for them needed manuals, and technical writing, already established in engineering and the military (the Society of Technical Writers was founded in 1953), became a computing job in the 1960s. It later expanded into online help, API documentation and docs-as-code.",
+    "links": "Often done by programmers at first. It works closely with developer advocates and developer experience teams today."
+  },
+  "presales_se": {
+    "about": "IBM's “systems engineers” of the 1960s worked with customers before and after the sale, designing installations, advising on programming and getting systems running. IBM's 1969 decision to unbundle software and services from hardware made the role more explicitly commercial.",
+    "links": "The root of the sales engineer and, through the services business, of the IT consultant. (Same title as, but a different job from, the operations systems engineer.)"
+  },
+  "tech_support": {
+    "about": "As computer products spread to more customers in the 1970s, vendors set up technical support departments to answer customers' problems by telephone and in the field, separate from the engineers who fixed hardware.",
+    "links": "Grew out of field engineering. It split into the help desk (for end users) and application support (for business systems)."
+  },
+  "consultant": {
+    "about": "Accounting firms entered computing early (Arthur Andersen helped GE install a UNIVAC for payroll in 1954), and EDS (1962) pioneered IT services. By the 1980s IT consulting (systems integration, strategy, outsourcing) was a major industry, with Andersen Consulting split out in 1989.",
+    "links": "Grew out of vendors' pre-sales and services work; consulting practice is one of the influences on the forward deployed engineer."
+  },
+  "helpdesk": {
+    "about": "PCs on every desk in the 1980s meant a lot of users needing help, and organisations set up internal help desks to answer phones, reset passwords and fix desktops. It was a common first job in IT for decades.",
+    "links": "Grew out of technical support, and was formalised as the ITIL service desk."
+  },
+  "evangelist": {
+    "about": "Apple's Macintosh team used the title from about 1984: Mike Murray and Guy Kawasaki's job was to persuade developers to write software for the Mac. Microsoft, Sun and others followed with their own technology evangelists.",
+    "links": "The ancestor of the developer advocate and DevRel."
+  },
+  "sales_eng": {
+    "about": "The technical half of a sales team: demonstrating the product, answering technical questions, scoping proofs of concept. A standard role at software vendors from about 1990, as enterprise software sales grew.",
+    "links": "The heir to IBM's pre-sales systems engineer, and the parent of the solutions engineer."
+  },
+  "app_support": {
+    "about": "Second- and third-line support for specific business applications: investigating incidents, fixing data, liaising with developers. Common in banks and large enterprises from the mid-1990s, often on call.",
+    "links": "Grew out of technical support. Its production-firefighting work is one of the influences on SRE, and it led to the support engineer."
+  },
+  "service_desk": {
+    "about": "ITIL (UK government, first published from 1989, revised as v2 around 2000) defined the Service Desk as the single point of contact between IT and its users, with formal incident and request management. Many help desks were renamed to match.",
+    "links": "The ITIL-era form of the help desk."
+  },
+  "support_eng": {
+    "about": "A more technical, engineering-flavoured support role, common at software and SaaS companies from the mid-2000s: debugging customer issues in code, logs and infrastructure, and often fixing them.",
+    "links": "Grew out of application support, and works closely with SRE and with solutions engineers."
+  },
+  "dev_advocate": {
+    "about": "Developer advocates (developer relations, DevRel) represent developers to a company as much as the company to developers: talks, samples, docs, community and feedback into the product. Google and others used the title from the late 2000s, and API companies such as Twilio and Stripe made it central to their growth.",
+    "links": "The heir to the technology evangelist; it influences developer experience engineering."
+  },
+  "fde": {
+    "about": "Palantir built its business around forward deployed engineers (internally “Deltas”) from around 2010: software engineers embedded with a customer, often on site, who build whatever is needed to make the product work for that customer's problem. In 2025 the title boomed as OpenAI, Anthropic and many AI startups hired FDEs to get AI deployed in customer organisations.",
+    "links": "A landmark title. It combines software engineering with the solutions engineer's customer focus, and has a lot in common with old-style consulting, and with IBM's 1960s systems engineers."
+  },
+  "solutions_eng": {
+    "about": "The SaaS and API-company version of the sales engineer, from about 2012: technical experts who design how a customer will integrate and use the product, before and after the sale, and often write code to prove it.",
+    "links": "Grew out of sales engineering, and close to solutions architecture. It is one of the parents of the forward deployed engineer."
+  }
+}

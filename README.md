@@ -5,7 +5,8 @@ A Graphviz family tree of software industry job titles, from the 1940s
 Forward Deployed Engineer, AI Engineer).
 
 **View it: https://ianmiell.github.io/sw-job-title-family-tree/** (zoomable; click a family,
-or use the buttons, to show just that column, e.g. [Data & AI](https://ianmiell.github.io/sw-job-title-family-tree/#data))
+or use the buttons, to show just that column, e.g. [Data & AI](https://ianmiell.github.io/sw-job-title-family-tree/#data);
+click a title for its history, background and connections, e.g. [SRE](https://ianmiell.github.io/sw-job-title-family-tree/#sre))
 
 ![Family tree](job_title_family_tree.png)
 
@@ -30,3 +31,7 @@ dot -Tpng -Gdpi=110 job_title_family_tree.dot -o job_title_family_tree.png
 
 Each title is one node line in `job_title_family_tree.dot`; its row is set
 in the `rank=same` blocks (one per five-year period) and its parents in the lineage section.
+
+Each title's description (shown when you click it on the site) is in `descriptions.json`,
+keyed by its node id: `about` for its history and background, `links` for how it connects to
+its neighbours. The lists of related titles in the panel are built from the graph's edges.
