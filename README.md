@@ -35,3 +35,24 @@ in the `rank=same` blocks (one per five-year period) and its parents in the line
 Each title's description (shown when you click it on the site) is in `descriptions.json`,
 keyed by its node id: `about` for its history and background, `links` for how it connects to
 its neighbours. The lists of related titles in the panel are built from the graph's edges.
+
+## Languages / Translations
+
+The site is in English by default. Add `?lang=tr` for Turkish, e.g.
+[`?lang=tr#sre`](https://ianmiell.github.io/sw-job-title-family-tree/?lang=tr#sre); the
+EN / TR switch in the header keeps your place (`#sre`, `#data`). Nothing extra is fetched
+for English, and anything a translation does not cover falls back to English.
+
+Each language lives in `i18n/<lang>/`:
+
+- `strings.json`: the page text (`ui`, keyed by the English string), family names
+  (`families`, keyed by family id), the chart's own text such as band headings, decades and
+  the key (`svg`, keyed by the English text), and each box's title and date (`nodes`, keyed
+  by node id; use `\n` to split a title over the box's lines, never more lines than the
+  English has). Boxes are redrawn at runtime, so the Graphviz output is untouched; a line
+  wider than its box is squeezed to fit.
+- `descriptions.json`: the same keys as `descriptions.json` (`about`, `links`), translated.
+  A missing entry or field shows the English one.
+
+To add a language, copy `i18n/tr/` to `i18n/<lang>/`, translate the values, and add its
+code to the `LANGS` list in `index.html` so it gets a button in the header.

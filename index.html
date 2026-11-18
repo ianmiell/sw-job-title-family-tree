@@ -21,6 +21,11 @@
   a.btn, button { font:inherit; font-size:13px; color:var(--accent); background:#fff;
     border:1px solid var(--line); border-radius:6px; padding:4px 10px; text-decoration:none; cursor:pointer; }
   a.btn:hover, button:hover { border-color:var(--accent); }
+  .lang { display:inline-flex; }
+  .lang a.btn { border-radius:0; margin-left:-1px; }
+  .lang a.btn:first-child { border-radius:6px 0 0 6px; margin-left:0; }
+  .lang a.btn:last-child { border-radius:0 6px 6px 0; }
+  .lang a.btn[aria-current] { background:var(--accent); border-color:var(--accent); color:#fff; position:relative; }
   .fams button { color:#333; display:inline-flex; align-items:center; gap:6px; border-radius:999px; }
   .fams button .dot { width:9px; height:9px; border-radius:50%; background:var(--c); }
   .fams button:hover { border-color:var(--c); }
@@ -70,21 +75,21 @@
 <body>
 <header>
   <div class="top">
-    <h1>Software Industry Job Titles</h1>
-    <p>A family tree, 1940s to now. Dates are roughly when a title became common, not its first use.</p>
+    <h1 data-t>Software Industry Job Titles</h1>
+    <p data-t>A family tree, 1940s to now. Dates are roughly when a title became common, not its first use.</p>
     <nav>
-      <button id="fit" type="button">Fit</button>
+      <button id="fit" type="button" data-t>Fit</button>
       <a class="btn" href="job_title_family_tree.svg">SVG</a>
       <a class="btn" href="job_title_family_tree.png">PNG</a>
       <a class="btn" href="job_title_family_tree.dot">Graphviz source</a>
     </nav>
   </div>
-  <div class="fams" id="fams"><span class="label">Show:</span></div>
+  <div class="fams" id="fams"><span class="label" data-t>Show:</span></div>
 </header>
 <div id="wrap">
   <div id="chart" role="img" aria-label="Software industry job title family tree"></div>
   <aside id="panel" hidden aria-live="polite"></aside>
-  <div class="hint">Click a title for its story, or a family's band to show just that one · scroll or drag to pan · pinch or ctrl+scroll to zoom · Esc to go back</div>
+  <div class="hint" data-t>Click a title for its story, or a family's band to show just that one · scroll or drag to pan · pinch or ctrl+scroll to zoom · Esc to go back</div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
 <script>
@@ -98,6 +103,18 @@
     { id: 'net',  name: 'Networks & security',                 c: '#c4621a' },
     { id: 'qa',   name: 'Quality & test',                      c: '#b23a5e' }
   ];
+  // Language: ?lang=xx loads i18n/xx/strings.json and descriptions.json (see
+  // README). Without it, or with lang=en, nothing is fetched and English stays.
+  var LANGS = ['en', 'tr'];
+  var langM = /[?&]lang=([a-z]{2,3})(?:&|$)/.exec(location.search);
+  var LANG = langM && langM[1] !== 'en' ? langM[1] : '', STR = {};
+  var BASE = location.pathname + location.search;
+  function t(s) { return (STR.ui && STR.ui[s]) || s; }
+  var strReady = !LANG ? Promise.resolve() :
+    fetch('i18n/' + LANG + '/strings.json', { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.json() : {}; })
+      .then(function (s) { STR = s || {}; }, function () {});
+
   var famBar = document.getElementById('fams'), buttons = {};
   function addButton(id, name, colour) {
     var b = document.createElement('button');
@@ -116,9 +133,109 @@
   var FAM = {}; FAMS.forEach(function (f) { FAM[f.id] = f; });
 
   // Descriptions are optional: without them a box still opens, showing its links.
+  // A language's own descriptions replace the English ones field by field.
   var descReady = fetch('descriptions.json', { cache: 'no-cache' })
     .then(function (r) { return r.ok ? r.json() : {}; })
-    .then(function (d) { DESC = d || {}; }, function () {});
+    .then(function (d) { DESC = d || {}; }, function () {})
+    .then(function () {
+      if (!LANG) return;
+      return fetch('i18n/' + LANG + '/descriptions.json', { cache: 'no-cache' })
+        .then(function (r) { return r.ok ? r.json() : {}; })
+        .then(function (d) {
+          Object.keys(d).forEach(function (k) {
+            if (!d[k] || typeof d[k] !== 'object') return;
+            var en = DESC[k] || {};
+            DESC[k] = { about: d[k].about || en.about, links: d[k].links || en.links };
+          });
+        }, function () {});
+    });
+
+  // Translate the page's own text; anything missing from the strings stays English.
+  function localize() {
+    if (!LANG || !STR.ui) return;
+    document.documentElement.lang = LANG;
+    document.title = t(document.title);
+    var meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', t(meta.getAttribute('content')));
+    Array.prototype.forEach.call(document.querySelectorAll('[data-t]'), function (el) {
+      el.textContent = t(el.textContent.trim());
+    });
+    chart.setAttribute('aria-label', t(chart.getAttribute('aria-label')));
+    buttons.all.lastChild.nodeValue = t('All');
+    FAMS.forEach(function (f) {
+      f.name = (STR.families && STR.families[f.id]) || f.name;
+      buttons[f.id].lastChild.nodeValue = f.name;
+    });
+  }
+
+  // Swap the chart's English labels for the language's: node title and date
+  // lines by node id, everything else (band headings, decades, key) by its
+  // English text. Graphviz placed each line for the English width, so lines are
+  // re-centred in their box and squeezed with textLength when the new text is
+  // wider. font-size is left alone: tagFamilies() tells date lines by it.
+  function translateSvg() {
+    var N = STR.nodes || {}, M = STR.svg || {}, bands = [], left = Infinity;
+    Array.prototype.forEach.call(svg.querySelectorAll('g.cluster'), function (g) {
+      var b = g.querySelector('path').getBBox(); bands.push(b); left = Math.min(left, b.x);
+    });
+    function put(el, s, cx, maxW) {
+      el.textContent = s;
+      if (cx !== null) { el.setAttribute('text-anchor', 'middle'); el.setAttribute('x', cx); }
+      if (el.getComputedTextLength() > maxW) {
+        el.setAttribute('textLength', maxW); el.setAttribute('lengthAdjust', 'spacingAndGlyphs');
+      }
+    }
+    Array.prototype.forEach.call(svg.querySelectorAll('g.node'), function (g) {
+      var L = N[g.querySelector('title').textContent]; if (!L) return;
+      var b = g.querySelector('path').getBBox(), cx = b.x + b.width / 2;
+      var lines = { title: [], date: [] };
+      Array.prototype.forEach.call(g.querySelectorAll('text'), function (el) {
+        lines[parseFloat(el.getAttribute('font-size')) < 10 ? 'date' : 'title'].push(el);
+      });
+      ['title', 'date'].forEach(function (k) {
+        if (typeof L[k] !== 'string') return;
+        var s = L[k].split('\n'), els = lines[k];
+        els.forEach(function (el, i) {
+          put(el, i === els.length - 1 ? s.slice(i).join(' ') : s[i] || '', cx, b.width - 12);
+        });
+      });
+    });
+    Array.prototype.forEach.call(svg.querySelectorAll('text'), function (el) {
+      var g = el.closest('g.node'), id = g ? g.querySelector('title').textContent : '';
+      var s = M[el.textContent.trim()];
+      if (!s || N[id]) return;
+      var x = parseFloat(el.getAttribute('x')), y = parseFloat(el.getAttribute('y')), cx = null, maxW = 1e9;
+      if (el.parentNode.getAttribute('class') === 'graph') {   // title and subtitle are centred
+        cx = x + el.getComputedTextLength() / 2;
+      } else {
+        bands.forEach(function (b) {
+          if (x >= b.x && x <= b.x + b.width && y >= b.y && y <= b.y + b.height) maxW = b.x + b.width - 8 - x;
+        });
+        if (maxW === 1e9 && /^t\d+$/.test(id)) maxW = left - 8 - x;   // decade labels
+      }
+      put(el, s, cx, maxW);
+    });
+  }
+
+  // EN / TR switch in the nav. The links are rebuilt on hover, focus and click
+  // because the hash (family or title) changes after load.
+  function langHref(code) {
+    var q = location.search.replace(/([?&])lang=[^&]*&?/, '$1').replace(/[?&]$/, '');
+    if (code !== 'en') q += (q ? '&' : '?') + 'lang=' + code;
+    return location.pathname + q + location.hash;
+  }
+  var langNav = document.createElement('span'); langNav.className = 'lang';
+  LANGS.forEach(function (code) {
+    var a = document.createElement('a');
+    a.className = 'btn'; a.href = langHref(code); a.textContent = code.toUpperCase();
+    a.setAttribute('hreflang', code); a.setAttribute('lang', code);
+    if (code === (LANG || 'en')) a.setAttribute('aria-current', 'true');
+    ['mouseenter', 'focus', 'click'].forEach(function (ev) {
+      a.addEventListener(ev, function () { a.href = langHref(code); });
+    });
+    langNav.appendChild(a);
+  });
+  document.querySelector('nav').insertBefore(langNav, document.getElementById('fit'));
 
   function famOf(el) { return el.getAttribute('data-fam'); }
 
@@ -191,7 +308,7 @@
     Object.keys(buttons).forEach(function (k) {
       buttons[k].setAttribute('aria-pressed', String((fam || 'all') === k));
     });
-    try { history.replaceState(null, '', fam ? '#' + fam : location.pathname); } catch (e) {}
+    try { history.replaceState(null, '', fam ? '#' + fam : BASE); } catch (e) {}
     if (!svg) return;
     var near = {};
     edges.forEach(function (e) {
@@ -260,16 +377,16 @@
     var groups = [['Grew out of', r.from], ['Led to', r.to], ['Overlaps with (both ways)', r.both],
                   ['Influenced by / people came from', r.infBy], ['Influenced / people moved on to', r.inf]];
     panel.innerHTML =
-      '<button type="button" class="close" aria-label="Close">×</button>' +
+      '<button type="button" class="close" aria-label="' + esc(t('Close')) + '">×</button>' +
       '<div class="chip" style="--c:' + f.c + '"><span class="dot"></span>' + esc(f.name) + '</div>' +
       '<h2>' + esc(n.name) + '</h2><div class="date">' + esc(n.date) + '</div>' +
-      (d.about ? '<h3>History &amp; background</h3><p>' + esc(d.about) + '</p>' : '') +
-      (d.links ? '<h3>Connections</h3><p>' + esc(d.links) + '</p>' : '') +
+      (d.about ? '<h3>' + esc(t('History & background')) + '</h3><p>' + esc(d.about) + '</p>' : '') +
+      (d.links ? '<h3>' + esc(t('Connections')) + '</h3><p>' + esc(d.links) + '</p>' : '') +
       '<dl class="rels">' + groups.filter(function (g) { return g[1].length; }).map(function (g) {
-        return '<dt>' + g[0] + '</dt><dd>' + relButtons(g[1]) + '</dd>';
+        return '<dt>' + esc(t(g[0])) + '</dt><dd>' + relButtons(g[1]) + '</dd>';
       }).join('') + '</dl>' +
-      '<p class="note">Best-effort summary, not a sourced citation. ' +
-      '<a href="https://github.com/ianmiell/sw-job-title-family-tree">Corrections welcome</a>.</p>';
+      '<p class="note">' + esc(t('Best-effort summary, not a sourced citation.')) + ' ' +
+      '<a href="https://github.com/ianmiell/sw-job-title-family-tree">' + esc(t('Corrections welcome')) + '</a>.</p>';
     panel.hidden = false; panel.scrollTop = 0;
     focus(id);
     try { history.replaceState(null, '', '#' + id); } catch (e) {}
@@ -280,7 +397,7 @@
     if (!openId) return;
     var el = byId[openId].el;
     openId = null; panel.hidden = true; focus(null);
-    try { history.replaceState(null, '', current ? '#' + current : location.pathname); } catch (e) {}
+    try { history.replaceState(null, '', current ? '#' + current : BASE); } catch (e) {}
     if (document.activeElement && panel.contains(document.activeElement)) el.focus();
   }
 
@@ -371,15 +488,20 @@
   // never pairs this page with a stale cached chart.
   fetch('job_title_family_tree.svg', { cache: 'no-cache' })
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+    .then(function (text) { return strReady.then(function () { return text; }); })
     .then(function (text) {
       chart.innerHTML = text.replace(/^[\s\S]*?(<svg)/, '$1');
       svg = chart.querySelector('svg');
       if (!svg || !window.svgPanZoom) throw new Error('no svg');
+      if (LANG && STR.nodes) translateSvg();
       init();
     })
     .catch(function () {
-      chart.innerHTML = '<img src="job_title_family_tree.png" alt="Software industry job title family tree">';
+      strReady.then(function () {
+        chart.innerHTML = '<img src="job_title_family_tree.png" alt="' + esc(t('Software industry job title family tree')) + '">';
+      });
     });
+  strReady.then(localize);
 
   document.getElementById('fit').addEventListener('click', function () {
     if (current && clusters[current]) zoomTo(clusters[current]); else fitAll();

@@ -1,0 +1,419 @@
+{
+  "_note": "job_title_family_tree.dot içindeki her düğüm kimliği (node id) için bir kayıt. 'about' tarihçe ve arka planı, 'links' ise unvanın komşularıyla nasıl bağlandığını anlatır. Pages sitesinde bir kutuya tıklandığında gösterilir. En iyi çabayla hazırlanmış özetlerdir, kaynaklı alıntı değildir: düzeltmeler memnuniyetle karşılanır.",
+  "human_computer": {
+    "about": "Makineler çağından önce “computer” (bilgisayar) sözcüğü, hesap yapan insan demekti. Sözcüğün kayıtlı kullanımı 1613'e uzanır; 19. yüzyılın sonunda ise çoğu kadın olan insan hesaplayıcı ekipleri Harvard gibi gözlemevlerinde, aktüerya firmalarında, daha sonra da NACA'da ve savaş dönemi balistik laboratuvarlarında çalışıyor, hesapları elle ve mekanik hesap makineleriyle yapıyordu.",
+    "links": "İlk ENIAC programcılarının birkaçı (Kay McNulty, Betty Jennings, Frances Bilas ve diğerleri) Moore School'daki ordunun insan hesaplayıcıları arasından seçildi. Böylece bu iş, adını makineye, çalışanlarını da programcılığa devretmiş oldu."
+  },
+  "coder": {
+    "about": "1940'ların ortasında bilgisayar kullanma işi aşamalara bölündü. Goldstine ve von Neumann'ın 1947 tarihli “Planning and Coding of Problems” (Problemlerin Planlanması ve Kodlanması) çalışması, bir problemi planlayan matematikçilerle planı makine komutlarına çeviren kodlayıcıları birbirinden ayırdı. Kodlama daha düşük statülü bir büro işi sayılıyordu ve büyük bölümünü kadınlar yapıyordu.",
+    "links": "Kodlamanın aslında işin zor ve yaratıcı kısmı olduğu ortaya çıktı ve kodlayıcı, programcının içinde eridi. Sözcük on yıllar sonra gayriresmî biçimde ve daha fazla gururla geri döndü (“kod yazmayı öğren”)."
+  },
+  "programmer": {
+    "about": "ENIAC ve EDSAC'ta kurulan işlem “programı”ndan (programme) türeyen “programcı”, 1950'lerin başında UNIVAC, IBM ve Ferranti müşterileri arasında standart unvan haline gelmişti. Grace Hopper'ın derleyicileri, FORTRAN (1957) ve COBOL (1959) bunu büyük bir meslek yaptı; her kesimden insanı işe almak için yetenek testleri kullanıldı.",
+    "links": "Ağacın çoğu dalının kökü. Programcılar sistem ve uygulama programcılığı olarak ayrıldı, yazılım mühendisi olarak yeniden adlandırıldı, ilk teknik liderler oldu ve test ile teknik yazarlığı ayrı meslekler olarak kendinden doğurdu."
+  },
+  "sys_programmer": {
+    "about": "Makineler işletim sistemleri, monitörler ve yardımcı programlar edinince, bunları çoğunlukla assembler ile yazıp bakımını yapan uzman bir grup ortaya çıktı. IBM'in System/360'ı (1964) ve OS/360 ile birlikte, işletim sistemini ve alt sistemlerini kuran, ayarlayan ve yamalayan ana bilgisayar sistem programcısı yerleşik ve iyi maaşlı bir rol haline geldi; bu rol z/OS kullanan kurumlarda hâlâ var.",
+    "links": "Sistem programcıları, makinenin bakımını herkes adına üstlenen düşük seviyeli uzmanlardı. Bu da onları sistem yöneticisinin ve veritabanları gelince DBA'nın doğal atası yaptı."
+  },
+  "app_programmer": {
+    "about": "Sistem programcısının karşılığı: işletim sisteminin üzerinde çalışan iş programlarını (bordro, stok, faturalama, raporlar) yazan kişi. 1960'lardan itibaren çoğunlukla ana bilgisayarlarda COBOL ile çalıştı ve onlarca yıl boyunca programcılık işlerinin büyük çoğunluğunu oluşturdu.",
+    "links": "1980'lerde kişisel bilgisayarların ve yeni araçların gelmesiyle uygulama programcıları giderek daha geniş, ana bilgisayar kokusu taşımayan yazılım geliştirici unvanını aldı."
+  },
+  "analyst_prog": {
+    "about": "Özellikle Birleşik Krallık'ta ve küçük işletmelerde yaygın olan birleşik bir unvan: hem işin neye ihtiyaç duyduğunu çözen (sistem analistinin işi) hem de kodu yazan kişi. 1970'lerden 90'lara kadar kariyer basamaklarında standart bir adımdı: programcı, analist/programcı, kıdemli analist/programcı, ardından sistem analisti.",
+    "links": "Programcı ile sistem analisti hatları arasında yer alır; analiz ve kodlama ayrımı modasını yitirdikçe genel yazılım geliştirici unvanına dönüştü."
+  },
+  "software_eng": {
+    "about": "Margaret Hamilton, 1960'ların ortasında Apollo programı sırasında yazılıma donanımla aynı meşruiyeti kazandırmak için “yazılım mühendisliği” terimini kullanmaya başladığını söylemiştir. 1968'deki Garmisch NATO Yazılım Mühendisliği Konferansı, geç kalan, hatalı ve bütçeyi aşan projelerin yarattığı “yazılım krizi”ne bir yanıt olarak bu terimi haritaya yerleştirdi. 1990'lardan itibaren teknoloji şirketlerinde varsayılan unvan oldu.",
+    "links": "Modern ağacın merkezi. Kıdemli/staff/principal basamakları, mimarlar, gömülü, SRE, ML ve AI mühendisleri ile forward deployed engineer'lar hep bu unvandan dallanır. Yazılım geliştirici ile neredeyse birbirinin yerine kullanılır; o ok bu yüzden iki yönlüdür."
+  },
+  "embedded": {
+    "about": "Ucuz mikroişlemciler (1971'de Intel 4004, ardından 8080 ve rakipleri) yazılımı arabalara, ev aletlerine, cihazlara, telekom ekipmanlarına ve silahlara taşıdı. Gömülü sistem mühendisleri donanıma yakın, çoğunlukla gerçek zamanlı ve bellek kısıtlı kod yazar; assembler ve C, ABD savunma işlerinde ise Ada kullanılır.",
+    "links": "Elektronik mühendisliğine yakın duran bir yazılım mühendisliği uzmanlığı; sonradan firmware, IoT ve robotik rollerine kaynaklık etti."
+  },
+  "software_dev": {
+    "about": "“Geliştirici” (developer) terimi, 1980'lerde kişisel bilgisayar ve paketli yazılım sektörleriyle yayıldı; araçlarını ve konferanslarını geliştiricilere yönelten üreticiler (Microsoft, Apple, Borland) bunda etkili oldu. “Mühendis”ten daha az resmîdir; bazı ülkelerde “mühendis” korumalı bir unvan olduğu için “geliştirici” kullanılır.",
+    "links": "Uygulama programcılarının ve analist/programcıların vardığı yer. Oyun, web ve mobil geliştirmenin atasıdır ve farklı bir adla fiilen yazılım mühendisiyle aynı işi yapar."
+  },
+  "game_dev": {
+    "about": "1970'lerde atari salonu ve ev konsolu oyunlarını çoğunlukla adı geçmeyen küçük ekipler yaptı. Activision, emeğinin karşılığını ve telif hakkını isteyen Atari programcıları tarafından 1979'da kuruldu. 1980'lerin başındaki ev bilgisayarı patlaması (ZX Spectrum, C64, Apple II) yatak odasında oyun geliştiren kişileri ve gerçek bir sektörü doğurdu.",
+    "links": "Oyun geliştirme hep yazılım geliştirmenin uzman bir kolu oldu ve birçok kişiyi grafik, oyun motoru ve sonradan GPU/ML çalışmalarına yöneltti."
+  },
+  "webmaster": {
+    "about": "Web çağının ilk unvanı. İlk stil rehberleri her sitede bir webmaster@ posta kutusu bulunmasını öneriyordu ve yaklaşık 1993'ten itibaren bunun arkasındaki kişi webmaster'dı; çoğunlukla HTML'yi yazan, sunucuyu çalıştıran, e-postaları yanıtlayan ve siteyi ayakta tutan tek bir kişiydi.",
+    "links": "Siteler büyüdükçe iş parçalandı: kod web geliştiricilere, sunucular sistem yöneticilerine, içerik editörlere ve tasarımcılara gitti. Unvan 2000'lerin ortasında neredeyse tamamen ortadan kalktı."
+  },
+  "web_dev": {
+    "about": "Netscape (1994), JavaScript ve PHP (ikisi de 1995), Perl'de CGI betikleri ve sunucu tarafı Java, web sitesi yapmayı yayıncılık değil programcılık işi haline getirdi. Dot-com patlaması binlerce web geliştirici işe aldı.",
+    "links": "Hem yazılım geliştiriciden hem webmaster'dan doğdu. Tarayıcılar ve sunucular karmaşıklaştıkça front-end ve back-end olarak ikiye ayrıldı."
+  },
+  "frontend": {
+    "about": "Gmail (2004), Google Maps ve “Ajax” adının konması (2005) tarayıcıda nelerin yapılabileceğini gösterdi, jQuery (2006) bunu pratik hale getirdi. Front-end geliştiriciler HTML, CSS, JavaScript ve tarayıcı davranışı konusunda uzmanlaşır; Angular ve React (2013) gibi tek sayfalı uygulama framework'leriyle iş derinleşti.",
+    "links": "Web geliştirici ayrımının bir yarısı; back-end ile birlikte full-stack'in atasıdır. UI/UX tasarımıyla büyük ölçüde örtüşür."
+  },
+  "backend": {
+    "about": "Ayrımın diğer yarısı: sunucu tarafı kod, veritabanları, API'ler ve entegrasyonlar. Ruby on Rails (2004) ve Django (2005) gibi framework'ler ile sonradan Node.js (2009) bu rolü tanımladı; sayfa üretiminden JSON API'lere geçiş de öyle.",
+    "links": "Bir yanda veri mühendisliğiyle, diğer yanda altyapıyla örtüşür. Front-end ile birlikte full-stack'in atasıdır."
+  },
+  "fullstack": {
+    "about": "Front-end, back-end ve çoğu zaman veritabanı ile dağıtım alanlarında da çalışan kişi. Terim 2000'lerin sonunda ortaya çıktı ve 2010'ların başında LAMP, Rails ve sonradan MERN yığınlarıyla girişimlerin işe alımında standart hale geldi.",
+    "links": "Front-end/back-end ayrımının fiilen yeniden birleşmesi; çoğu zaman ilk web geliştiricinin, hatta webmaster'ın yaptığı işin yankısıdır."
+  },
+  "mobile_dev": {
+    "about": "Mobil yazılım daha önce de vardı (J2ME, Symbian, BlackBerry), ancak iPhone (2007), Apple'ın App Store'u (Temmuz 2008) ve Android Market (Ekim 2008) uygulamalar için kitlesel bir pazar ve ayrı bir iş yarattı: Objective-C/Swift ya da Java/Kotlin ile platform kurallarında uzmanlaşmak.",
+    "links": "Yazılım geliştiricinin bir uzmanlığı; React Native ve Flutter gibi çok platformlu araçlar o zamandan beri onu front-end geliştirmeye yeniden yaklaştırdı."
+  },
+  "senior_se": {
+    "about": "Yeni bir iş olmaktan çok bir kademe. Yazılım şirketleri 1990'larda ve 2000'lerde maaş ve kariyer basamaklarını resmîleştirdikçe “Kıdemli” (Senior), bağımsız çalışabilen ve işin parçalarına liderlik edebilen kişiyi belirtti. Unvan enflasyonu yüzünden bugün çoğu zaman yalnızca birkaç yıl sonra verilir.",
+    "links": "Staff, principal ve distinguished'a uzanan bireysel katkıcı (IC) basamağının ilk adımı; yöneticiliğe geçmeye alternatif olarak sunulur."
+  },
+  "principal_se": {
+    "about": "Microsoft, Amazon ve birçok şirkette kullanılan, etkisi birden çok ekibe ya da tüm kuruluşa yayılan mühendisler için kıdemli bir bireysel katkıcı seviyesi. Bazı şirketlerde staff'ın üstünde, bazılarında altında yer alır; adlar işlerden daha çok değişir.",
+    "links": "Staff ile distinguished arasındaki teknik basamağın parçası; pratikte çoğu zaman yazılım mimarıyla örtüşür."
+  },
+  "staff_se": {
+    "about": "Google, Facebook ve diğer Silicon Valley şirketleri tarafından, teknik liderlerin insan yönetmeden yükselebildiği çift yollu kariyer basamağında kıdemlinin üstündeki seviye olarak yaygınlaştırıldı. Will Larson'ın “Staff Engineer” kitabı (2021) işin neleri kapsadığını tanımlamada çok etkili oldu: teknik yön belirleme, mentorluk ve “tutkal” işler.",
+    "links": "Senior'dan doğdu; principal'dan önceki adım. Ait olduğu çift yollu basamak, mühendislerin terfi için mühendislik yöneticiliğine itilmesine doğrudan bir yanıttı."
+  },
+  "distinguished": {
+    "about": "Teknik basamağın zirvesi. IBM, en önemli teknoloji uzmanlarını ödüllendirmek ve onları serbest bırakmak için 1963'te IBM Fellow konumunu yarattı, sonradan Distinguished Engineer'ı da ekledi. Çoğu büyük teknoloji şirketi 2010'larda eşdeğer unvanlar benimsedi; bu unvanı taşıyan kişi sayısı genellikle çok azdır.",
+    "links": "Senior → staff → principal hattını sonlandırır; birçok fellow aynı zamanda mimar ve CTO ofisi rollerini üstlenen ya da üstlenmiş kişilerdir."
+  },
+  "dx_engineer": {
+    "about": "Developer Experience (DevEx/DX) mühendisleri, diğer geliştiricileri üretken kılan araçlar, iş akışları, dokümantasyon ve iç portallar üzerinde çalışır: derleme hızı, CI geri bildirimi, yerel ortamlar, golden path'ler. Spotify'ın Backstage'i (2020'de açık kaynak oldu) ve geliştirici üretkenliği araştırmaları (DORA, SPACE) ona şekil verdi.",
+    "links": "Platform mühendisliğinden doğdu (geliştiricileri platformun müşterisi olarak görmek) ve geliştirici ilişkilerinden (developer relations) ödünç alır, ancak yüzünü şirketin kendi mühendislerine döner."
+  },
+  "systems_analyst": {
+    "about": "İşletmeler 1950'lerde bilgisayar kullanmaya başlarken (İngiltere'de 1951'de J. Lyons'taki LEO klasik erken örnektir), birinin bir iş sürecinin nasıl yürüdüğünü incelemesi ve bilgisayar sisteminin ne yapması gerektiğini belirlemesi gerekiyordu. Sistem analistleri bunu akış şemaları çizerek ve programcılar için şartnameler yazarak yaptı. SSADM (İngiltere, 1980'ler) gibi yöntemler işi resmîleştirdi.",
+    "links": "Baştan beri programcının ortağı; onunla analist/programcıda birleşti, iş analistinin ve daha gevşek bir bağla çözüm mimarının atasıdır."
+  },
+  "dp_manager": {
+    "about": "Veri İşleme (DP) müdürü, çoğu firmada doğrudan delikli kart tablolama biriminden büyüyen DP departmanını yönetirdi. Operatörleri, programcıları, makine dairesini ve bütçesini yönetir, genellikle finansa bağlı çalışırdı.",
+    "links": "1980'lerde “veri işleme”nin yerini “bilgi teknolojisi” alınca BT müdürü adını aldı; CIO'nun da atasıdır."
+  },
+  "project_manager": {
+    "about": "Proje yönetimi teknikleri büyük savunma ve havacılık programlarından çıktı: PERT (1958, Polaris füzesi için) ve Kritik Yol Yöntemi. SAGE ve IBM'in OS/360'ı (Fred Brooks'un “The Mythical Man-Month” kitabının, 1975, konusu) gibi büyük yazılım projeleri yazılım proje yöneticilerini gerekli kıldı. PMI 1969'da kuruldu; PRINCE/PRINCE2 İngiltere'nin standardı oldu.",
+    "links": "Çevik (agile) yaklaşım işin bir kısmını scrum master'a dönüştürdü; neyin yapılacağı sorusu ise ürün yönetimine kaydı."
+  },
+  "tech_lead": {
+    "about": "Bir ekibin en deneyimli programcısı; hâlâ kod yazar ama teknik kararları da verir ve diğerlerini koordine eder. Harlan Mills'in 1970'lerin başında IBM'deki “baş programcı ekibi” erken bir resmî sürümüdür.",
+    "links": "Programcılıktan doğdu ve mühendislik yöneticiliğine geçişin olağan yolu. Teknik ve yönetim basamakları arasındaki başlıca menteşe olmaya devam ediyor."
+  },
+  "cio": {
+    "about": "Chief Information Officer (CIO), yaklaşık 1981'de özellikle William Synnott ve William Gruber'in “Information Resource Management” kitabıyla yaygınlaştı. Kitap, bilginin stratejik bir varlık olduğunu ve finansa bağlı bir DP departmanından çok yönetim kurulu masasında bir yeri hak ettiğini savunuyordu.",
+    "links": "DP müdürü → BT müdürü hattının zirvesi. Çoğu şirkette CIO iç BT'yi yönetir; CTO ise varsa ürünün içindeki teknolojiyi yönetir."
+  },
+  "it_manager": {
+    "about": "1980'lerde “veri işleme”nin yerini “bilgi teknolojisi” aldıkça ve kişisel bilgisayarlar ile ağlar ofislere yayıldıkça DP müdürü, merkezî sistemlerin yanı sıra masaüstü bilgisayarlardan, ağlardan, yardım masalarından ve tedarikçilerden de sorumlu BT müdürü oldu.",
+    "links": "DP müdürü ile CIO arasında; yardım masası, sistem yöneticisi ve ağ ekiplerini yönetir."
+  },
+  "cto": {
+    "about": "Chief Technology Officer (CTO), 1980'lerin sonunda ve 1990'larda, özellikle ürünü teknoloji olan şirketlerde yaygınlaştı. Dot-com patlaması onu standart bir girişim unvanı yaptı; çoğunlukla ilk kodu yazan bir kurucu taşırdı.",
+    "links": "Hem mühendislikten (VP Engineering üzerinden) hem de CIO tarafından ulaşılır. Birçok girişimde CTO teknik yönü belirler, VP Engineering ise ekipleri yönetir."
+  },
+  "business_analyst": {
+    "about": "Paket yazılımlar (ERP, CRM) ve dış kaynak kullanımı 1990'larda yayıldıkça sistem analistinin işi iş tarafına yaklaştı: süreçleri ve gereksinimleri anlamak, kullanıcı hikâyeleri ve kabul kriterleri yazmak. IIBA 2003'te kuruldu ve BABOK rehberini yayımladı.",
+    "links": "Sistem analistinin torunu. İş tarafı ile geliştiriciler arasında durur; ürün yönetimi ve veri analiziyle örtüşür."
+  },
+  "product_manager": {
+    "about": "Ürün ve marka yönetimi tüketim mallarında başladı (Neil McElroy'un 1931'de Procter & Gamble'daki marka sorumlusu notu). Yazılım şirketleri bunu, 1980'lerde ve 90'larda kutulu yazılım ve ardından web sektörleri büyürken benimsedi. Ürün yöneticisi neyin neden yapılacağına karar verir; Ben Horowitz'in “Good Product Manager/Bad Product Manager” yazısı ve Marty Cagan'ın çalışmaları modern rolü tanımladı.",
+    "links": "“Ne”yi proje yöneticilerinden devraldı. Platform ürün yönetiminin atasıdır ve mühendislik yöneticileri ile tasarımcılarla birlikte çalışır."
+  },
+  "software_arch": {
+    "about": "Fred Brooks ve çalışma arkadaşları 1960'larda IBM'in System/360 tasarımı için “mimari” sözcüğünü kullandı. Yazılımda bu fikir 1990'lar boyunca gelişti: Perry ve Wolf (1992), Gang of Four tasarım kalıpları (1994), Shaw ve Garlan'ın “Software Architecture” kitabı (1996). Mimar, bir sistemin kodundan çok üst düzey yapısının sahibidir.",
+    "links": "Kıdemli yazılım mühendisliğinden doğdu. Çözüm, kurumsal ve bulut mimarı hattının kökü; birçok şirkette principal engineer ile örtüşür."
+  },
+  "enterprise_arch": {
+    "about": "Kurumsal mimarlar bir kuruluşun bütün varlığına (iş süreçleri, uygulamalar, veri ve teknoloji) bakar ve nasıl değişmesi gerektiğini planlar. John Zachman'ın çerçevesi (1987) ve The Open Group'un TOGAF'ı (1995) alanın temelleridir.",
+    "links": "Mimar unvanlarının en geniş kapsamlısı, çözüm mimarlığından büyüdü; CIO ile yakın çalışır."
+  },
+  "solutions_arch": {
+    "about": "Belirli bir iş problemine, çoğu zaman sıfırdan yazılmış kod yerine üretici ürünlerinden ve entegrasyonlardan bir çözüm tasarlar. 1990'ların sonlarında sistem entegratörleri, ERP ve ara katman yazılımlarıyla yaygınlaştı; hem üreticiler hem müşteriler çözüm mimarı istihdam eder.",
+    "links": "Yazılım mimarı ile kurumsal mimar arasında, sistem analizinin büyük etkisiyle; bulut mimarının atası ve satış öncesine yakın (üreticilerin çözüm mimarları çoğu zaman satış öncesi ekibindedir)."
+  },
+  "vp_eng": {
+    "about": "VP Engineering (Mühendislik Başkan Yardımcısı), yaklaşık 2000'de yazılım ve internet şirketlerinde standart bir unvan haline geldi: mühendislik organizasyonunun insanlarını, işe alımını, teslimatını ve sürecini yöneten yönetici.",
+    "links": "Mühendislik yöneticiliği üzerinden ulaşılır, çoğu zaman CTO'ya giden bir adımdır; birçok şirket ikisini ayırır: VP organizasyonu, CTO ise teknolojiyi yönetir."
+  },
+  "scrum_master": {
+    "about": "Scrum, Ken Schwaber ve Jeff Sutherland tarafından 1995'te tanıtıldı; Çevik Manifesto 2001'de, Certified ScrumMaster eğitimi 2002'de geldi. Scrum master işi yönlendirmek yerine ekibin sürecini kolaylaştırır ve engelleri kaldırır. Agile koçlar aynı işi birçok ekip için yapar.",
+    "links": "Çevik ekiplerin içinde proje yöneticisinin yerini büyük ölçüde aldı; talep 2010'larda zirve yaptı ve birçok kuruluş o zamandan beri rolü mühendislik yöneticiliğine ya da teslimat rollerine kattı."
+  },
+  "eng_manager": {
+    "about": "Teknoloji şirketleri 2000'lerde büyüdükçe insan yönetimi işini (işe alım, kariyer gelişimi, birebir görüşmeler, teslimat) teknik liderlikten ayırdı ve Engineering Manager ilk yönetim unvanı olarak standart hale geldi.",
+    "links": "Tech lead'den doğdu. Sıradaki basamak VP Engineering; paralel IC yolu (staff, principal) insanların ilerlemek için bu yoldan geçmek zorunda kalmaması için vardır."
+  },
+  "cloud_arch": {
+    "about": "AWS (2006) ve ardından Azure ile Google Cloud gelince şirketlerin genel bulut için sistem tasarlayacak kişilere ihtiyacı oldu: hesaplar ve ağ, kimlik, yönetilen servisler, dayanıklılık ve maliyet. AWS'nin Certified Solutions Architect sınavı (2013) bunu pazarda karşılığı olan bir unvan yaptı.",
+    "links": "Bulut için uzmanlaşmış bir çözüm mimarı; bulut mühendisleri ve platform ekipleriyle çalışır, bulut ağ tasarımı ve FinOps ile örtüşür."
+  },
+  "platform_pm": {
+    "about": "İç platformlar ürün gibi ele alınmaya başlayınca (Team Topologies, 2019 ve platform mühendisliği hareketinin kilit fikirlerinden biri), bazı şirketler bunları yönetmek için ürün yöneticileri işe aldı: geliştirici “müşterilerle” konuşmak, yol haritası belirlemek, benimsenmeyi ölçmek.",
+    "links": "Ürün yönetimi ile platform mühendisliğini bir araya getirir ve geliştirici deneyimi mühendisleriyle yakın çalışır."
+  },
+  "comms_eng": {
+    "about": "Telgraf, telefon ve radyo mühendisliği bilgisayarcılıktan çok öncesine dayanır. Bell System, ulusal telefon ağlarını işleten posta idareleri ve askerî haberleşme çok sayıda haberleşme mühendisi çalıştırdı; Bell Labs bilgi kuramını (Shannon, 1948) ve Unix'i üretti.",
+    "links": "Bilgisayarlar ağa bağlanmaya başlayınca telekom çalışanları devre, protokol ve iletim becerilerini getirdi ve ilk ağ yöneticileri ile mühendisleri oldu."
+  },
+  "sec_officer": {
+    "about": "Bilgisayar güvenliği önce askerî ve devlet meselesiydi (ABD için 1970 tarihli Ware raporu ve 1972 tarihli Anderson raporu). Ana bilgisayarlar paylaşımlı, çok kullanıcılı sistemlere dönüşünce kuruluşlar erişim denetimlerini (IBM'in RACF'i 1976'da geldi) ve politikaları yönetmek için veri ya da bilgi güvenliği görevlileri atadı.",
+    "links": "Güvenlik hattının kökü: analiz işi güvenlik analisti ve mühendisine, liderlik rolü CISO'ya dönüştü."
+  },
+  "network_admin": {
+    "about": "Ofis yerel ağları 1980'lerde yayıldı (Ethernet, Token Ring ve her şeyden çok 1983'ten itibaren Novell NetWare); dosya sunucularını, kablolamayı, kullanıcıları ve yazıcıları yönetecek birine ihtiyaç vardı. Novell'in CNA/CNE sertifikaları ağ yöneticisini tanınan bir iş haline getirdi.",
+    "links": "Telekom mühendisliğinden ve sistem yöneticiliğinden geldi (küçük ofislerde ikisi çoğu zaman aynı kişiydi) ve ağ mühendisine dönüştü."
+  },
+  "sec_analyst": {
+    "about": "Kasım 1988'deki Morris solucanı internetin büyük bir bölümünü enfekte etti ve CERT/CC'nin kurulmasına yol açtı. O günden sonra kuruluşların izinsiz girişleri izleyecek, olayları analiz edecek ve müdahale edecek insanlara ihtiyacı oldu. Rol daha sonra güvenlik operasyon merkezlerinin (SOC) çekirdeği oldu.",
+    "links": "Bilgi güvenliği görevlisinin işinin uygulamalı yönü; güvenlik mühendisinin atası."
+  },
+  "network_eng": {
+    "about": "İnternet 1990'ların başında ticarileşip şirketler TCP/IP üzerinde geniş alan ağları kurunca yönlendirme ve anahtarlama uzman bir mühendislik disiplini haline geldi. Cisco'nun CCIE sertifikası (1993) BT'nin en değerli belgelerinden biri oldu.",
+    "links": "Ağ yöneticiliğinden doğdu. Ağ mimarlığına, güvenlik mühendisliğine (güvenlik duvarlarını çoğu zaman ağ ekibi yönetirdi) ve bulut ağ oluşturmaya geçti."
+  },
+  "network_arch": {
+    "about": "Ağları işletmek yerine bütününü tasarlar (topoloji, yönlendirme, kapasite, dayanıklılık ve bunların evrimi). 1990'ların ortasından itibaren telekom operatörlerinde, internet servis sağlayıcılarında ve büyük kurumlarda yaygındı.",
+    "links": "Ağ mühendisliğinin kıdemli tasarım yolu; yazılım ve kurumsal mimarlara paralel."
+  },
+  "sec_engineer": {
+    "about": "Kamuya açık internet çevre savunmasını bir iş haline getirdi: güvenlik duvarları (DEC'in SEAL'ı 1991, Check Point FireWall-1 1994), VPN'ler, saldırı tespiti, PKI ve SSL (1995). Güvenlik mühendisleri bu kontrolleri yalnızca izlemek yerine tasarlar ve kurar.",
+    "links": "Güvenlik analistinden, ağ mühendisliğinin güçlü etkisiyle doğdu; sızma testinin ve uygulama güvenliğinin atasıdır."
+  },
+  "ciso": {
+    "about": "Genellikle 1995'e dayandırılır: bir bilgisayar korsanı (Vladimir Levin) sistemlerinden yaklaşık 10 milyon dolar aktarınca Citicorp, Steve Katz'ı ilk Chief Information Security Officer (CISO) olarak atadı. Sarbanes-Oxley, HIPAA ve sonradan GDPR gibi düzenlemeler rolü yaygınlaştırdı.",
+    "links": "Bilgi güvenliği görevlisinin yönetici biçimi; çoğunlukla CIO'ya bağlıdır, ancak giderek CEO'ya ya da yönetim kuruluna bağlanıyor."
+  },
+  "pentester": {
+    "about": "Sistemlere yetkili saldırılar, 1970'lerde ABD hükümetinin ve ordusunun “tiger team” testlerine uzanır. Sızma testi 2000 civarında ticari bir meslek oldu; Nmap, Nessus ve Metasploit (2003) gibi araçlar ile CEH (2003) ve OSCP (2006) gibi sertifikalar buna eşlik etti.",
+    "links": "Güvenlik mühendisliğinin saldırı odaklı bir uzmanlığı ve AI red teaming'in doğrudan atası."
+  },
+  "appsec": {
+    "about": "Saldırılar ağlardan web uygulamalarına (SQL injection, XSS) kayınca kodun kendisini güvene almak bir uzmanlık haline geldi. OWASP 2001'de kuruldu ve ilk Top 10 listesini 2003'te yayımladı; Microsoft'un Trustworthy Computing notu (2002) Security Development Lifecycle'a yol açtı.",
+    "links": "Yazılıma uygulanan güvenlik mühendisliği; geliştiricilerle çalışır ve DevSecOps'a dönüştü."
+  },
+  "devsecops": {
+    "about": "Güvenliğin sonradan eklenmek yerine DevOps hattının içine gömülmesi gerektiği fikri (otomatik tarama, kod olarak politika, güvenli varsayılanlar). Gartner 2012'de “DevOpsSec”ten söz etti ve DevSecOps unvanı 2010'ların ortasında yaygındı.",
+    "links": "Uygulama güvenliği ile DevOps'u birleştirir; araçlarının büyük bölümünü CI/CD ve platform mühendisliğiyle paylaşır."
+  },
+  "cloud_network": {
+    "about": "Genel bulutta ağ yazılım tanımlıdır: kablolar ve yönlendirici komut satırları yerine API'ler ve kod olarak altyapı ile yapılandırılan VPC'ler, transit gateway'ler, özel bağlantılar, yük dengeleyiciler ve DNS.",
+    "links": "Ağ mühendisinin işi buluta taşındı; bulut mühendisliğinden güçlü bir çekim aldı."
+  },
+  "ai_red_team": {
+    "about": "Büyük dil modellerine ve diğer yapay zekâ sistemlerine red teaming uygulamak: zararlı çıktı üretmelerini, veri sızdırmalarını, talimatları yok saymalarını ya da kötüye kullanılmalarını sağlamaya çalışmak. Microsoft 2018'de bir AI red team kurdu. Rol, GPT-4'ün red teaming çalışmasıyla (2022–23), yapay zekâ laboratuvarlarının 2023 tarihli Beyaz Saray taahhütleriyle ve DEF CON 31'deki üretken yapay zekâ red team etkinliğiyle ana akıma girdi.",
+    "links": "Sızma testinden türer, ancak güvenlikten olduğu kadar ML araştırmasından, politikadan ve sosyal bilimlerden de beslenir."
+  },
+  "statistician": {
+    "about": "İstatistik, en erken veri işleme çalışmalarının bazılarını yönlendirdi: Herman Hollerith tablolama makinelerini 1890 ABD nüfus sayımı için yaptı; nüfus sayım daireleri ve istatistikçiler elektronik bilgisayarların ilk müşterileri arasındaydı (UNIVAC I 1951'de ABD Nüfus Sayım Bürosu'na gitti).",
+    "links": "Veri analistinin ve veri bilimcinin entelektüel atası."
+  },
+  "data_librarian": {
+    "about": "Ana bilgisayar verisi manyetik bant makaralarında ve kart destelerinde dururdu; veri merkezleri bunları kataloglamak, saklamak, vermek ve döndürmek, yedekleri ve saha dışı kopyaları tutmak için bant kütüphanecileri çalıştırırdı.",
+    "links": "Bir kuruluşun verisinin bekçisi olarak DBA'nın öncüsü; operasyonel yanı bilgisayar operasyonlarıyla ve depolama yönetimiyle birleşti."
+  },
+  "dba": {
+    "about": "Veritabanı yönetim sistemleri (IBM'in 1960'ların sonundan itibaren IMS'i, CODASYL ağ modeli) şemanın, depolamanın, performansın ve güvenliğin sahibi olacak birine ihtiyaç duydu. CODASYL Data Base Task Group'un 1971 raporu veritabanı yöneticisi rolünü tanımladı. İlişkisel veritabanları (Codd'un 1970 makalesi, ardından 1979'da Oracle ve 1983'te DB2) rolü standart hale getirdi.",
+    "links": "Sistem programcılığından ve veri bekçiliğinden doğdu; veri ambarcılığının, ETL'in ve sonunda veri mühendisliğinin kökü."
+  },
+  "data_analyst": {
+    "about": "Elektronik tablolar (VisiCalc 1979, Lotus 1-2-3 1983, Excel 1985) ve SQL, iş verisi analizini sıradan masalara getirdi. Veri analistleri veriyi iş tarafı için raporlara, metriklere ve yanıtlara dönüştürür.",
+    "links": "İstatistikçinin torunu; kendisi de veri bilimciyi ve analitik mühendisini besledi. İş analistiyle örtüşür."
+  },
+  "dw_developer": {
+    "about": "Barry Devlin ve Paul Murphy'nin 1988 tarihli IBM makalesi bir “iş veri ambarı”nı tanımladı; Bill Inmon ve Ralph Kimball (“The Data Warehouse Toolkit”, 1996) iki ana ekolü ortaya koydu. Gartner'dan Howard Dresner 1989'da “iş zekâsı”nı (business intelligence) yaygınlaştırdı. Geliştiriciler ambarları, küpleri ve raporları kurdu.",
+    "links": "DBA işinden doğdu; ETL geliştirmenin atası, veri ve analitik mühendisliğinin de bir atasıdır."
+  },
+  "etl_dev": {
+    "about": "Extract, Transform, Load (çıkar, dönüştür, yükle): verileri operasyonel sistemlerden ambara taşımak. Informatica (1993'te kuruldu) ve DataStage gibi özel ETL araçları, 1990'ların sonunda bunu uzman bir iş haline getirdi.",
+    "links": "Veri ambarcılığından ayrıldı; hem Big Data/Hadoop mühendisini hem de veri mühendisini besledi."
+  },
+  "data_scientist": {
+    "about": "Unvanı yaklaşık 2008'de, istatistik, programlama ve iş sezgisini birleştiren kişiler için ortaya atanlar arasında DJ Patil (LinkedIn) ve Jeff Hammerbacher (Facebook) gösterilir. Davenport ve Patil'in 2012 tarihli Harvard Business Review makalesi “Data Scientist: The Sexiest Job of the 21st Century” bir işe alım patlamasını başlattı.",
+    "links": "İstatistikçiyi ve veri analistini programlamayla birleştirir; ML mühendisinin atası ve ilk prompt mühendisleri üzerinde güçlü bir etkidir."
+  },
+  "big_data": {
+    "about": "Google'ın MapReduce (2004) ve GFS makaleleri Hadoop'a (2006, Yahoo'da yoğun kullanıldı) ilham verdi, Cloudera (2008) onu ticarileştirdi. Birkaç yıl boyunca “Big Data” ve “Hadoop mühendisi”, bu kümeleri işletip programlayabilen kişiler için gözde unvanlardı.",
+    "links": "ETL'den doğdu. Spark ve yönetilen bulut ambarları gelince unvan veri mühendisliğinin içine karıştı."
+  },
+  "data_engineer": {
+    "about": "Analitik ve ML için veriyi taşıyan ve saklayan pipeline'ları ve platformları kurar ve işletir. Unvan 2010'ların başında Facebook, Airbnb ve diğerlerinde yayıldı; Airflow'un yaratıcısı Maxime Beauchemin (2015) 2017'de etkili “The Rise of the Data Engineer” yazısını yazdı.",
+    "links": "ETL ve Big Data işinin varisi, içinde çok daha fazla yazılım mühendisliği var; analitik mühendisinin atası."
+  },
+  "ml_engineer": {
+    "about": "Derin öğrenme yükselişe geçince (ImageNet 2012) ve TensorFlow (2015) ile PyTorch (2016) gibi framework'ler gelince şirketlerin, modelleri veri bilimcilerin not defterlerinden üretim sistemlerine taşıyacak ve giderek modelleri kendileri de kuracak mühendislere ihtiyacı oldu.",
+    "links": "Veri biliminden, yazılım mühendisliğinin güçlü çekimiyle doğdu; MLOps'un atası ve AI mühendisinin iki ana atasından biri."
+  },
+  "analytics_eng": {
+    "about": "Unvan 2018–19 civarında Fishtown Analytics (şimdiki dbt Labs) tarafından, ambardaki veri dönüşümüne yazılım mühendisliği pratiklerini (sürüm kontrolü, testler, modüler SQL) uygulayan kişiler için yaygınlaştırıldı. dbt onu yaygın bir rol yaptı.",
+    "links": "Veri analistleri ile veri mühendisleri arasında durur ve ikisinden de doğdu."
+  },
+  "prompt_eng": {
+    "about": "GPT-3 (2020) ve özellikle ChatGPT (Kasım 2022) ile birlikte büyük dil modelleri için talimat yazma becerisi, işe alım yapılacak kadar değerli hale geldi. 2023'te iyi maaşlı birkaç “prompt engineer” ilanı manşetlere çıktı; modeller geliştikçe bu beceri büyük ölçüde diğer rollerin parçası oldu.",
+    "links": "Veri biliminden, yazarlıktan ve alan uzmanlığından insanları çekti; hızla AI mühendisinin içine karıştı."
+  },
+  "ai_engineer": {
+    "about": "Shawn Wang'ın (swyx) Haziran 2023 tarihli “The Rise of the AI Engineer” yazısı, modelleri kendileri eğitmek yerine temel modeller üzerinde (prompt'lar, retrieval, değerlendirme, araç kullanımı) ürün geliştiren yazılım mühendisleri için bir rol adlandırdı. 2023–25'in en hızlı büyüyen unvanlarından biri oldu.",
+    "links": "İki atası var: yazılım mühendisliği ve ML mühendisliği; prompt mühendisini de bünyesine kattı. Agent/context mühendisinin atasıdır."
+  },
+  "agent_eng": {
+    "about": "LLM uygulamaları sohbetten, araç kullanan, kod yazan ve çok adımlı görevler yürüten otonom ajanlara geçerken (2024'ün sonunda Model Context Protocol gibi standartların da desteğiyle), bunları kurmak bir uzmanlık haline geldi. 2025'in ortasında Shopify'dan Tobi Lütke ve Andrej Karpathy tarafından yaygınlaştırılan “context engineering”, bir model için her adımda tam doğru bilgi ve araçların bir araya getirilmesini tanımlar.",
+    "links": "AI mühendisinin en yeni dalı; ayrı bir unvan olarak kalıp kalmayacağını zaman gösterecek."
+  },
+  "computer_operator": {
+    "about": "Operatörler makine dairesini yönetirdi: bantları takmak, kart destelerini yüklemek, yazıcıları beslemek, konsolu izlemek ve başarısız işleri yeniden başlatmak; çoğu zaman gece gündüz vardiyalarla. 1970'lere kadar bilgisayarcılığın en yaygın işlerinden biriydi.",
+    "links": "Operasyonun kökü. Operatörler operasyon analisti ve sistem yöneticisi oldu; iş, görev zamanlayıcıları ve sonradan “ışıksız” (lights-out) veri merkezleri tarafından büyük ölçüde otomatikleştirildi."
+  },
+  "ops_analyst": {
+    "about": "Ana bilgisayar operasyon analistleri toplu iş (batch) takvimini planlayıp yönetir, JCL yazıp düzeltir, kapasite ve sorun yönetimiyle ilgilenir ve gece çalışmalarını zamanında tutardı; operasyonun daha nitelikli tarafıydı.",
+    "links": "Bilgisayar operasyonlarından doğdu; güvenilirlik ve çalışma kılavuzlarına (run-book) odaklanması SRE üzerindeki etkilerden biridir."
+  },
+  "config_manager": {
+    "about": "Konfigürasyon yönetimi, 1960'larda donanım değişikliklerini izlemek için ABD savunmasında bir disiplin olarak başladı ve 1970'lerden itibaren yazılıma uygulandı. SCCS (Bell Labs, 1972), ardından RCS (1982) ve sonradan CVS ve ClearCase gibi araçlar, yazılım sürüm kontrolünü büyük kuruluşlarda bir iş haline getirdi.",
+    "links": "Sürüm yönetiminin ve build & release mühendisliğinin, dolayısıyla CI/CD'nin atası. (Ad, sonradan Puppet ve Chef gibi “konfigürasyon yönetimi” araçlarında geri geldi.)"
+  },
+  "sysadmin": {
+    "about": "1970'lerde ve 80'lerde üniversitelerde, laboratuvarlarda ve şirketlerde çok kullanıcılı minibilgisayarlar ve Unix, kullanıcıları, diskleri, yedeklemeleri, yazılımı ve güvenliği yönetecek birine ihtiyaç duydu. USENIX'in LISA konferansı (1987'den) ve SAGE meslek birliği (1992) sistem yönetimine bir kimlik kazandırdı.",
+    "links": "Dönüm noktası bir unvan. Bilgisayar operasyonlarından ve sistem programcılığından geldi; Unix ve Windows yöneticilerine, sistem mühendislerine, ağ yöneticilerine ve sanallaştırmaya, sonunda da Unix yöneticileri üzerinden SRE'ye ve DevOps'a dallandı."
+  },
+  "systems_eng": {
+    "about": "Operasyonda, daha kıdemli ve tasarım odaklı bir sistem yöneticisi: sunucuları, depolamayı ve işletim sistemlerini kurmak ve entegre etmek. Microsoft'un MCSE sertifikası (1990'lar) unvanı yaygınlaştırdı. (IBM'in satış öncesi sistem mühendisiyle ya da havacılıktaki sistem mühendisliğiyle karıştırılmamalı.)",
+    "links": "Sistem yöneticiliğinden doğdu ve altyapı mühendisliğine yol açtı."
+  },
+  "unix_admin": {
+    "about": "Ticari Unix (SunOS/Solaris, HP-UX, AIX) ve ardından Linux (1991), 1990'larda internet sunucularının çoğunu çalıştırdı; shell, Perl, ağ ve otomasyona hâkim Unix yöneticileri web'in altyapısını işletti. Red Hat'in RHCE'si (1999) popüler bir sertifika oldu.",
+    "links": "Sistem yöneticiliğinin bir uzmanlığı ve hem SRE'nin hem DevOps'un en doğrudan atası; her şeyi otomatikleştirme kültürleri olduğu gibi taşındı."
+  },
+  "windows_admin": {
+    "about": "Windows NT (1993), ardından Active Directory ve Exchange'li Windows 2000, 1990'ların sonunda kurumsal sunucu odasını ele geçirdi. Çoğunlukla MCSE sertifikalı Windows yöneticileri dizinleri, e-postayı, dosya ve yazıcı hizmetlerini işletti.",
+    "links": "Sistem yöneticiliğinin bir uzmanlığı; işin büyük bölümü o zamandan beri Microsoft 365 ve Azure yönetimine taşındı."
+  },
+  "release_manager": {
+    "about": "Bir sürüme nelerin gireceğini, ne zaman çıkacağını ve çevresindeki değişiklik kontrolünü koordine eder. 1990'ların ortasından itibaren, özellikle sürümlerin büyük, seyrek ve riskli olduğu yerlerde, kurumlarda ve yazılım üreticilerinde yaygındı.",
+    "links": "Konfigürasyon yönetiminden doğdu; sık ve otomatik teslimat birçok kuruluşta rolü küçülttü ya da ortadan kaldırdı, ancak sürümlerin düzenlemeye tabi olduğu yerlerde hayatta kalıyor."
+  },
+  "build_release": {
+    "about": "Yazılımı derleyen, paketleyen ve yayına gönderen sistemleri kurar: makefile'lar (make, 1976), gecelik derlemeler (nightly build), paketleme ve 2001'den itibaren CruiseControl ve sonradan Hudson/Jenkins gibi sürekli entegrasyon sunucuları.",
+    "links": "Konfigürasyon yönetimi ile sürüm yönetimini bir araya getirir. Otomasyon işi DevOps'un ve CI/CD mühendisliğinin doğrudan atasıdır."
+  },
+  "sre": {
+    "about": "Ben Treynor Sloss 2003'te Google'ın Site Reliability Engineering ekibini kurdu ve onu “bir yazılım mühendisinden operasyon ekibi tasarlamasını istediğinizde ortaya çıkan şey” olarak tanımladı. Hata bütçeleri (error budget), SLO'lar, angarya (toil) sınırları ve suçlamasız postmortem'ler, 2016 tarihli “Site Reliability Engineering” kitabıyla yayıldı.",
+    "links": "Dönüm noktası bir unvan. Yazılım mühendisliğini Unix yöneticiliğiyle birleştirir, operasyon analizinden ve uygulama desteğinden beslenir ve DevOps ile yakından ilişkilidir. Kaos mühendisliğinin, observability'nin ve DevOps ile birlikte platform mühendisliğinin atasıdır."
+  },
+  "infra_eng": {
+    "about": "2000'lerin ortasından bir geniş unvan: alttaki sunucuları, depolamayı, ağları ve veri merkezlerini elle değil, giderek kod ve otomasyonla kuran ve işleten mühendisler.",
+    "links": "Sistem mühendisliğinden doğdu. Altyapı genel buluta taşınınca büyük ölçüde bulut mühendisliği olarak yeniden adlandırıldı."
+  },
+  "virtualisation": {
+    "about": "VMware (Workstation 1999, ESX Server 2001) ve açık kaynak Xen (2003), çok sayıda sanal makinenin tek bir fiziksel sunucuyu paylaşmasını sağladı; 2000'ler boyunca konsolidasyon projeleri sanal ortamları kurup işletecek uzmanlara ihtiyaç duydu.",
+    "links": "Sistem yöneticiliğinin bir uzmanlığı ve bulut mühendisliğine bir basamak: genel bulutlar çok büyük ölçekte sanallaştırmadır."
+  },
+  "devops": {
+    "about": "Patrick Debois, John Allspaw ve Paul Hammond'ın Flickr hakkındaki “10+ Deploys per Day” konuşmasının ardından Ekim 2009'da Gent'te ilk DevOpsDays'i düzenledi. DevOps, geliştiricilerin ve operasyonun birlikte çalıştığı bir kültür olarak tasarlanmıştı; ancak yaklaşık 2011'de “DevOps Engineer” bir iş unvanı olmuştu, genellikle otomasyon, kod olarak altyapı ve CI/CD uzmanları için.",
+    "links": "Dönüm noktası bir unvan. Build & release mühendisliğinden ve Unix yöneticiliğinden doğdu, SRE ile büyük ölçüde örtüşür; platform mühendisliğinin, MLOps'un ve DevSecOps'un atasıdır."
+  },
+  "cloud_eng": {
+    "about": "Amazon 2006'da S3 ve EC2'yi başlattı; ardından Azure (2010) ve Google Cloud geldi. Bulut mühendisleri bu platformlarda sistemler kurar ve işletir; genellikle CloudFormation ve Terraform (2014) gibi kod olarak altyapı araçlarıyla.",
+    "links": "Sanallaştırmanın ve altyapı mühendisliğinin varisi. Kubernetes, bulut ağ ve FinOps uzmanlıklarına yol açtı ve platform mühendisliğini besledi."
+  },
+  "cicd_eng": {
+    "about": "Sürekli entegrasyon ve teslimat, hatlar karmaşıklaştıkça bir uzmanlık haline geldi: Jez Humble ve David Farley'nin “Continuous Delivery” kitabı (2010), Jenkins (2011, Hudson'dan ayrıldı) ve sonradan Travis, CircleCI ve GitHub Actions gibi barındırılan CI hizmetleri.",
+    "links": "Build & release mühendisliğinin modern biçimi, test otomasyonundan beslenir; büyük kısmı artık DevOps ve platform ekiplerinin parçası."
+  },
+  "chaos_eng": {
+    "about": "Netflix, AWS'ye geçerken 2010–11 civarında üretim örneklerini rastgele öldüren Chaos Monkey'i geliştirdi ve onu Simian Army'ye genişletti. Bu pratik “chaos engineering” (kaos mühendisliği) diye adlandırıldı, ilkeleri 2014–15 civarında yayımlandı ve Gremlin (2016) onu ticarileştirdi.",
+    "links": "SRE'nin bir uzmanlığı: dayanıklılığı sınamak için bilerek arıza enjekte etmek. Bu unvanı taşıyan çok az kişi var; pratik genellikle SRE işinin parçasıdır."
+  },
+  "k8s_eng": {
+    "about": "Google, Kubernetes'i 2014'te açık kaynak yaptı (1.0 2015'te, yeni kurulan CNCF'ye bağışlandı) ve CKA sertifikasının başladığı 2017 civarında konteyner orkestrasyonu savaşlarını kazandı. Kubernetes üzerinde çalışmak ve geliştirmek başlı başına bir iş haline geldi.",
+    "links": "Bulut mühendisliğinin bir uzmanlığı ve platform mühendisliği için önemli bir girdi, çünkü birçok iç platform Kubernetes üzerine kurulur."
+  },
+  "platform_eng": {
+    "about": "Platform mühendisliği, ürün ekipleri derin operasyon uzmanlığına ihtiyaç duymadan yazılım yayınlayabilsin diye iç platformlar (self-servis altyapı, golden path'ler, geliştirici portalları) kurar. Spotify ve Netflix gibi şirketlerdeki “paved road” ve iç platform ekiplerinden doğdu, Team Topologies (2019) ile şekillendi ve 2022 civarında “DevOps'un halefi” olarak bir moda sözcüğe dönüştü.",
+    "links": "Dönüm noktası bir unvan. DevOps'tan ve SRE'den doğdu, bulut ve Kubernetes mühendisliğinden çok girdi aldı. Geliştirici deneyimi mühendisliğinin ve platform ürün yönetiminin atasıdır."
+  },
+  "finops": {
+    "about": "Bulut faturaları değişkendir ve kontrolü kaybetmek kolaydır; bu yüzden bir bulut finansal yönetimi disiplini ortaya çıktı. FinOps Foundation 2019'da kuruldu (Cloudability'nin topluluğundan, J.R. Storment liderliğinde) ve 2020'de Linux Foundation'a katıldı.",
+    "links": "Bulut mühendisliğinden doğdu, ancak mühendislik, finans ve satın alma arasında durur."
+  },
+  "mlops": {
+    "about": "Google'ın 2015 tarihli “Hidden Technical Debt in Machine Learning Systems” makalesi, ML'in ne kadarının modelin etrafındaki altyapı olduğunu gösterdi. MLOps, DevOps pratiklerini (hatlar, sürümleme, izleme, dağıtım) ML modellerine uygular; Kubeflow ve MLflow (ikisi de 2018) gibi araçlar kullanır.",
+    "links": "DevOps ve ML mühendisliğinin birleşimi; LLM çağında “LLMOps” ve yapay zekâ platformu çalışmalarıyla örtüşür."
+  },
+  "observability": {
+    "about": "Terim kontrol kuramından gelir (Rudolf Kálmán, 1960). 2016 civarında Honeycomb'dan Charity Majors ve diğerleri onu yazılım için yaygınlaştırdı: önceden tanımlı panoları izlemekle kalmayıp telemetriden üretim sistemine yeni sorular sorabilmek. OpenTelemetry (2019) veriyi standartlaştırdı.",
+    "links": "SRE'nin bir uzmanlığı ve geleneksel izleme rollerinin halefi."
+  },
+  "tester": {
+    "about": "Test ilk başta programcıların kendisi tarafından yapılırdı. Sistemler 1970'lerde büyüdükçe ayrı test uzmanları yaygınlaştı ve Glenford Myers'ın “The Art of Software Testing” kitabı (1979) testin ayrı bir disiplin olarak yerleşmesine yardımcı oldu.",
+    "links": "Programcılıktan ayrıldı; kalite hattının kökü."
+  },
+  "qa_engineer": {
+    "about": "Kalite güvencesi (QA), testi bir süreç meselesine (standartlar, incelemeler, hata takibi, test planları) genişletti; 1980'lerin ve 90'ların kalite hareketleri bunu destekledi: ISO 9000 (1987) ve SEI'nin Capability Maturity Model'i (1991).",
+    "links": "Yazılım testinden doğdu ve SDET'in atası."
+  },
+  "sdet": {
+    "about": "Software Development Engineer in Test, tam anlamıyla yazılım mühendisi olan test uzmanları için bir Microsoft unvanıdır; manuel senaryoları çalıştırmak yerine test framework'leri ve otomatik testler yazarlar. Amazon ve diğerleri de kullandı. 2014'te Microsoft rolü büyük ölçüde yeniden geliştirmeye kattı.",
+    "links": "QA mühendisliğinden doğdu ve test otomasyon mühendisliğine yol açtı; geliştirmeye karışması “sen yazarsan, sen test edersin” anlayışının habercisiydi."
+  },
+  "test_automation": {
+    "about": "Selenium (2004) ve WebDriver, test güdümlü geliştirme ve sürekli entegrasyon gibi araçlar ve pratikler otomatik testi merkeze taşıdı; test otomasyon mühendisleri bu test takımlarını kurar ve bakımını yapar.",
+    "links": "SDET'in varisi ve testlerinin çalıştığı CI/CD mühendisliğiyle yakından bağlantılı."
+  },
+  "customer_eng": {
+    "about": "IBM'in müşteri mühendisleri (CE) 1930'lardan itibaren müşteri sahalarında tablolama makinelerini, sonra da bilgisayarları kurar ve bakımını yapardı. Ünlü bir kıyafet kuralları ve güçlü bir hizmet kültürleri vardı; diğer üreticilerin saha mühendisleri de aynı işi yaptı.",
+    "links": "Destek ve müşteriye dönük hattın kökü; teknik desteğe ve satış öncesi sistem mühendisliğine yol açtı."
+  },
+  "tech_writer": {
+    "about": "Bilgisayarların ve onlar için yazılan yazılımların kılavuzlara ihtiyacı vardı; mühendislikte ve ordu içinde zaten yerleşik olan teknik yazarlık (Society of Technical Writers 1953'te kuruldu) 1960'larda bir bilgisayar işi haline geldi. Sonradan çevrimiçi yardıma, API dokümantasyonuna ve docs-as-code'a genişledi.",
+    "links": "Başta çoğunlukla programcılar tarafından yapılırdı. Bugün geliştirici savunucuları (developer advocate) ve geliştirici deneyimi ekipleriyle yakın çalışır."
+  },
+  "presales_se": {
+    "about": "IBM'in 1960'lardaki “sistem mühendisleri”, satıştan önce ve sonra müşterilerle çalışır; kurulumlar tasarlar, programlama konusunda tavsiye verir ve sistemlerin çalışmasını sağlardı. IBM'in 1969'da yazılım ve hizmetleri donanımdan ayırma (unbundling) kararı rolü daha açıkça ticari hale getirdi.",
+    "links": "Satış mühendisinin ve hizmetler işi üzerinden BT danışmanının kökü. (Operasyon sistem mühendisiyle aynı unvan, ama farklı iş.)"
+  },
+  "tech_support": {
+    "about": "Bilgisayar ürünleri 1970'lerde daha fazla müşteriye yayılırken, üreticiler müşterilerin sorunlarını telefonla ve sahada yanıtlamak için, donanımı onaran mühendislerden ayrı teknik destek departmanları kurdu.",
+    "links": "Saha mühendisliğinden doğdu. Yardım masasına (son kullanıcılar için) ve uygulama desteğine (iş sistemleri için) ayrıldı."
+  },
+  "consultant": {
+    "about": "Muhasebe firmaları bilgisayarcılığa erken girdi (Arthur Andersen 1954'te GE'nin bordro için bir UNIVAC kurmasına yardım etti) ve EDS (1962) BT hizmetlerine öncülük etti. 1980'lere gelindiğinde BT danışmanlığı (sistem entegrasyonu, strateji, dış kaynak) büyük bir sektördü; Andersen Consulting 1989'da ayrıldı.",
+    "links": "Üreticilerin satış öncesi ve hizmet işinden doğdu; danışmanlık pratiği forward deployed engineer üzerindeki etkilerden biridir."
+  },
+  "helpdesk": {
+    "about": "1980'lerde her masadaki kişisel bilgisayar, yardıma ihtiyaç duyan çok sayıda kullanıcı demekti; kuruluşlar telefonlara bakmak, parolaları sıfırlamak ve masaüstlerini onarmak için iç yardım masaları kurdu. Onlarca yıl boyunca BT'de yaygın bir ilk işti.",
+    "links": "Teknik destekten doğdu ve ITIL servis masası olarak resmîleşti."
+  },
+  "evangelist": {
+    "about": "Apple'ın Macintosh ekibi unvanı yaklaşık 1984'ten itibaren kullandı: Mike Murray ve Guy Kawasaki'nin işi, geliştiricileri Mac için yazılım yazmaya ikna etmekti. Microsoft, Sun ve diğerleri kendi teknoloji evangelist'leriyle izledi.",
+    "links": "Geliştirici savunucusunun (developer advocate) ve DevRel'in atası."
+  },
+  "sales_eng": {
+    "about": "Bir satış ekibinin teknik yarısı: ürünü göstermek, teknik soruları yanıtlamak, kavram kanıtlarının (proof of concept) kapsamını belirlemek. Kurumsal yazılım satışı büyüdükçe yaklaşık 1990'dan itibaren yazılım üreticilerinde standart bir roldü.",
+    "links": "IBM'in satış öncesi sistem mühendisinin varisi ve çözüm mühendisinin atası."
+  },
+  "app_support": {
+    "about": "Belirli iş uygulamaları için ikinci ve üçüncü seviye destek: olayları araştırmak, veriyi düzeltmek, geliştiricilerle iletişim kurmak. 1990'ların ortasından itibaren bankalarda ve büyük kurumlarda yaygındı, çoğu zaman nöbetçilikle.",
+    "links": "Teknik destekten doğdu. Üretimdeki yangın söndürme işi SRE üzerindeki etkilerden biridir ve destek mühendisine yol açtı."
+  },
+  "service_desk": {
+    "about": "ITIL (İngiltere hükümeti, 1989'dan itibaren yayımlandı, 2000 civarında v2 olarak gözden geçirildi), Servis Masası'nı BT ile kullanıcıları arasındaki tek iletişim noktası olarak, resmî olay ve talep yönetimiyle tanımladı. Birçok yardım masası buna uygun olarak yeniden adlandırıldı.",
+    "links": "Yardım masasının ITIL dönemi biçimi."
+  },
+  "support_eng": {
+    "about": "Yazılım ve SaaS şirketlerinde 2000'lerin ortasından itibaren yaygın, daha teknik, mühendislik ağırlıklı bir destek rolü: müşteri sorunlarını kodda, günlüklerde ve altyapıda ayıklamak ve çoğu zaman düzeltmek.",
+    "links": "Uygulama desteğinden doğdu; SRE ve çözüm mühendisleriyle yakın çalışır."
+  },
+  "dev_advocate": {
+    "about": "Developer advocate'ler (geliştirici ilişkileri, DevRel), geliştiricileri şirkete, şirketi geliştiricilere temsil ettikleri kadar temsil eder: konuşmalar, örnekler, dokümanlar, topluluk ve ürüne geri bildirim. Google ve diğerleri unvanı 2000'lerin sonundan itibaren kullandı; Twilio ve Stripe gibi API şirketleri onu büyümelerinin merkezine koydu.",
+    "links": "Teknoloji evangelist'inin varisi; geliştirici deneyimi mühendisliğini etkiler."
+  },
+  "fde": {
+    "about": "Palantir iş modelini yaklaşık 2010'dan itibaren forward deployed engineer'lar (şirket içinde “Delta”lar) üzerine kurdu: bir müşterinin yanında, çoğu zaman sahada konumlanan, ürünün o müşterinin problemine uygun çalışması için gereken her şeyi geliştiren yazılım mühendisleri. 2025'te OpenAI, Anthropic ve birçok yapay zekâ girişimi, yapay zekâyı müşteri kuruluşlarda devreye almak için FDE işe alınca unvan patladı.",
+    "links": "Dönüm noktası bir unvan. Yazılım mühendisliğini çözüm mühendisinin müşteri odağıyla birleştirir ve eski usul danışmanlıkla ve IBM'in 1960'lardaki sistem mühendisleriyle çok ortak yanı var."
+  },
+  "solutions_eng": {
+    "about": "Satış mühendisinin SaaS ve API şirketlerindeki karşılığı, yaklaşık 2012'den: bir müşterinin ürünü nasıl entegre edip kullanacağını satıştan önce ve sonra tasarlayan, çoğu zaman bunu kanıtlamak için kod yazan teknik uzmanlar.",
+    "links": "Satış mühendisliğinden doğdu ve çözüm mimarlığına yakın. Forward deployed engineer'ın atalarından biri."
+  }
+}
